@@ -18,8 +18,8 @@ following client-side clojureScript bindings are available:
 | Function | Notes |
 |:---------|:------|
 | enchilada.ctx | The graphics context, on to which you draw your stuff. |
-| monet.core.* | All the https://github.com/rm-hull/monet drawing functions. |
-| jayq.core.* | https://github.com/ibdknox/jayq jQuery bindings. |
+| monet.* | All the https://github.com/rm-hull/monet drawing functions. |
+| jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
 
 ## Prerequisites
 
