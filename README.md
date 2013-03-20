@@ -8,7 +8,9 @@ ClojureScript gists directly from github, compiles them on the fly
 and serves them out.
 
 This allows shared/social and version-tracked editable ClojureScripts
-to be run by anyone anywhere.
+to be run by anyone anywhere. In order to run https://gist.github.com/rm-hull/5201050 (for example),
+go to http://programming-enchiladas.destructuring-bind.org/rm_hull/5201050
+
 
 As part of the available 'stack' (for want of a better word), the 
 following client-side clojureScript bindings are available:
@@ -18,11 +20,6 @@ following client-side clojureScript bindings are available:
 | enchilada.ctx | The graphics context, on to which you draw your stuff. |
 | monet.core.* | All the https://github.com/rm-hull/monet drawing functions. |
 | jayq.core.* | https://github.com/ibdknox/jayq jQuery bindings. |
-
-In order to run https://gist.github.com/rm-hull/5201050 (for example),
-<script src="https://gist.github.com/rm-hull/5201050.js"></script>
-go to
-http://programming-enchiladas.destructuring-bind.org/rm_hull/5201050
 
 ## Prerequisites
 
