@@ -51,6 +51,8 @@ TODO
 
 * _The (New) Turing Omnibus_, A.K.Dewdney
 
+* http://himera.herokuapp.com/index.html
+
 ## License
 
 Copyright © 2013 Richard Hull
