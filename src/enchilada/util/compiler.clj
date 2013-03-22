@@ -3,28 +3,13 @@
         [enchilada.util.fs])
   (:require [clojure.java.io :as io]))
 
-(defn- paths [& paths]
-  (interpose "/" (flatten paths)))
-
-(defn filename-template [prefix & suffix]
-  (fn [gist]
-    (let [shards (take 2 (map str (seq (:user gist))))]
-      (apply str (concat (paths "work" "gists" prefix shards (:user gist) (:id gist)) suffix)))))
-
-(def src-dir     (filename-template "src" "/"))
-(def temp-dir    (filename-template "tmp" "/"))
-(def output-file (filename-template "out" ".js"))
-(def gzip-file   (filename-template "out" ".gz"))
 
 (defn cljs-build-opts [gist]
   { :output-to (output-file gist)
     :output-dir (temp-dir gist)
-   ; :libs []
-   ; :foreign-libs []
     :optimizations :advanced
     :pretty-print true
-    :externs ["externs/jquery.js"]
-    })   
+    :externs ["externs/jquery.js"] })   
 
 (defn- validate 
   "Protect against mischeivous parent paths in a gist"
