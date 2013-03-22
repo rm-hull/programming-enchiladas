@@ -17,7 +17,8 @@ following client-side clojureScript bindings are available:
 
 | Function | Notes |
 |:---------|:------|
-| enchilada.ctx | The graphics context, on to which you draw your stuff. |
+| enchilada/canvas | The canvas object, which you can resize, move, whatever. |
+| enchilada/ctx | The graphics context, on to which you draw your stuff. |
 | monet.* | All the https://github.com/rm-hull/monet drawing functions. |
 | jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
 
@@ -52,6 +53,8 @@ TODO
 * _The (New) Turing Omnibus_, A.K.Dewdney
 
 * http://himera.herokuapp.com/index.html
+
+* http://codepen.io/stuffit/pen/KrAwx
 
 ## License
 
