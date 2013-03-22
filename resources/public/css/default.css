@@ -69,3 +69,7 @@ div#info {
     background-color: rgba(0,0,0, 0.25);
 }
 
+.gist {
+    font-size: 75% !important;
+    width: 800px;
+}
