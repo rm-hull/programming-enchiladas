@@ -7,6 +7,7 @@
                  [org.clojure/clojurescript "0.0-1586"]
                  [org.clojure/data.json "0.2.1"]
                  [clj-http "0.6.5"]
+                 [clj-time "0.4.5"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.2"]
                  [jayq "2.3.0"]
