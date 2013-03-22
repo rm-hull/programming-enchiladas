@@ -11,7 +11,7 @@
   (GET "/cljs/:user/:gist" [user gist] (str '(cljs/compile user gist)))
   (GET "/:user/:gist" [user gist] (canvas/page user gist))
   (route/resources "/assets")
-  (route/not-found "Not Found"))
+  (route/not-found "You step in the stream, but the water has moved on."))
 
 (def app
   (-> 
