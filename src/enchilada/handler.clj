@@ -5,11 +5,21 @@
             [compojure.route :as route]
             [enchilada.views.canvas :as canvas]))
 
+(defn validate 
+  "Protect against mischeivous parent paths in a gist"
+  [& fields]
+  (if (some (partial = "..") fields)
+    (throw (IllegalArgumentException. "Invalid login/id"))))
+
+(defn- gist [login id] 
+  (validate login id) 
+  {:user {:login login} :id (str id)})
+
 (defroutes app-routes
   (GET "/" [] "Welcome - TODO")
   (GET "/stats" [] "stats page - TODO")
-  (GET "/cljs/:user/:gist" [user gist] (str '(cljs/compile user gist)))
-  (GET "/:user/:gist" [user gist] (canvas/page user gist))
+  (GET "/cljs/:id" [id] (canvas/serve-js id))
+  (GET "/:login/:id" [login id] (canvas/page (gist login id)))
   (route/resources "/assets")
   (route/not-found "You step in the stream, but the water has moved on."))
 
@@ -17,3 +27,4 @@
   (-> 
     (handler/site app-routes)
     (wrap-base-url)))
+

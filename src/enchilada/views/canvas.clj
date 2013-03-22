@@ -1,19 +1,24 @@
 (ns enchilada.views.canvas
-  (:use [hiccup.core :only [html]] 
+  (:use [compojure.response]
+        [ring.util.response :only [file-response content-type header]]
+        [hiccup.core :only [html]] 
         [hiccup.page :only [include-css include-js html5]]
-        [hiccup.element :only [javascript-tag]]))
+        [hiccup.element :only [javascript-tag]]
+        [enchilada.util.compiler :only [regenerate-if-stale]]
+        [enchilada.util.fs :only [gzip-file]]
+        [enchilada.util.gist :only [fetch login-id]]
+        ))
 
-(defn- url [user gist & suffixes]
-  (apply str "https://gist.github.com/" user "/" gist suffixes))
+(defn- url [gist & suffixes]
+  (apply str "https://gist.github.com/" (login-id gist) suffixes))
 
-(defn- layout [user gist & content]
+(defn- layout [gist & content]
   (html5
     [:head
-     [:title (str "Programming Enchiladas: " (url user gist))]
+     [:title (str "Programming Enchiladas: " (url gist))]
      (include-css "/assets/css/default.css")
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-     (include-js (str "/cljs/" user "/" gist))
      ]
     [:body
      [:div#wrapper content]]))
@@ -24,13 +29,22 @@
       [:p
         [:a {:href href :title href :rel "me"} text]]]))
 
-(defn page [user gist]
-  (layout user gist
+(defn page [gist]
+  (layout gist
     (html
       [:div
         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:div#info]
-        "Come back soon, we're not quite there yet... but in the meantime, here's your gist:" 
-        [:canvas#world]
-        (include-js  (url user gist ".js"))
+        [:canvas#world { :width 800 :height 600 }]
+        (include-js (url gist ".js"))
+        (include-js (str "/cljs/" (:id gist)))
        ])))
+
+(defn serve-js [id]
+  (->
+    (fetch id)
+    (regenerate-if-stale)
+    (gzip-file)  
+    (file-response)
+    (content-type "application/javascript")
+    (header "Content-Encoding" "gzip")))
