@@ -41,6 +41,7 @@ ClojureScript gist, and slot in the login and id, and hack on.
 ## Troubleshooting
 
 Q. Why doesn't my clojurescript compile, it looks ok? 
+
 A. Did you include a namespace, e.g. `(ns example)`
 
 ## Examples
