@@ -21,8 +21,7 @@ following client-side clojureScript bindings are available:
 | monet.* | All the https://github.com/rm-hull/monet drawing functions. |
 | jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
 
-
-This software is definitely alpha work-in-progress, please treat as such.
+**NOTE**: This software is definitely alpha work-in-progress, please treat as such.
 
 ## Prerequisites
 
