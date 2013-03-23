@@ -73,3 +73,21 @@ div#info {
     font-size: 75% !important;
     width: 800px;
 }
+
+div#not-found {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("../images/404.jpg");
+    background-size: cover;
+}
+div#not-found p {
+    font-weight: bold;
+    font-size: 36pt;
+    font-family: sans-serif;
+    color: #fff;
+    text-shadow: 1px 0 0 #555, 0 -1px 0 #555, 0 1px 0 #555, -1px 0 0 #555;
+    margin: 10px;
+}

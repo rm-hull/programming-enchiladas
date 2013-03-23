@@ -4,6 +4,7 @@
         [hiccup.middleware :only [wrap-base-url]])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
+            [enchilada.views.not-found :as not-found]  
             [enchilada.views.canvas :as canvas]))
 
 (defn validate 
@@ -22,7 +23,7 @@
   (GET "/cljs/:id" [id :as req] (canvas/serve-js id req))
   (GET "/:login/:id" [login id :as req] (canvas/page (gist login id) req))
   (route/resources "/assets")
-  (route/not-found "You step in the stream, but the water has moved on."))
+  (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
 
 (def app
   (-> 
