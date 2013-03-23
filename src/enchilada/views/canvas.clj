@@ -1,6 +1,5 @@
 (ns enchilada.views.canvas
-  (:use ;[compojure.response]
-        [ring.util.response :only [file-response content-type header]]
+  (:use [ring.util.response :only [file-response content-type header]]
         [hiccup.core :only [html]] 
         [hiccup.page :only [include-js]]
         [enchilada.util.compiler :only [regenerate-if-stale]]

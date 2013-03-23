@@ -1,6 +1,5 @@
 (ns enchilada.views.common
-  (:use ;[compojure.response]
-        [hiccup.core :only [html]] 
+  (:use [hiccup.core :only [html]] 
         [hiccup.page :only [include-css include-js html5]]
         [enchilada.util.gist :only [login-id]]))
 

@@ -1,6 +1,5 @@
 (ns enchilada.views.not-found
-  (:use ;[compojure.response]
-        [hiccup.core :only [html]] 
+  (:use [hiccup.core :only [html]] 
         [enchilada.views.common]))
 
 (defn page [message & [req]]
