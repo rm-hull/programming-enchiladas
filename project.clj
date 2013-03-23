@@ -1,4 +1,4 @@
-(defproject programming-enchiladas "0.1.0-SNAPSHOT"
+(defproject programming-enchiladas "0.1.0"
   :description "FIXME: write description"
   :url "http://programming-enchiladas.destructuring-bind.org"
   :license {:name "Eclipse Public License"
@@ -11,8 +11,8 @@
                  [compojure "1.1.5"]
                  [hiccup "1.0.2"]
                  [jayq "2.3.0"]
-                 [rm-hull/monet "0.1.6-SNAPSHOT"]
-                 [rm-hull/turtle "0.1.0-SNAPSHOT"]] 
+                 [rm-hull/monet "0.1.6"]
+                 [rm-hull/turtle "0.1.1"]] 
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
