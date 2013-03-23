@@ -55,6 +55,8 @@ Some more examples:
 
 * Compilation error reporting
 
+* Debug compilation
+
 * UI
 
 * Stats

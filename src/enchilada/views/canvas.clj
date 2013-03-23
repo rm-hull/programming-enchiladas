@@ -29,7 +29,10 @@
       [:p
         [:a {:href href :title href :rel "me"} text]]]))
 
-(defn page [gist]
+(defn debug? [req]
+   (= "true" (get-in req [:params :debug])))
+
+(defn page [gist & [req]]
   (layout gist
     (html
       [:div
@@ -37,13 +40,12 @@
         [:div#info]
         [:canvas#world { :width 800 :height 600 }]
         (include-js (url gist ".js"))
-        (include-js (str "/cljs/" (:id gist)))
-       ])))
+        (include-js (str "/cljs/" (:id gist) (if (debug? req) "?debug=true" "")))])))
 
-(defn serve-js [id]
+(defn serve-js [id & [req]]
   (->
     (fetch id)
-    (regenerate-if-stale)
+    (regenerate-if-stale (debug? req))
     (gzip-file)  
     (file-response)
     (content-type "application/javascript")
