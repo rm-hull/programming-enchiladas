@@ -17,5 +17,5 @@
   :ring {:handler enchilada.handler/app}
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}}
-  :min-lein-version "2.1.0"
+  :min-lein-version "2.1.1"
   :warn-on-reflection true)
