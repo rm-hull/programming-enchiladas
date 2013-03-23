@@ -12,7 +12,7 @@
                  [hiccup "1.0.2"]
                  [jayq "2.3.0"]
                  [rm-hull/monet "0.1.6"]
-                 [rm-hull/turtle "0.1.1"]] 
+                 [rm-hull/turtle "0.1.2"]] 
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
