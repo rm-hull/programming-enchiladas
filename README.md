@@ -47,9 +47,11 @@ A. Did you include a namespace, e.g. `(ns example)`
 
 Some more examples:
 
-* http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050
+* [ClojureScript says Boo!](http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050)
 
-* http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369
+* [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
+
+* [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
 
 ## TODO
 
