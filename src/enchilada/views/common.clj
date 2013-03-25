@@ -10,6 +10,7 @@
   (html5
     [:head
      [:title title]
+     [:link {:rel "icon" :type "image/png" :href "/assets/images/favicon.png"}]
      (include-css "/assets/css/default.css")
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
