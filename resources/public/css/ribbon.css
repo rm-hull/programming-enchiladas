@@ -3,11 +3,11 @@
   overflow: hidden;
   /* top left corner */
   position: absolute;
-  left: -3em;
+  right: -3em;
   top: 2.5em;
   /* 45 deg ccw rotation */
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   /* shadow */
   -moz-box-shadow: 0 0 1em #888;
   -webkit-box-shadow: 0 0 1em #888;
