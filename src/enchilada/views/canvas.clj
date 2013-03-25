@@ -11,6 +11,7 @@
   (layout (str "Programming Enchiladas: " (url gist))
     (html
       [:div
+        (spinner "container grey")
         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:div#info]
         [:canvas#world { :width 800 :height 600 }]
