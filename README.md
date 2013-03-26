@@ -84,6 +84,8 @@ for commit access.
 
 * http://codepen.io/stuffit/pen/KrAwx
 
+* http://js1k.com/2013-spring/demo/1362
+
 ## License
 
 Copyright © 2013 Richard Hull
