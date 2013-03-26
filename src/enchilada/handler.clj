@@ -1,7 +1,8 @@
 (ns enchilada.handler
   (:use [compojure.core]
         [ring.middleware.params :only [wrap-params]] 
-        [hiccup.middleware :only [wrap-base-url]])
+        [hiccup.middleware :only [wrap-base-url]]
+        [enchilada.util.gist :only [fetch]])  
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [enchilada.views.not-found :as not-found]  
@@ -20,8 +21,8 @@
 (defroutes app-routes
   (GET "/" [] "Welcome - TODO")
   (GET "/stats" [] "stats page - TODO")
-  (GET "/cljs/:id" [id :as req] (canvas/serve-js id req))
-  (GET "/:login/:id" [login id :as req] (canvas/page (gist login id) req))
+  (GET "/cljs/:id" [id :as req] (canvas/serve-js (fetch id) req))
+  (GET "/:login/:id" [login id :as req] (canvas/page (fetch id) req))
   (route/resources "/assets")
   (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
 
