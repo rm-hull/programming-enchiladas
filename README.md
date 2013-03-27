@@ -53,19 +53,21 @@ Some more examples:
 
 * [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
 
+* [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
+
 ## TODO
 
 * Compilation error reporting
 
-* Debug compilation
-
 * UI
 
-* Stats
+* Stats / tracking
 
-* Examples
+* More examples
 
 * Documentation
+
+* Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)
 
 ## Contributing
 
