@@ -59,7 +59,9 @@ Some more examples:
 
 * Compilation error reporting
 
-* UI
+* jQuery extern doesn't work presently
+
+* UI -> home page (recently viewed, most viewed, rated, etc)
 
 * Stats / tracking
 
