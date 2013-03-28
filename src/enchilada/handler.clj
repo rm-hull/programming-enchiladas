@@ -10,7 +10,8 @@
             [enchilada.views.stats :as stats]  
             [enchilada.views.welcome :as welcome]))  
 
-(mg/connect-via-uri! (System/getenv "MONGOHQ_URL"))
+(when-let [connection-details (System/getenv "MONGO_URL")]
+  (mg/connect-via-uri! connection-details)) 
 
 (defroutes app-routes
   welcome/routes
