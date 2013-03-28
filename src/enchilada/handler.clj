@@ -1,28 +1,21 @@
 (ns enchilada.handler
   (:use [compojure.core]
         [ring.middleware.params :only [wrap-params]] 
-        [hiccup.middleware :only [wrap-base-url]]
-        [enchilada.util.gist :only [fetch]])  
+        [hiccup.middleware :only [wrap-base-url]])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
+            [monger.core :as mg]
             [enchilada.views.not-found :as not-found]  
-            [enchilada.views.canvas :as canvas]))
+            [enchilada.views.canvas :as canvas]
+            [enchilada.views.stats :as stats]  
+            [enchilada.views.welcome :as welcome]))  
 
-(defn validate 
-  "Protect against mischeivous parent paths in a gist"
-  [& fields]
-  (if (some (partial = "..") fields)
-    (throw (IllegalArgumentException. "Invalid login/id"))))
-
-(defn- gist [login id] 
-  (validate login id) 
-  {:user {:login login} :id (str id)})
+(mg/connect-via-uri! (System/getenv "MONGOHQ_URL"))
 
 (defroutes app-routes
-  (GET "/" [] "Welcome - TODO")
-  (GET "/stats" [] "stats page - TODO")
-  (GET "/cljs/:id" [id :as req] (canvas/serve-js (fetch id) req))
-  (GET "/:login/:id" [login id :as req] (canvas/page (fetch id) req))
+  welcome/routes
+  stats/routes
+  canvas/routes
   (route/resources "/assets")
   (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
 

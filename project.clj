@@ -11,6 +11,7 @@
                  [compojure "1.1.5"]
                  [hiccup "1.0.2"]
                  [jayq "2.3.0"]
+                 [com.novemberain/monger "1.5.0-rc1"]
                  [rm-hull/monet "0.1.7"]
                  [rm-hull/turtle "0.1.2"]] 
   :plugins [[lein-ring "0.8.3"]]
