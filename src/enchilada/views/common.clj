@@ -1,7 +1,9 @@
 (ns enchilada.views.common
-  (:use [hiccup.core :only [html]] 
-        [hiccup.page :only [include-css include-js html5]]
-        [enchilada.util.gist :only [login-id]]))
+  (:use hiccup.core 
+        hiccup.page
+        clj-stacktrace.core 
+        clj-stacktrace.repl
+        enchilada.util.gist))
 
 (defn url [gist & suffixes]
   (apply str "https://gist.github.com/" (login-id gist) suffixes))
@@ -32,4 +34,31 @@
     [:div#ribbon
       [:p
         [:a {:href href :title href :rel "me"} text]]]))
+
+(defn- elem-partial [elem]
+  (if (:clojure elem)
+    [:tr
+      [:td.source (h (source-str elem))]
+      [:td.method (h (clojure-method-str elem))]]
+    [:tr
+      [:td.source (h (source-str elem))]
+      [:td.method (h (java-method-str elem))]]))
+
+(defn html-exception [ex]
+  (let [ex-seq    (iterate :cause (parse-exception ex))
+        exception (first ex-seq)
+        causes    (rest ex-seq)]
+    (html
+      [:div#stacktrace
+        [:div#exception
+          [:h3.info (h (str ex))]
+          [:table.trace
+            [:tbody (map elem-partial (:trace-elems exception))]]] 
+        (for [cause causes :while cause]
+          [:div#causes
+           [:h3.info "Caused by: "
+                    (h (.getName (:class cause))) " "
+                    (h (:message cause))]
+           [:table.trace
+             [:tbody (map elem-partial (:trimmed-elems cause))]]])])))
 

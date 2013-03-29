@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1586"]
                  [org.clojure/data.json "0.2.1"]
+                 [clj-stacktrace "0.2.5"]
                  [clj-http "0.6.5"]
                  [clj-time "0.4.5"]
                  [compojure "1.1.5"]
