@@ -55,11 +55,11 @@ Some more examples:
 
 * [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
 
+* [Turmites](http://programming-enchiladas.destructuring-bind.org/rm-hull/5259306)
+
 * [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
 ## TODO
-
-* jQuery extern doesn't work presently
 
 * UI -> home page (recently viewed, most viewed, rated, etc)
 
