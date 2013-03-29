@@ -33,5 +33,3 @@
       [:p
         [:a {:href href :title href :rel "me"} text]]]))
 
-(defn debug? [req]
-   (= "true" (get-in req [:params :debug])))

@@ -4,9 +4,6 @@
         [hiccup.core :only [html]] 
         [hiccup.element :only [image link-to]] 
         [hiccup.page :only [include-js]]
-        [enchilada.util.compiler :only [regenerate-if-stale]]
-        [enchilada.util.fs :only [gzip-file]]
-        [enchilada.util.gist :only [fetch]]
         [enchilada.util.time-ago]
         [enchilada.views.common]))  
 
@@ -26,7 +23,7 @@
       [:div.gist-description
        [:p (get :description)]]]))
 
-(defn- page [gist & [req]]
+(defn render-page [{:keys [gist debug] :as model}]
   (layout (str "Programming Enchiladas: " (get-in gist [:user :login]) " / " (:filename (first (vals (:files gist)))))
     (html
       [:div
@@ -39,18 +36,8 @@
          [:canvas#world { :width 800 :height 600 }]]
         [:section.container 
          (include-js (url gist ".js"))]
-        (include-js (str "/cljs/" (:id gist) (if (debug? req) "?debug=true" "")))])))
+        (include-js (str "/cljs/" (:id gist) (if debug "?debug=true" "")))])))
 
-(defn- serve-js [gist & [req]]
-  (->
-    gist
-    (regenerate-if-stale (debug? req))
-    (gzip-file)  
-    (file-response)
-    (content-type "application/javascript")
-    (header "Content-Encoding" "gzip")))
 
-(defroutes routes 
-  (GET "/cljs/:id" [id :as req] (serve-js (fetch id) req))
-  (GET "/:login/:id" [login id :as req] (page (fetch id) req)))
+
 

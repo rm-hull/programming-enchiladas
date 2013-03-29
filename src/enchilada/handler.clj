@@ -5,13 +5,14 @@
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [monger.core :as mg]
+            [enchilada.controllers.canvas :as canvas]
             [enchilada.views.not-found :as not-found]  
-            [enchilada.views.canvas :as canvas]
             [enchilada.views.stats :as stats]  
             [enchilada.views.welcome :as welcome]))  
 
-(when-let [connection-details (System/getenv "MONGO_URL")]
-  (mg/connect-via-uri! connection-details)) 
+(def mongo-client
+  (when-let [connection-details (System/getenv "MONGOHQ_URL")]
+    (mg/connect-via-uri! connection-details))) 
 
 (defroutes app-routes
   welcome/routes
