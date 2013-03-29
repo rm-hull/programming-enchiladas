@@ -55,9 +55,9 @@ Some more examples:
 
 * [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
 
-## TODO
+* [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
-* Compilation error reporting
+## TODO
 
 * jQuery extern doesn't work presently
 
