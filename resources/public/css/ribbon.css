@@ -1,16 +1,15 @@
 #ribbon {
   background-color: #090;
-  overflow: hidden;
-  /* top left corner */
   position: absolute;
   right: -3em;
   top: 2.5em;
-  /* 45 deg ccw rotation */
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  /* shadow */
   -moz-box-shadow: 0 0 1em #888;
   -webkit-box-shadow: 0 0 1em #888;
+}
+body {
+  overflow-x: hidden;
 }
 #ribbon a {
   border: 1px solid #faa;
@@ -21,6 +20,5 @@
   padding: 0.5em 3.5em;
   text-align: center;
   text-decoration: none;
-  /* shadow */
   text-shadow: 0 0 0.5em #444;
 }
