@@ -6,10 +6,10 @@
 (defn- paths [& paths]
   (interpose "/" (flatten paths)))
 
+
 (defn filename-template [prefix & suffix]
   (fn [gist]
-    (let [shards (take 2 (map str (seq (get-in gist [:user :login]))))]
-      (apply str (concat (paths "work" "gists" prefix shards (get-in gist [:user :login]) (:id gist)) suffix)))))
+    (apply str (concat (paths "work" "gists" prefix (get-in gist [:user :login]) (:id gist)) suffix))))
 
 (def src-dir     (filename-template "src" "/"))
 (def temp-dir    (filename-template "tmp" "/"))
