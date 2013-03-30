@@ -31,9 +31,7 @@
 
 (defn ribbon [text href]
   (html
-    [:div#ribbon
-      [:p
-        [:a {:href href :title href :rel "me"} text]]]))
+    [:a.github-ribbon {:href href :title href :rel "me"} text]))
 
 (defn- elem-partial [elem]
   (if (:clojure elem)

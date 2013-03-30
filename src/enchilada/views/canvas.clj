@@ -16,7 +16,7 @@
           [:div.author
            (image { :width 26 :height 26 } (get :user :avatar_url)) 
            [:span (link-to (get :user :html_url) (get :user :login))] " / " 
-           [:strong (link-to (get :html_url) (first (keys (get :files)))) ]
+           [:strong (link-to (get :html_url) (:filename (first (vals (get :files))))) ]
            [:div.gist-timestamp
             [:span.datetime "Last updated " 
              [:time {:title (get :updated_at) :datetime (get :updated_at)}] (elapsed-time (get :updated_at))]]]]]] 
@@ -28,15 +28,16 @@
     (html
       [:div
         (spinner "container grey")
-        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         (meta-info gist)
         [:section.container 
          [:div#error]]
         [:section.container
          [:canvas#world { :width 800 :height 600 }]]
+        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container 
          (include-js (url gist ".js"))]
-        (include-js (str "/cljs/" (:id gist) (if debug "?debug=true" "")))])))
+        (include-js (str "/cljs/" (:id gist) (if debug "?debug=true" "")))
+       ])))
 
 
 

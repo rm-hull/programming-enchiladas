@@ -1,24 +1,28 @@
-#ribbon {
-  background-color: #090;
-  position: absolute;
-  right: -3em;
-  top: 2.5em;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-box-shadow: 0 0 1em #888;
-  -webkit-box-shadow: 0 0 1em #888;
-}
-body {
-  overflow-x: hidden;
-}
-#ribbon a {
-  border: 1px solid #faa;
-  color: #fff;
-  display: block;
-  font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
-  margin: 0.05em 0 0.075em 0;
-  padding: 0.5em 3.5em;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 0 0.5em #444;
+.github-ribbon { 
+  background-color:#090;
+  top:3.2em;
+  right:-3.7em;
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  -ms-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  transform:rotate(45deg);
+  -webkit-box-shadow:0 0 0 1px #090 inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  -moz-box-shadow:0 0 0 1px #090 inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  -ms-box-shadow:0 0 0 1px #090 inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  -o-box-shadow:0 0 0 1px #090 inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  box-shadow:0 0 0 1px #090 inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  color:rgba(255,255,255,0.9);
+  display:block;
+  padding:.6em 3.5em;
+  position:fixed;
+  font:bold .82em sans-serif;
+  text-align:center;
+  text-decoration:none;
+  text-shadow:1px -1px 8px rgba(0,0,0,0.6);
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+  user-select:none
 }
