@@ -167,9 +167,9 @@ div.author span {
 
 div#error {
     display: none;
-    position: absolute;
-    top: 100px;
-    left: 200px;
+    position: relative;
+    left: auto;
+    right: auto;
     padding: 1em;
     background: #FECBCB;
     -webkit-border-radius: 0.75em;
