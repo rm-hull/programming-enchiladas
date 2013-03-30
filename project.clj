@@ -10,7 +10,7 @@
                  [clj-http "0.6.5"]
                  [clj-time "0.4.5"]
                  [compojure "1.1.5"]
-                 [hiccup "1.0.2"]
+                 [hiccup "1.0.3"]
                  [jayq "2.3.0"]
                  [com.novemberain/monger "1.5.0-rc1"]
                  [rm-hull/monet "0.1.7"]
