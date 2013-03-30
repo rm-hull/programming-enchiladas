@@ -187,9 +187,13 @@ div#error h1 {
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 20px;
     font-weight: bold;
-    background-image: url("../images/error.png");
-    background-repeat: no-repeat;
+    background: url("../images/error.png") no-repeat;
+    background-size: 24px;
     padding-left: 24px;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+    div#error h1 {background: url("../images/error@2x.png") no-repeat;}
 }
 
 div#error h3.info {
