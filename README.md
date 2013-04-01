@@ -18,6 +18,7 @@ following client-side clojureScript bindings are available:
 |:---------|:------|
 | enchilada/canvas | The canvas object, which you can resize, move, whatever. |
 | enchilada/ctx | The graphics context, on to which you draw your stuff. |
+| dommy.template/* |  Templating is based on Clojure's [Hiccup](https://github.com/weavejester/hiccup/) html templating library. |
 | monet.* | All the https://github.com/rm-hull/monet drawing functions. |
 | jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
 
