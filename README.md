@@ -59,6 +59,8 @@ Some more examples:
 * [Turmites](http://programming-enchiladas.destructuring-bind.org/rm-hull/5259306)
 
 * [Chroma-Spirals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162)
+* 
+* [Heighway Dragon](http://programming-enchiladas.destructuring-bind.org/rm-hull/5285431)
 
 * [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
