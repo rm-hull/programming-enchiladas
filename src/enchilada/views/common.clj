@@ -42,6 +42,9 @@
       [:td.source (h (source-str elem))]
       [:td.method (h (java-method-str elem))]]))
 
+(defn remove-newlines [s]
+  (clojure.string/replace s "\n" " "))
+
 (defn html-exception [ex]
   (let [ex-seq    (iterate :cause (parse-exception ex))
         exception (first ex-seq)
@@ -49,14 +52,14 @@
     (html
       [:div#stacktrace
         [:div#exception
-          [:h3.info (h (str ex))]
+          [:h3.info (h (remove-newlines (str ex)))]
           [:table.trace
             [:tbody (map elem-partial (:trace-elems exception))]]] 
         (for [cause causes :while cause]
           [:div#causes
            [:h3.info "Caused by: "
                     (h (.getName (:class cause))) " "
-                    (h (:message cause))]
+                    (h (remove-newlines (:message cause)))]
            [:table.trace
              [:tbody (map elem-partial (:trimmed-elems cause))]]])])))
 
