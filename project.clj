@@ -8,7 +8,7 @@
                  [org.clojure/data.json "0.2.1"]
                  [org.clojure/data.xml "0.0.7"]
                  [clj-stacktrace "0.2.5"]
-                 [clj-http "0.6.5"]
+                 [clj-http "0.7.2"]
                  [clj-time "0.5.0"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
