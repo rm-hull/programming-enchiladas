@@ -1,7 +1,9 @@
 (ns enchilada.util.fs
   (:use [enchilada.util.gist :only [last-modified]])
-  (:require [clojure.java.io :as io])
-  (:import [java.util.zip GZIPInputStream GZIPOutputStream]))
+  (:require [clojure.java.io :as io]
+            [me.raynes.fs :as fs]) 
+  (:import [java.util.zip GZIPInputStream GZIPOutputStream]
+           [java.io File]))
 
 (defn- paths [& paths]
   (interpose "/" (flatten paths)))
@@ -31,14 +33,14 @@
   [& paths]
   (doseq [path paths
           file (reverse (file-seq (io/file path)))]
-    (.delete file)))
+    (fs/delete file)))
 
-(defn clean [f gist]
+(defn clean [^File f gist]
   (let [dir (io/file (f gist))]
     (delete dir)
-    (.mkdirs dir)))
+    (fs/mkdirs dir)))
 
-(defn write-file [file contents & [last-modified]]
+(defn write-file [^File file contents & [last-modified]]
   (spit file contents)
   (when last-modified
     (.setLastModified file last-modified)))
@@ -51,7 +53,7 @@
       (write-file (io/file dir filename) content last-modified))))
 
 (defn prepare [gist]
-  (.mkdirs (.getParentFile (io/file (output-file gist)))) 
+  (fs/mkdirs (fs/parent (io/file (output-file gist)))) 
   (persist gist)
   (io/copy (io/file "src/client/enchilada.cljs") (io/file (src-dir gist) "__init.cljs"))
   (clean temp-dir gist))
@@ -67,5 +69,5 @@
    compared to the last modified time on the gist"
   [gist]
   (< 
-    (.lastModified (io/file (gzip-file gist))) 
+    (fs/mod-time (io/file (gzip-file gist))) 
     (last-modified gist)))
