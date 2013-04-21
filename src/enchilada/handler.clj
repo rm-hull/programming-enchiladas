@@ -9,7 +9,9 @@
             [enchilada.controllers.canvas :as canvas]
             [enchilada.views.not-found :as not-found]  
             [enchilada.views.stats :as stats]  
-            [enchilada.views.welcome :as welcome]))  
+            [enchilada.views.sitemap :as sitemap]    
+            [enchilada.views.welcome :as welcome]    
+            ))
 
 (def mongo-client
   (when-let [connection-details (System/getenv "MONGOHQ_URL")]
@@ -23,6 +25,7 @@
   welcome/routes
   stats/routes
   canvas/routes
+  sitemap/routes
   (route/resources "/assets")
   (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
 
