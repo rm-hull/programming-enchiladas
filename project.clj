@@ -13,7 +13,7 @@
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
                  [jayq "2.3.0"]
-                 [prismatic/dommy "0.0.2"]
+                 [prismatic/dommy "0.1.0"]
                  [com.novemberain/monger "1.5.0-rc1"]
                  [me.raynes/fs "1.4.2"]
                  [rm-hull/monet "0.1.7"]
