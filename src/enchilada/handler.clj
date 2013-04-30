@@ -8,6 +8,7 @@
             [monger.core :as mg]
             [enchilada.controllers.canvas :as canvas]
             [enchilada.views.not-found :as not-found]  
+            [enchilada.views.proxy :as proxy]  
             [enchilada.views.stats :as stats]  
             [enchilada.views.sitemap :as sitemap]    
             [enchilada.views.welcome :as welcome]    
@@ -26,6 +27,7 @@
   stats/routes
   canvas/routes
   sitemap/routes
+  proxy/routes
   (route/resources "/assets")
   (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
 

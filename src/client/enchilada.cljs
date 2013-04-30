@@ -4,5 +4,6 @@
 
 (def canvas ($ :canvas#world)) 
 (def ctx    (get-context (.get canvas 0) "2d")) 
+(defn proxy-request [url] (str "/proxy?url=" (js/encodeURI url)))
 
 (hide ($ :div#spinner))
