@@ -62,6 +62,8 @@ Some more examples:
 
 * [Heighway Dragon](http://programming-enchiladas.destructuring-bind.org/rm-hull/5285431)
 
+* [Arnold's Cat-map](http://programming-enchiladas.destructuring-bind.org/rm-hull/5491968)
+
 * [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
 ## TODO
@@ -75,6 +77,8 @@ Some more examples:
 * Documentation
 
 * Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)
+
+* Sitemap based on mongo-db rather than Heroku's ephemeral FS.
 
 ## Contributing
 
