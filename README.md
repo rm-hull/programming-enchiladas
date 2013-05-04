@@ -1,15 +1,17 @@
 Programming Enchiladas
 ======================
 
-A sort-of gist for clojurescript/canvas experiments: getting sick
-of setting up yet another lein/noir (deprecated) for every new folly,
+A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ 
+but geared specifically for on-the-fly ClojuresScript code generation: getting sick
+of setting up yet another lein/noir for every new folly,
 so it makes more sense to have a framework which loads public 
 ClojureScript gists directly from github, compiles them on the fly 
 and serves them out.
 
 This allows shared/social and version-tracked editable ClojureScripts
-to be run by anyone anywhere. In order to run https://gist.github.com/rm-hull/5201050
-(for example), go to http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050
+to be run by anyone anywhere. In order to compile and run any .cljs files in gist
+https://gist.github.com/rm-hull/5201050 (for example), go to 
+http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050
 
 As part of the available 'stack' (for want of a better word), the 
 following client-side clojureScript bindings are available:
@@ -18,7 +20,7 @@ following client-side clojureScript bindings are available:
 |:---------|:------|
 | enchilada/canvas | A canvas object, which you can resize, move, whatever. |
 | enchilada/ctx | The graphics context, on to which you draw your stuff. |
-| enchilada/svg | An SVG object, on to which you insert DOM stuff. |
+| enchilada/svg | An SVG object, on to which you insert DOM stuff (initially hidden). |
 | enchilada/proxy-request | Returns a URL which will be proxied through self. |
 | dommy.template/* |  Templating based on Clojure's [Hiccup](https://github.com/weavejester/hiccup/) html templating library. |
 | monet.* | All the https://github.com/rm-hull/monet canvas drawing functions. |
@@ -30,14 +32,37 @@ following client-side clojureScript bindings are available:
 
 ## Prerequisites
 
-You will need [Leiningen](https://github.com/technomancy/leiningen) 2.0.0 or
+You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or
 above installed.
 
 ## Running
 
+A connection to a MongoDB datbase is needed, and the connection URL should be 
+provided in an environmental variable MONGODB_URL as below (substitute values for
+user, password, host and db as appropriate):
+
+    $ export MONGODB_URL=mongodb://user:password@host:10046/db
+
+If using heroku, add a config param:
+
+    $ heroku config:add MONGODB_URL=mongodb://user:password@host:10046/db
+
+Optional: By default, Github throttles requests if no credentials are supplied; 
+Set GITHUB_USER and GITHUB_PASS to valid credentials to circumvent the throttling:
+
+    $ export GITHUB_USER=user
+    $ export GITHUB_PASS=pass
+
+or 
+
+    $ heroku config:add GITHUB_USER=user
+    $ heroku config:add GITHUB_PASS=pass
+
+(Note: user & password authenication will be replaced with OAuth2 tokens shortly).
+
 To start a web server for the application, run:
 
-    lein ring server
+    $ lein ring server
 
 This will start the server at port 3000 or thereabouts. Then create your 
 ClojureScript gist, and slot in the login and id, and hack on.
@@ -74,7 +99,11 @@ Some more examples:
 
 ## TODO
 
-* UI -> home page (recently viewed, most viewed, rated, etc)
+* UI -> home page (carousel of recently viewed, most viewed, rated, etc)
+
+* UI -> allow in-page editing
+
+* GitHub OAuth2 token header
 
 * Stats / tracking
 
@@ -85,6 +114,8 @@ Some more examples:
 * Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)
 
 * Sitemap based on mongo-db rather than Heroku's ephemeral FS.
+
+* Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
 
 ## Contributing
 
@@ -104,6 +135,8 @@ for commit access.
 * http://codepen.io/stuffit/pen/KrAwx
 
 * http://js1k.com/2013-spring/demo/1362
+
+* http://bl.ocks.org
 
 ## License
 
