@@ -216,3 +216,6 @@ div#error tr:hover {
     cursor: pointer;
 }
 
+svg#world {
+    display: none;
+}
