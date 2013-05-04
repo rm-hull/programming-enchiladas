@@ -25,4 +25,4 @@
 (defn last-modified 
   "Converts the updated_at field into a number of milliseconds since 1.1.1970"
   [gist]
-  (-> (:updated_at gist) parse to-long))
+  (-> gist :updated_at parse to-long))
