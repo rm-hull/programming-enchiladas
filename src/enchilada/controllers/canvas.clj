@@ -25,6 +25,7 @@
 (defn- serve-error [ex]
   (-> 
     (str "$('div#spinner').hide();"
+         "$('canvas#world').slideUp();"
          "$('div#error').html('" (html [:h1 "Compilation failed:"]) (html-exception ex) "').fadeIn();")
     (response)
     (content-type "application/javascript")))
