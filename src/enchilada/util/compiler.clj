@@ -8,7 +8,7 @@
                    :optimizations :advanced
                    :pretty-print false
                    :externs ["externs/jquery.js"]
-                   :libs ["resources/js/singult.js"] }]
+                   :libs ["resources/private/js/singult.js"] }]
     (if debug
       (merge defaults {:optimizations :simple, :pretty-print true})
       defaults)))   
