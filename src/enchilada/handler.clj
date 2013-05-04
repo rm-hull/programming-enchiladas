@@ -15,7 +15,7 @@
             ))
 
 (def mongo-client
-  (when-let [connection-details (System/getenv "MONGOHQ_URL")]
+  (when-let [connection-details (System/getenv "MONGODB_URL")]
     (mg/connect-via-uri! connection-details))) 
 
 (def keep-alive
