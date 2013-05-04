@@ -6,14 +6,14 @@
 
 (defn- url [id] (str "https://api.github.com/gists/" id))
 
-(def github-credentials 
-  (when-let [user (get (System/getenv) "GITHUB_USER")]
-    {:basic-auth [ user (get (System/getenv) "GITHUB_PASS") ]}))
+(def github-authentication 
+  (when-let [token (get (System/getenv) "GITHUB_OAUTH_TOKEN")]
+    {:authorization [ "token" token ]}))
 
 (defn fetch 
   "Parses a gist from JSON into a keyword hash"
   [id]
-  (let [{:keys [status headers body] :as resp} (http/get (url id) github-credentials)]
+  (let [{:keys [status headers body] :as resp} (http/get (url id) github-authentication)]
       (if (= status 200)
         (json/read-str body :key-fn keyword))))
 

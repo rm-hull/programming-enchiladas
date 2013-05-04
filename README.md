@@ -47,18 +47,18 @@ If using heroku, add a config param:
 
     $ heroku config:add MONGODB_URL=mongodb://user:password@host:10046/db
 
-Optional: By default, Github throttles requests if no credentials are supplied; 
-Set GITHUB_USER and GITHUB_PASS to valid credentials to circumvent the throttling:
+Optional: By default, Github aggressively throttles requests if requests are anonymous 
+(60 requests per hour); Set GITHUB_OAUTH2_TOKEN to a generated authentication token to 
+increase the rate limit to 5000 requests per hour:
 
-    $ export GITHUB_USER=user
-    $ export GITHUB_PASS=pass
+    $ export GITHUB_OAUTH2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 or 
 
-    $ heroku config:add GITHUB_USER=user
-    $ heroku config:add GITHUB_PASS=pass
+    $ heroku config:add GITHUB_OAUTH2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-(Note: user & password authenication will be replaced with OAuth2 tokens shortly).
+(See application note on authorizing 3rd party access to github here:
+http://developer.github.com/v3/oauth/#create-a-new-authorization)
 
 To start a web server for the application, run:
 
@@ -102,8 +102,6 @@ Some more examples:
 * UI -> home page (carousel of recently viewed, most viewed, rated, etc)
 
 * UI -> allow in-page editing
-
-* GitHub OAuth2 token header
 
 * Stats / tracking
 
