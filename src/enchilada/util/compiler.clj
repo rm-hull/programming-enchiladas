@@ -7,7 +7,8 @@
                    :output-dir (temp-dir gist)
                    :optimizations :advanced
                    :pretty-print false
-                   :externs ["externs/jquery.js"] }]
+                   :externs ["externs/jquery.js"]
+                   :libs ["resources/js/singult.js"] }]
     (if debug
       (merge defaults {:optimizations :simple, :pretty-print true})
       defaults)))   

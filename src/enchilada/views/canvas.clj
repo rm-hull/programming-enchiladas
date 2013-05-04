@@ -32,7 +32,8 @@
         [:section.container 
          [:div#error]]
         [:section.container
-         [:canvas#world { :width 800 :height 600 }]]
+         [:canvas#world { :width 800 :height 600 }]
+         [:svg#world]]
         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container 
          (include-js (url gist ".js"))]
