@@ -56,7 +56,7 @@ Some more examples:
 
 * [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
 
-* [Choropleth C2]((http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
+* [Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
 
 * [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
 
