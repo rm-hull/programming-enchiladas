@@ -48,14 +48,14 @@ If using heroku, add a config param:
     $ heroku config:add MONGODB_URL=mongodb://user:password@host:10046/db
 
 Optional: By default, Github aggressively throttles requests if requests are anonymous 
-(60 requests per hour); Set GITHUB_OAUTH2_TOKEN to a generated authentication token to 
+(60 requests per hour); Set GITHUB_OAUTH_TOKEN to a generated authentication token to 
 increase the rate limit to 5000 requests per hour:
 
-    $ export GITHUB_OAUTH2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    $ export GITHUB_OAUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 or 
 
-    $ heroku config:add GITHUB_OAUTH2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    $ heroku config:add GITHUB_OAUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 (See application note on authorizing 3rd party access to github here:
 http://developer.github.com/v3/oauth/#create-a-new-authorization)
