@@ -71,7 +71,9 @@ ClojureScript gist, and slot in the login and id, and hack on.
 
 Q. Why doesn't my clojurescript compile, it looks ok? 
 
-A. Did you include a namespace, e.g. `(ns example)`
+A1. Did you include a namespace? e.g. `(ns example)`
+
+A2. Did you name it with a .cljs extension? 
 
 ## Examples
 
