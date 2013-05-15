@@ -16,7 +16,7 @@
                  [com.keminglabs/c2 "0.2.3-SNAPSHOT"]
                  [com.keminglabs/vomnibus "0.3.2"]
                  [com.keminglabs/singult "0.1.7-SNAPSHOT"]
-                 [prismatic/dommy "0.1.0"]
+                 [prismatic/dommy "0.1.1"]
                  [com.novemberain/monger "1.5.0-rc1"]
                  [me.raynes/fs "1.4.2"]
                  [rm-hull/monet "0.1.7"]
