@@ -4,12 +4,12 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1798"]
+                 [org.clojure/clojurescript "0.0-1806"]
                  [org.clojure/data.json "0.2.2"]
                  [org.clojure/data.xml "0.0.7"]
                  [clj-stacktrace "0.2.5"]
                  [clj-http "0.7.2"]
-                 [clj-time "0.5.0"]
+                 [clj-time "0.5.1"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
                  [jayq "2.3.0"]
