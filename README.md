@@ -28,6 +28,11 @@ following client-side clojureScript bindings are available:
 | c2.* | Kerninglabs C2 data visualization library. |
 | vomnibus.* | https://github.com/lynaghk/vomnibus bindings. |
 
+The following javascript libraries are loaded and available:
+
+* http://jquery.com/ v2.0.1
+* http://arborjs.org/ v0.9.2
+
 **NOTE**: This software is definitely alpha work-in-progress, please treat as such.
 
 ## Prerequisites

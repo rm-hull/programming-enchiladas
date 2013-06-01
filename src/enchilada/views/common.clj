@@ -24,7 +24,9 @@
      (include-css "/assets/css/default.css")
      (include-css "/assets/css/spinner.css")
      (include-css "/assets/css/ribbon.css")
-     (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js")
+     (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js")
+     (include-js "/assets/js/arbor.js")
+     (include-js "/assets/js/arbor-tween.js")
      ]
     [:body
      [:div#wrapper content]]))
