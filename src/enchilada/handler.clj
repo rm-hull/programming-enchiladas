@@ -5,18 +5,12 @@
         [enchilada.util.keepalive :only [ping]])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-            [monger.core :as mg]
             [enchilada.controllers.canvas :as canvas]
             [enchilada.views.not-found :as not-found]  
             [enchilada.views.proxy :as proxy]  
             [enchilada.views.stats :as stats]  
             [enchilada.views.sitemap :as sitemap]    
-            [enchilada.views.welcome :as welcome]    
-            ))
-
-(def mongo-client
-  (when-let [connection-details (System/getenv "MONGODB_URL")]
-    (mg/connect-via-uri! connection-details))) 
+            [enchilada.views.welcome :as welcome]))
 
 (def keep-alive
   (when-let [url (System/getenv "KEEPALIVE_URL")]

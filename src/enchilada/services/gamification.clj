@@ -3,20 +3,29 @@
         [monger.operators]
         [enchilada.util.gist])
   (:require [monger.collection :as mc]
+            [monger.core :as mg]
             [monger.joda-time]))
 
 (defn- id [gist] {:gist (login-id gist)})
 
+(def mongo-client
+  (when-let [connection-details (System/getenv "MONGODB_URL")]
+    (mg/connect-via-uri! connection-details)))
+
 (def doc "gamification")
 
 (defn update [gist]
-  (mc/update doc (id gist) {$inc {:visits 1}} :upsert true))
+  (when mongo-client
+    (mc/update doc (id gist) {$inc {:visits 1}} :upsert true)))
 
 (defn view [gist]
-  (mc/find-one-as-map doc (id gist)))
+  (when mongo-client
+    (mc/find-one-as-map doc (id gist))))
 
 (defn star [gist n]
-  (mc/update doc (id gist) {$inc {:stars n}} :upsert true))
+  (when mongo-client
+    (mc/update doc (id gist) {$inc {:stars n}} :upsert true)))
 
 (defn unstar [gist]
-  (star gist -1))
+  (when mongo-client
+    (star gist -1)))
