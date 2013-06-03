@@ -13,10 +13,9 @@
 (defn- debug? [req]
    (= "true" (get-in req [:params :debug])))
 
-(defn- serve-js [{:keys [gist debug] :as model}]
+(defn- serve-js [{:keys [gist] :as build-opts}]
   (->
-    gist
-    (regenerate-if-stale debug)
+    (regenerate-if-stale gist build-opts)
     (gzip-file)  
     (file-response)
     (content-type "application/javascript")
@@ -36,7 +35,9 @@
     (catch Exception ex (serve-error ex))))
 
 (defn- create-model [id req]
-  { :debug (debug? req) :gist (fetch id) })
+  { :debug (debug? req) 
+    :optimization-level (get-in req [:params :optimization-level])
+    :gist (fetch id) })
 
 (defn- perform-audits! [{:keys [gist] :as model}] 
   (gamification/update gist)

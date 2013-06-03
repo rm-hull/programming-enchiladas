@@ -23,6 +23,11 @@
       [:div.gist-description
        [:p (get :description)]]]))
 
+(defn- query-params [model]
+  (let [params (select-keys model [:debug :optimization-level])]
+    (when (seq params)
+      (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
+
 (defn render-page [{:keys [gist debug] :as model}]
   (layout (str "Programming Enchiladas: " (get-in gist [:user :login]) " / " (:filename (first (vals (:files gist)))))
     (html
@@ -37,9 +42,5 @@
         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container 
          (include-js (url gist ".js"))]
-        (include-js (str "/cljs/" (:id gist) (if debug "?debug=true" "")))
+        (include-js (str "/cljs/" (:id gist) (query-params model)))
        ])))
-
-
-
-

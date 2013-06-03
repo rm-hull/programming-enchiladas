@@ -35,6 +35,32 @@ The following javascript libraries are loaded and available:
 
 **NOTE**: This software is definitely alpha work-in-progress, please treat as such.
 
+## Examples
+
+* [ClojureScript says Boo!](http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050)
+
+* [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
+
+* [Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
+
+* [Psychedelic Animation](http://programming-enchiladas.destructuring-bind.org/rm-hull/5522065)
+
+* [Quadratic Residues & Fixed Points](http://programming-enchiladas.destructuring-bind.org/rm-hull/5694738?optimization-level=simple)
+
+* [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
+
+* [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
+
+* [Turmites](http://programming-enchiladas.destructuring-bind.org/rm-hull/5259306)
+
+* [Chroma-Spirals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162)
+
+* [Heighway Dragon](http://programming-enchiladas.destructuring-bind.org/rm-hull/5285431)
+
+* [Arnold's Cat-map](http://programming-enchiladas.destructuring-bind.org/rm-hull/5491968)
+
+* [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or
@@ -49,9 +75,9 @@ To start a web server for the application, run:
 This will start the server at port 3000 or thereabouts. Then create your 
 ClojureScript gist, and slot in the login and id, and hack on.
 
-**Optional:** A connection to a MongoDB database is needed (just for gamification stats),
-and the connection URL should be provided in an environmental variable MONGODB_URL 
-as below (substitute values for user, password, host and db as appropriate):
+**Optional:** If a connection to a MongoDB database is supplied via config variable
+MONGODB_URL as below (substitute values for user, password, host and db as appropriate),
+then minimal usage stats will be written out for gamification purposes:
 
     $ export MONGODB_URL=mongodb://user:password@host:10046/db
 
@@ -79,32 +105,6 @@ Q. Why doesn't my clojurescript compile, it looks ok?
 A1. Did you include a namespace? e.g. `(ns example)`
 
 A2. Did you name it with a .cljs extension? 
-
-## Examples
-
-Some more examples:
-
-* [ClojureScript says Boo!](http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050)
-
-* [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
-
-* [Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
-
-* [Psychedelic Animation](http://programming-enchiladas.destructuring-bind.org/rm-hull/5522065)
-
-* [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
-
-* [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
-
-* [Turmites](http://programming-enchiladas.destructuring-bind.org/rm-hull/5259306)
-
-* [Chroma-Spirals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162)
-
-* [Heighway Dragon](http://programming-enchiladas.destructuring-bind.org/rm-hull/5285431)
-
-* [Arnold's Cat-map](http://programming-enchiladas.destructuring-bind.org/rm-hull/5491968)
-
-* [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
 ## TODO
 
