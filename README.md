@@ -10,8 +10,8 @@ and serves them out.
 
 This allows shared/social and version-tracked editable ClojureScripts
 to be run by anyone anywhere. In order to compile and run any .cljs files in gist
-https://gist.github.com/rm-hull/5201050 (for example), go to 
-http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050
+https://gist.github.com/rm-hull/5278162 (for example), go to 
+http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162
 
 As part of the available 'stack' (for want of a better word), the 
 following client-side clojureScript bindings are available:
