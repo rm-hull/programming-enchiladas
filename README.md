@@ -149,3 +149,5 @@ for commit access.
 ## License
 
 Copyright © 2013 Richard Hull
+
+Use/copy/fork as per: [Creative Commons](http://creativecommons.org/licenses/by/3.0/legalcode).
