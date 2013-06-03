@@ -8,13 +8,14 @@
 
 (def github-authentication 
   (when-let [token (get (System/getenv) "GITHUB_OAUTH_TOKEN")]
-    {:authorization [ "token" token ]}))
+    {"authorization" (str "token " token)}))
 
 (defn fetch 
   "Parses a gist from JSON into a keyword hash"
   [id]
-  (let [{:keys [status headers body] :as resp} (http/get (url id) github-authentication)]
-      (if (= status 200)
+  (let [{:keys [status headers body] :as resp} (http/get (url id) {:headers github-authentication})]
+      (when (= status 200)
+        (println "x-ratelimit-remaining:" (get headers "x-ratelimit-remaining"))
         (json/read-str body :key-fn keyword))))
 
 (defn login-id 
