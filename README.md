@@ -24,6 +24,7 @@ following client-side clojureScript bindings are available:
 | enchilada/ctx | The graphics context, on to which you draw your stuff. |
 | enchilada/svg | An SVG object, on to which you insert DOM stuff (initially hidden). |
 | enchilada/proxy-request | Returns a URL which will be proxied through self. |
+| turtle.* | https://github.com/rm-hull/turtle graphics library |
 | dommy.template/* |  Templating based on Clojure's [Hiccup](https://github.com/weavejester/hiccup/) html templating library. |
 | monet.* | All the https://github.com/rm-hull/monet canvas drawing functions. |
 | jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
@@ -41,7 +42,9 @@ The following javascript libraries are loaded and available:
 
 * [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
 
-* [Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
+* [US Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
+
+* [World Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5537192)
 
 * [Psychedelic Animation](http://programming-enchiladas.destructuring-bind.org/rm-hull/5522065)
 
