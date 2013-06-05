@@ -13,14 +13,14 @@
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
                  [jayq "2.3.0"]
-                 [com.keminglabs/c2 "0.2.3-SNAPSHOT"]
+                 [com.keminglabs/c2 "0.2.3"]
                  [com.keminglabs/vomnibus "0.3.2"]
                  [com.keminglabs/singult "0.1.7-SNAPSHOT"]
                  [prismatic/dommy "0.1.1"]
                  [com.novemberain/monger "1.5.0-rc1"]
                  [me.raynes/fs "1.4.2"]
                  [rm-hull/monet "0.1.7"]
-                 [rm-hull/turtle "0.1.3"]] 
+                 [rm-hull/turtle "0.1.4"]] 
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
