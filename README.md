@@ -60,6 +60,8 @@ The following javascript libraries are loaded and available:
 
 * [Heighway Dragon](http://programming-enchiladas.destructuring-bind.org/rm-hull/5285431)
 
+* [Penrose Tiling](http://programming-enchiladas.destructuring-bind.org/rm-hull/5732587)
+
 * [Arnold's Cat-map](http://programming-enchiladas.destructuring-bind.org/rm-hull/5491968)
 
 * [ClojureScript says Boo!](http://programming-enchiladas.destructuring-bind.org/rm-hull/5201050)
