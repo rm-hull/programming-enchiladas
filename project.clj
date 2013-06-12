@@ -20,7 +20,7 @@
                  [com.novemberain/monger "1.5.0-rc1"]
                  [me.raynes/fs "1.4.2"]
                  [rm-hull/monet "0.1.7"]
-                 [rm-hull/turtle "0.1.5"]] 
+                 [rm-hull/turtle "0.1.6"]] 
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
