@@ -11,7 +11,8 @@
                        :output-dir (temp-dir gist)
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
                        :pretty-print false
-                       :externs ["externs/jquery.js"]
+                       :static-fns true
+                       :externs ["externs"]
                        :libs ["resources/private/js/singult.js"] }]
         (if debug
           (merge defaults {:optimizations :simple, :pretty-print true})

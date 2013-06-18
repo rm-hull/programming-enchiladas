@@ -131,6 +131,8 @@ A2. Did you name it with a .cljs extension?
 
 * Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
 
+* Arbor externs doesnt work properly
+
 ## Contributing
 
 If there are other ClojureScript (or JavaScript) libraries that would be
@@ -151,6 +153,8 @@ for commit access.
 * http://js1k.com/2013-spring/demo/1362
 
 * http://bl.ocks.org
+
+* [Closure Compiler Externs Extractor](http://www.dotnetwise.com/Code/Externs/)
 
 ## License
 
