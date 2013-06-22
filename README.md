@@ -50,6 +50,8 @@ The following javascript libraries are loaded and available:
 
 * [Quadratic Residues & Fixed Points](http://programming-enchiladas.destructuring-bind.org/rm-hull/5694738?optimization-level=simple)
 
+* [3D Auto-stereograms](http://programming-enchiladas.destructuring-bind.org/rm-hull/5736733)
+
 * [Champernowne's Constant and other transcendentals](http://programming-enchiladas.destructuring-bind.org/rm-hull/5233367)
 
 * [Flower of Life](http://programming-enchiladas.destructuring-bind.org/rm-hull/5257851)
