@@ -2,12 +2,12 @@
   (:use [enchilada.util.fs])
   (:require [cljs.closure :as cljsc]))
 
-()
-
-(def cljs-build-opts 
+(def cljs-build-opts
   (let [valid-opts #{:simple :whitespace :advanced}]
     (fn [gist {:keys [debug optimization-level]}]
-      (let [defaults { :output-to (output-file gist)
+      (let [output-file (output-file gist)
+            defaults { :output-to output-file
+                       :source-map (str output-file ".map")
                        :output-dir (temp-dir gist)
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
                        :pretty-print false
@@ -16,13 +16,13 @@
                        :libs ["resources/private/js/singult.js"] }]
         (if debug
           (merge defaults {:optimizations :simple, :pretty-print true})
-          defaults)))))   
+          defaults)))))
 
 (defn generate-js [gist build-opts]
   (prepare gist)
-  (cljsc/build 
-    (src-dir gist) 
-    (cljs-build-opts gist build-opts)) 
+  (cljsc/build
+    (src-dir gist)
+    (cljs-build-opts gist build-opts))
   (clean temp-dir gist)
   (compress gist)
   gist)
