@@ -72,6 +72,10 @@ The following javascript libraries are loaded and available:
 
 * [Ajax example (from stack overflow)](http://programming-enchiladas.destructuring-bind.org/mjg123/1098417)
 
+* [Core.async - Daisy chain benchmark](http://programming-enchiladas.destructuring-bind.org/swannodette/6542719)
+
+* [Core.async - Rob Pike](http://programming-enchiladas.destructuring-bind.org/swannodette/5903001)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or

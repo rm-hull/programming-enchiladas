@@ -229,6 +229,24 @@ div#error tr:hover {
     cursor: pointer;
 }
 
+div#console,
+canvas#world,
 svg#world {
     display: none;
+}
+
+div#console {
+    border:  1px solid #ddd;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    margin-bottom: 1em;
+    width: 800px;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+#console {
+    font-size: 75% !important;
+    color: #999988;
 }

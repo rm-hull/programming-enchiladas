@@ -23,9 +23,7 @@
               [:span.stars [:a {:href :# :title "Star this gist"} (get stats :stars 0) " \u2605"]]])
            [:div.gist-timestamp
             [:span.datetime "Last updated "
-             [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]
-
-           ]]]]
+             [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]]]]]
       [:div.gist-description
        [:p (gist :description)]]]))
 
@@ -44,7 +42,8 @@
          [:div#error]]
         [:section.container
          [:canvas#world { :width 800 :height 600 }]
-         [:svg#world]]
+         [:svg#world]
+         [:div#console]]
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container
          (include-js (url gist ".js"))]
