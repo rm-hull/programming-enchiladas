@@ -12,3 +12,4 @@ pom.xml
 .lein-env
 .lein-repl-history
 setenv.sh
+/.nrepl-port
