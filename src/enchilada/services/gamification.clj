@@ -22,9 +22,12 @@
   (when mongo-client
     (mc/find-one-as-map doc (id gist))))
 
-(defn star [gist n]
-  (when mongo-client
-    (mc/update doc (id gist) {$inc {:stars n}} :upsert true)))
+(defn star
+  ([gist]
+   (star gist 1))
+  ([gist n]
+   (when mongo-client
+     (mc/update doc (id gist) {$inc {:stars n}} :upsert true))))
 
 (defn unstar [gist]
   (when mongo-client

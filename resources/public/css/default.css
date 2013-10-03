@@ -4,6 +4,10 @@ html {
 	border:0;
 }
 
+body {
+    overflow-y: scroll;
+}
+
 body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, code,
@@ -139,6 +143,10 @@ div.author span {
     margin-left: 29px;
 }
 
+.stats {
+    float: right;
+}
+
 .gist-header {
     border-bottom: 1px solid #e5e5e5;
     position: relative;
@@ -147,11 +155,16 @@ div.author span {
     padding: 20px 0 0 0;
 }
 
+.stats,
 .gist-description {
     color: #666666;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 14px;
     line-height: 1.4;
+}
+
+.stars>a {
+    color: #666666!important;
 }
 
 .meta h1 {

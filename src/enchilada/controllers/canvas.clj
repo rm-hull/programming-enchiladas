@@ -40,9 +40,11 @@
     (catch Exception ex (serve-error ex))))
 
 (defn- create-model [id req]
-  { :debug (debug? req)
-    :optimization-level (get-in req [:params :optimization-level])
-    :gist (fetch id) })
+  (let [gist (fetch id)]
+    { :debug (debug? req)
+      :optimization-level (get-in req [:params :optimization-level])
+      :gist gist
+      :stats (gamification/view gist)}))
 
 (defn- perform-audits! [{:keys [gist] :as model}]
   (gamification/update gist)
