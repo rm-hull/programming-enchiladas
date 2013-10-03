@@ -80,6 +80,8 @@ The following javascript libraries are loaded and available:
 
 * [Core.logic - simple demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816151)
 
+* [Core.logic - Classic AI](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816234)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or
