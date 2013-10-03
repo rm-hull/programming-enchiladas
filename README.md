@@ -70,6 +70,8 @@ The following javascript libraries are loaded and available:
 
 * [Compilation error](http://programming-enchiladas.destructuring-bind.org/rm-hull/5272126)
 
+* [Ajax example (from stack overflow)](http://programming-enchiladas.destructuring-bind.org/mjg123/1098417)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or

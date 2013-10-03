@@ -1,7 +1,7 @@
 (ns enchilada.util.fs
   (:use [enchilada.util.gist :only [last-modified]])
   (:require [clojure.java.io :as io]
-            [me.raynes.fs :as fs]) 
+            [me.raynes.fs :as fs])
   (:import [java.util.zip GZIPInputStream GZIPOutputStream]
            [java.io File]))
 
@@ -45,15 +45,20 @@
   (when last-modified
     (.setLastModified file last-modified)))
 
+(defn- add-namespace [^String content]
+  (if (neg? (.indexOf content "(ns"))
+    (str "(ns " (gensym) ")\n\n" content)
+    content))
+
 (defn persist [gist]
   (clean src-dir gist)
   (let [last-modified (last-modified gist)
         dir           (src-dir gist)]
     (doseq [{filename :filename content :content} (vals (:files gist))]
-      (write-file (io/file dir filename) content last-modified))))
+      (write-file (io/file dir filename) (add-namespace content) last-modified))))
 
 (defn prepare [gist]
-  (fs/mkdirs (fs/parent (io/file (output-file gist)))) 
+  (fs/mkdirs (fs/parent (io/file (output-file gist))))
   (persist gist)
   (io/copy (io/file "src/client/enchilada.cljs") (io/file (src-dir gist) "__init.cljs"))
   (clean temp-dir gist))
@@ -64,10 +69,10 @@
     (gzip plain compressed)
     (delete plain)))
 
-(defn stale? 
-  "Checks to see if the generated javascript is stale (older than) 
+(defn stale?
+  "Checks to see if the generated javascript is stale (older than)
    compared to the last modified time on the gist"
   [gist]
-  (< 
-    (fs/mod-time (io/file (gzip-file gist))) 
+  (<
+    (fs/mod-time (io/file (gzip-file gist)))
     (last-modified gist)))
