@@ -78,6 +78,8 @@ The following javascript libraries are loaded and available:
 
 * [Core.async - Hello world!](http://programming-enchiladas.destructuring-bind.org/swannodette/5882703)
 
+* [Core.logic - simple demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816151)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or
