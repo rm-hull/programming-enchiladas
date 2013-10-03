@@ -76,6 +76,8 @@ The following javascript libraries are loaded and available:
 
 * [Core.async - Rob Pike](http://programming-enchiladas.destructuring-bind.org/swannodette/5903001)
 
+* [Core.async - Hello world!](http://programming-enchiladas.destructuring-bind.org/swannodette/5882703)
+
 ## Prerequisites
 
 You will need [Leiningen](https://github.com/technomancy/leiningen) 2.1.2 or
