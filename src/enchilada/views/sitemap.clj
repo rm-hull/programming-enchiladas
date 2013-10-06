@@ -8,13 +8,13 @@
   (:require [me.raynes.fs :as fs])
   (:import [java.io File]))
 
-(defn is-compressed-js? [^File f]
+(defn is-js? [^File f]
   (and
     (fs/file? f)
-    (.endsWith (.getName f) ".gz")))
+    (.endsWith (.getName f) ".js")))
 
 (defn work-files* [^File dir]
-  (filter is-compressed-js? (file-seq dir)))
+  (filter is-js? (file-seq dir)))
 
 (defn parent-and-name [^File f]
   (str (fs/name (fs/parent f)) "/" (fs/name f)))

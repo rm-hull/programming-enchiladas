@@ -3,7 +3,7 @@
         [ring.util.response :only [status file-response response content-type header]]
         [hiccup.core]
         [enchilada.util.compiler :only [regenerate-if-stale]]
-        [enchilada.util.fs :only [gzip-file]]
+        [enchilada.util.fs :only [output-file]]
         [enchilada.util.gist :only [fetch]]
         [enchilada.views.common :only [html-exception]]
         [enchilada.views.canvas :only [render-page]])
@@ -16,10 +16,9 @@
 (defn- serve-js [{:keys [gist] :as build-opts}]
   (->
     (regenerate-if-stale gist build-opts)
-    (gzip-file)
+    (output-file)
     (file-response)
-    (content-type "application/javascript")
-    (header "Content-Encoding" "gzip")))
+    (content-type "application/javascript")))
 
 (defn- serve-source-map [path]
   (->

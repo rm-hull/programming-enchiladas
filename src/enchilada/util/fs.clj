@@ -2,12 +2,10 @@
   (:use [enchilada.util.gist :only [last-modified]])
   (:require [clojure.java.io :as io]
             [me.raynes.fs :as fs])
-  (:import [java.util.zip GZIPInputStream GZIPOutputStream]
-           [java.io File]))
+  (:import [java.io File]))
 
 (defn- paths [& paths]
   (interpose "/" (flatten paths)))
-
 
 (defn filename-template [prefix & suffix]
   (fn [gist]
@@ -16,17 +14,6 @@
 (def src-dir     (filename-template "src" "/"))
 (def temp-dir    (filename-template "tmp" "/"))
 (def output-file (filename-template "out" ".js"))
-(def gzip-file   (filename-template "out" ".gz"))
-
-; Attribution: https://gist.github.com/bpsm/1858654
-(defn gzip
-  "Writes the contents of input to output, compressed.
-  input: something which can be copied from by io/copy.
-  output: something which can be opend by io/output-stream.
-      The bytes written to the resulting stream will be gzip compressed."
-  [input output & opts]
-  (with-open [output (-> output io/output-stream GZIPOutputStream.)]
-    (apply io/copy input output opts)))
 
 ; Attribution: http://clojurescriptone.com/
 (defn delete
@@ -63,16 +50,10 @@
   (io/copy (io/file "src/client/enchilada.cljs") (io/file (src-dir gist) "__init.cljs"))
   (clean temp-dir gist))
 
-(defn compress [gist]
-  (let [plain      (io/file (output-file gist))
-        compressed (gzip-file gist)]
-    (gzip plain compressed)
-    (delete plain)))
-
 (defn stale?
   "Checks to see if the generated javascript is stale (older than)
    compared to the last modified time on the gist"
   [gist]
   (<
-    (fs/mod-time (io/file (gzip-file gist)))
+    (fs/mod-time (io/file (output-file gist)))
     (last-modified gist)))

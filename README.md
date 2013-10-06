@@ -30,6 +30,9 @@ following client-side clojureScript bindings are available:
 | jayq.* | https://github.com/ibdknox/jayq jQuery bindings. |
 | c2.* | Kerninglabs C2 data visualization library. |
 | vomnibus.* | https://github.com/lynaghk/vomnibus bindings. |
+| cljs.core.logic/* | MiniKanren implementation. |
+| cljs.core.async/* | Communicating sequential processes implementation. |
+| recursion.priority-map/* | Clojurescript implementation of data.priority-map |
 
 The following javascript libraries are loaded and available:
 
@@ -41,6 +44,8 @@ The following javascript libraries are loaded and available:
 ## Examples
 
 * [Turtle graphics demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/5229369)
+
+* [Dijkstra's Maze Solver](http://programming-enchiladas.destructuring-bind.org/rm-hull/6857333)
 
 * [US Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
 
@@ -112,7 +117,7 @@ increase the rate limit to 5000 requests per hour:
 
     $ export GITHUB_OAUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-or 
+or
 
     $ heroku config:add GITHUB_OAUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -126,6 +131,10 @@ Q. Why doesn't my clojurescript compile, it looks ok?
 A1. Did you include a namespace? e.g. `(ns example)`
 
 A2. Did you name it with a .cljs extension? 
+
+### NEW! Now supports source maps
+
+Clojurescript debugging/line-stepping in Chrome is now supported. And it works really well! :)
 
 ## TODO
 

@@ -23,10 +23,7 @@
   (cljsc/build
     (src-dir gist)
     (cljs-build-opts gist build-opts))
-  (clean temp-dir gist)
-  (compress gist)
   gist)
-
 
 (defn regenerate-if-stale [gist build-opts]
   (if (or (:debug build-opts) (stale? gist))
