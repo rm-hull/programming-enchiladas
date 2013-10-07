@@ -28,7 +28,9 @@
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")
-     (ga/generate-tracking-script (System/getenv "GA_TRACKING_ID"))]
+     (ga/generate-tracking-script
+       (System/getenv "GA_TRACKING_ID")
+       (System/getenv "SITE_URL"))]
     [:body
      [:div#wrapper content]]))
 
