@@ -3,7 +3,8 @@
         hiccup.page
         clj-stacktrace.core
         clj-stacktrace.repl
-        enchilada.util.gist))
+        enchilada.util.gist)
+  (:require [enchilada.util.google-analytics :as ga]))
 
 (defn url [gist & suffixes]
   (apply str "https://gist.github.com/" (login-id gist) suffixes))
@@ -27,7 +28,7 @@
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")
-     ]
+     (ga/generate-tracking-script (System/getenv "GA_TRACKING_ID"))]
     [:body
      [:div#wrapper content]]))
 
