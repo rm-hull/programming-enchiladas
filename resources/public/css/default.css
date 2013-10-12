@@ -17,7 +17,6 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section {
 	margin: 0;
-	padding: 0;
 	border: 0;
 	font-weight: inherit;
 	font-style: inherit;
@@ -249,4 +248,20 @@ div#console {
 #console {
     font-size: 75% !important;
     color: #999988;
+}
+.markdown-body {
+    padding: 20px;
+    font: 13.34px Helvetica, arial, freesans, clean, sans-serif;
+    background-color: white;
+    font-size: 15px;
+    line-height: 1.7;
+}
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+i, cite, em, var, address, dfn {
+    font-style: italic;
 }
