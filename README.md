@@ -66,7 +66,7 @@ The following javascript libraries are loaded and available:
 * [Core.logic - simple demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816151)
 * [Core.logic - Classic AI](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816234)
 * [Core.logic - Unit Test Suite](http://programming-enchiladas.destructuring-bind.org/rm-hull/6859633)
-* [Core.logic - Einstein's Puzzle](http://programming-enchiladas.destructuring-bind.org/rm-hull/6952960)
+* [Core.logic - Einstein's Zebra Puzzle](http://programming-enchiladas.destructuring-bind.org/rm-hull/6952960)
 
 ## Prerequisites
 
