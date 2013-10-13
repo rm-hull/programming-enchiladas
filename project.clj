@@ -4,7 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1913"]
+                 [org.clojure/clojurescript "0.0-1934"]
                  [org.clojure/data.json "0.2.3"]
                  [org.clojure/data.xml "0.0.7"]
                  [tailrecursion/cljs-priority-map "1.0.2"]
@@ -25,8 +25,8 @@
                  [prismatic/dommy "0.1.2"]
                  [com.novemberain/monger "1.6.0"]
                  [me.raynes/fs "1.4.5"]
-                 [rm-hull/monet "0.1.8"]
-                 [rm-hull/turtle "0.1.6"]
+                 [rm-hull/monet "0.1.9"]
+                 [rm-hull/turtle "0.1.8"]
                  [rm-hull/ring-gzip-middleware "0.1.6"]]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
