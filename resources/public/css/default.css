@@ -150,7 +150,7 @@ div.author span {
     border-bottom: 1px solid #e5e5e5;
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 20px 0 0 0;
 }
 
@@ -264,4 +264,25 @@ div#console {
 }
 i, cite, em, var, address, dfn {
     font-style: italic;
+}
+.gallery-parent {
+}
+.gallery-panel {
+    display: inline-block;
+    width: 450px;
+    vertical-align: top;
+    padding: 20px 20px 0 0;
+}
+h1 {
+    color: #4183c4;
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: -1px;
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+}
+.gist-description a {
+    color: #4183c4;
+} 
+.gist-description p {
+    padding-bottom: 10px;
 }

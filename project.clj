@@ -12,7 +12,7 @@
                  [org.clojure/core.logic "0.8.4"]
                  ;[org.clojure/core.match "0.2.0"]
                  [org.clojure/core.typed "0.2.13"]
-                 [clj-stacktrace "0.2.6"]
+                 [clj-stacktrace "0.2.7"]
                  [clj-http "0.7.7"]
                  [clj-time "0.6.0"]
                  [compojure "1.1.5"]
