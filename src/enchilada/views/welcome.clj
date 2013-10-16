@@ -1,6 +1,6 @@
 (ns enchilada.views.welcome
   (:use [compojure.core :only [defroutes GET]]
-        [ring.util.response :only [redirect file-response response]]
+        [ring.util.response :only [redirect file-response response header]]
         [hiccup.core :only [html]]
         [enchilada.util.time-ago]
         [enchilada.util.gist :only [login-id]]
@@ -57,9 +57,12 @@
 
 (defn fetch-image [login id]
   (let [filename (image-file {:id id :user {:login login}})]
-    (if (fs/exists? (io/file filename))
-      (file-response filename)
-      (file-response "resources/public/images/coming-soon.png"))))
+    (->
+      (if (fs/exists? (io/file filename))
+        filename
+        "resources/public/images/coming-soon.png")
+      (file-response)
+      (header "Cache-Control" "max-age=3600, must-revalidate"))))
 
 (defroutes routes
   (GET "/robots.txt" [] (file-response "resources/private/robots.txt"))
