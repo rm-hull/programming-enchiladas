@@ -1,4 +1,4 @@
-Programming Enchiladas
+[Programming Enchiladas](http://programming-enchiladas.destructuring-bind.org)
 ======================
 
 A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ 
@@ -32,7 +32,7 @@ following client-side clojureScript bindings are available:
 | vomnibus.* | https://github.com/lynaghk/vomnibus bindings. |
 | cljs.core.logic/* | MiniKanren implementation. |
 | cljs.core.async/* | Communicating sequential processes implementation. |
-| recursion.priority-map/* | Clojurescript implementation of data.priority-map |
+| tailrecursion.priority-map/* | Clojurescript implementation of data.priority-map |
 
 The following javascript libraries are loaded and available:
 
