@@ -199,6 +199,7 @@ div#error h1 {
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 20px;
     font-weight: bold;
+    color: black;
     background: url("../images/error.png") no-repeat;
     background-size: 24px;
     padding-left: 24px;
