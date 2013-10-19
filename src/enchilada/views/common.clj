@@ -26,6 +26,7 @@
      (include-css "/assets/css/spinner.css")
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+     (include-js "https://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")
      (ga/generate-tracking-script

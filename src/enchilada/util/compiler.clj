@@ -12,8 +12,9 @@
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
                        :pretty-print false
                        :static-fns true
-                       :externs ["externs"]
-                       :libs ["resources/private/js/singult.js"] }]
+                       :externs ["resources/private/externs"]
+                       :libs ["resources/private/js/singult.js"
+                              "resources/private/js/three.js" ] }]
         (if debug
           (merge defaults {:optimizations :simple, :pretty-print true})
           defaults)))))
