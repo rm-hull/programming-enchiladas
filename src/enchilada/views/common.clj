@@ -51,6 +51,9 @@
 (defn remove-newlines [s]
   (clojure.string/replace s "\n" " "))
 
+(defn replace-apostrophes [s]
+  (clojure.string/replace s "'" "\\'"))
+
 (defn html-exception [ex]
   (let [ex-seq    (iterate :cause (parse-exception ex))
         exception (first ex-seq)
@@ -65,7 +68,7 @@
           [:div#causes
            [:h3.info "Caused by: "
                     (h (.getName (:class cause))) " "
-                    (h (remove-newlines (:message cause)))]
+                    (h (remove-newlines (replace-apostrophes (:message cause))))]
            [:table.trace
              [:tbody (map elem-partial (:trimmed-elems cause))]]])])))
 
