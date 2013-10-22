@@ -263,6 +263,22 @@ div#console {
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
     margin: 15px 0;
 }
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    margin: 1em 0 15px;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.7;
+    cursor: text;
+    position: relative;
+}
+.markdown-body hr {
+    background: transparent url(../images/dirty-shade.png) repeat-x 0 0;
+    border: 0 none;
+    color: #ccc;
+    height: 4px;
+    padding: 0;
+    margin: 15px 0;
+}
 i, cite, em, var, address, dfn {
     font-style: italic;
 }
@@ -287,3 +303,4 @@ h1 {
 .gist-description p {
     padding-bottom: 10px;
 }
+
