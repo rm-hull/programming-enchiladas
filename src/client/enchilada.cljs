@@ -1,6 +1,8 @@
 (ns enchilada
-  (:use [monet.canvas :only [get-context]]
-        [jayq.core :only [$ hide show append]]))
+  (:use
+    [clojure.string :only [split]]
+    [monet.canvas :only [get-context]]
+    [jayq.core :only [$ hide show append]]))
 
 (def console ($ "div#console"))
 (def canvas ($ :canvas#world))
