@@ -27,6 +27,7 @@
                  [me.raynes/fs "1.4.5"]
                  [rm-hull/monet "0.1.9"]
                  [rm-hull/turtle "0.1.8"]
+                 [rm-hull/wireframes "0.0.1-SNAPSHOT"]
                  [rm-hull/ring-gzip-middleware "0.1.6"]]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
