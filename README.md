@@ -121,23 +121,25 @@ Clojurescript debugging/line-stepping in Chrome is now supported. And it works r
 
 ## TODO
 
-* UI -> home page (carousel of recently viewed, most viewed, rated, etc)
+* ~~UI -> home page (carousel of recently viewed, most viewed, rated, etc)~~
 
 * UI -> allow in-page editing
 
-* Stats / tracking
+* ~~Stats / tracking~~
 
 * More examples
 
 * Documentation
 
-* Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)
+* ~~Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)~~
 
-* Sitemap based on mongo-db rather than Heroku's ephemeral FS.
+* ~~Sitemap based on mongo-db rather than Heroku's ephemeral FS.~~
 
 * Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
 
 * Arbor externs doesnt work properly
+
+* Automatic screenshot capability with https://github.com/ariya/phantomjs/wiki/Screen-Capture
 
 ## Contributing
 
