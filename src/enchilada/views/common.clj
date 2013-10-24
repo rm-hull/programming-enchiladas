@@ -17,11 +17,30 @@
           (html
             [:div {:class (str "bar" x)}]))]]))
 
-(defn layout [title & content]
+(def home-url "/")
+
+(def keywords "clojure,clojurescript,gist,programming,lisp,github,html5,canvas,svg,javascript,algorithms,computer,science,noir,compojure,ring,middleware,lein,leiningen")
+
+(def blurb "A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ but geared specifically for on-the-fly ClojuresScript code generation.")
+
+(def header-bar
+  [:div.header
+   [:section.container
+    [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
+    [:div.command-bar
+     [:ul.top-nav]]]])
+
+(defn layout [& {:keys [title content refresh]}]
   (html5
     [:head
      [:title title]
+     [:meta {:name "keywords" :content keywords}]
+     [:meta {:name "description" :content blurb}]
+
+     (when refresh
+       [:meta {:http-equiv "refresh" :content refresh}])
      [:link {:rel "icon" :type "image/png" :href "/assets/images/favicon.png"}]
+     (include-css "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
      (include-css "/assets/css/default.css")
      (include-css "/assets/css/spinner.css")
      (include-css "/assets/css/ribbon.css")
@@ -33,6 +52,7 @@
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]
     [:body
+     [:div#wrapper header-bar]
      [:div#wrapper content]]))
 
 (defn ribbon [text href]

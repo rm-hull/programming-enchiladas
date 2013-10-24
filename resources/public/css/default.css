@@ -57,9 +57,9 @@ blockquote, q { quotes: "" ""; }
 
 a img { border: none; }
 
-div#wrapper {
+/*div#wrapper {
     min-height: 98%;
-}
+}*/
 
 div#info {
     position: absolute;
@@ -303,4 +303,29 @@ h1 {
 .gist-description p {
     padding-bottom: 10px;
 }
+.header {
+    background-color: #f3f3f3;
+    background-image: -moz-linear-gradient(#f9f9f9, #f3f3f3);
+    background-image: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
+    background-image: linear-gradient(#f9f9f9, #f3f3f3);
+    background-repeat: repeat-x;
+    text-shadow: 0 1px 0 #fff;
+    border-bottom: 1px solid #e5e5e5;
+    min-width: 1000px;
+    line-height: 40px;
+    height: 40px;
+}
 
+.header a {
+    text-decoration: none;
+    padding-top: 5px;
+    font: 13px Helvetica, arial, freesans, clean, sans-serif;
+    font-weight: bold;
+    color: #333333;
+    transition: all 0.1s ease-in;
+    -webkit-transition: all 0.1s ease-in 0;
+}
+
+.header a:hover {
+    color: #4183c4;
+}

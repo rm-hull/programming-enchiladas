@@ -41,10 +41,12 @@
   (let [files    (work-files* is-json? (io/file "work/gists/cache"))
         pick-ten (take 10 (sort-by (fn [x] (rand)) files))
         gists    (map (comp fetch-gist filename->gist) pick-ten)]
-    (layout "Programming Enchiladas :: Gallery"
-      (html
+    (layout
+      :title "Programming Enchiladas :: Gallery"
+      :refresh 60
+      :content
         [:section.container
-          [:h1 "Programming Enchiladas :: Gallery"]
+          [:h1 [:i.fa.fa-film.fa-x2] "&nbsp;&nbsp;Gallery"]
           [:div.gist-description
             [:p "A sort-of gist for ClojureScript/canvas/SVG experiments, much like "
                [:a {:href "http://bl.ocks.org/"} "http://bl.ocks.org/"]
@@ -53,7 +55,7 @@
 
           [:div.gallery-parent
            (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-           (map gallery-panel gists)]]))))
+           (map gallery-panel gists)]])))
 
 (defn fetch-image [login id]
   (let [filename (image-file {:id id :user {:login login}})]

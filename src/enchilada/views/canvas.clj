@@ -33,8 +33,9 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
-  (layout (str "Programming Enchiladas: " (get-in gist [:user :login]) " / " (:filename (first (vals (:files gist)))))
-    (html
+  (layout
+    :title (str "Programming Enchiladas :: " (get-in gist [:user :login]) " / " (:filename (first (vals (:files gist)))))
+    :content
       [:div
         (spinner "container grey")
         (meta-info gist stats)
@@ -47,5 +48,4 @@
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container
          (include-js (url gist ".js"))]
-        (include-js (str "/cljs/" (:id gist) (query-params model)))
-       ])))
+        (include-js (str "/cljs/" (:id gist) (query-params model)))]))
