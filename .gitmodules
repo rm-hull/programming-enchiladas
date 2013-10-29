@@ -1,0 +1,57 @@
+[submodule "gists/boids"]
+	path = gists/boids
+	url = https://gist.github.com/7145520.git
+[submodule "gists/torus"]
+	path = gists/torus
+	url = https://gist.github.com/7078992.git
+[submodule "gists/quine"]
+	path = gists/quine
+	url = https://gist.github.com/7060918.git
+[submodule "gists/zebra-puzzle"]
+	path = gists/zebra-puzzle
+	url = https://gist.github.com/6952960.git
+[submodule "gists/maze"]
+	path = gists/maze
+	url = https://gist.github.com/6857333.git
+[submodule "gists/autostereogram"]
+	path = gists/autostereogram
+	url = https://gist.github.com/5736733.git
+[submodule "gists/penrose-tiling"]
+	path = gists/penrose-tiling
+	url = https://gist.github.com/5732587.git
+[submodule "gists/digraph"]
+	path = gists/digraph
+	url = https://gist.github.com/5694738.git
+[submodule "gists/world-choropleth"]
+	path = gists/world-choropleth
+	url = https://gist.github.com/5537192.git
+[submodule "gists/psychedelic-animation"]
+	path = gists/psychedelic-animation
+	url = https://gist.github.com/5522065.git
+[submodule "gists/us-choropleth"]
+	path = gists/us-choropleth
+	url = https://gist.github.com/5514551.git
+[submodule "gists/arnolds-cat-map"]
+	path = gists/arnolds-cat-map
+	url = https://gist.github.com/5491968.git
+[submodule "gists/heighways-dragon"]
+	path = gists/heighways-dragon
+	url = https://gist.github.com/5285431.git
+[submodule "gists/chroma-spirals"]
+	path = gists/chroma-spirals
+	url = https://gist.github.com/5278162.git
+[submodule "gists/turmites"]
+	path = gists/turmites
+	url = https://gist.github.com/5259306.git
+[submodule "gists/flower-of-life"]
+	path = gists/flower-of-life
+	url = https://gist.github.com/5257851.git
+[submodule "gists/champernowne"]
+	path = gists/champernowne
+	url = https://gist.github.com/5233367.git
+[submodule "gists/turtle-demo"]
+	path = gists/turtle-demo
+	url = https://gist.github.com/5229369.git
+[submodule "gists/simple-demo"]
+	path = gists/simple-demo
+	url = https://gist.github.com/5201050.git
