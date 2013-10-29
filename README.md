@@ -44,6 +44,7 @@ The following javascript libraries are loaded and available:
 ## Examples
 
 * [Tumbling 3D Torus](http://programming-enchiladas.destructuring-bind.org/rm-hull/7098992)
+* [Boids!](http://programming-enchiladas.destructuring-bind.org/rm-hull/7145520)
 * [Dijkstra's Maze Solver](http://programming-enchiladas.destructuring-bind.org/rm-hull/6857333)
 * [US Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5514551)
 * [World Choropleth C2](http://programming-enchiladas.destructuring-bind.org/rm-hull/5537192)
