@@ -43,7 +43,7 @@
         gists    (map (comp fetch-gist filename->gist) pick-ten)]
     (layout
       :title "Programming Enchiladas :: Gallery"
-      :refresh 60
+      :refresh 300
       :content
         [:section.container
           [:h1 [:i.fa.fa-film.fa-x2] "&nbsp;&nbsp;Gallery"]
@@ -63,8 +63,7 @@
       (if (fs/exists? (io/file filename))
         filename
         "resources/public/images/coming-soon.png")
-      (file-response)
-      (header "Cache-Control" "max-age=3600, must-revalidate"))))
+      (file-response))))
 
 (defroutes routes
   (GET "/robots.txt" [] (file-response "resources/private/robots.txt"))

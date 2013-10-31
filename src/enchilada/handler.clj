@@ -33,7 +33,7 @@
     (handler/site app-routes)
     (wrap-filesystem-object #"^.+\.cljs$")
     (wrap-gzip)
-    (wrap-cache-control {:max-age 3600 :public false :must-revalidate true} #{"/img" "/css" "/js"})
+    (wrap-cache-control {:max-age 2592000 :public true :must-revalidate true} #{"/img" "/css" "/js" "/images"})
     (wrap-base-url)
     (wrap-params)))
 
