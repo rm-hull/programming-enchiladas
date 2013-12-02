@@ -59,7 +59,6 @@
 
 (defn fetch-image [id]
   (let [filename (image-file {:id id})]
-    (println filename)
     (->
       (if (fs/exists? (io/file filename))
         filename
