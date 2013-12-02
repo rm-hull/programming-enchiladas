@@ -3,9 +3,9 @@
         [ring.middleware.params :only [wrap-params]]
         [ring.middleware.gzip :only [wrap-gzip]]
         [enchilada.middleware.cache :only [wrap-cache-control]]
-        [enchilada.middleware.fso :only [wrap-filesystem-object]]
         [hiccup.middleware :only [wrap-base-url]]
-        [enchilada.util.keepalive :only [ping]])
+        [enchilada.util.keepalive :only [ping]]
+        [enchilada.util.fs])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [enchilada.controllers.canvas :as canvas]
@@ -31,7 +31,6 @@
 (def app
   (->
     (handler/site app-routes)
-    (wrap-filesystem-object #"^.+\.cljs$")
     (wrap-gzip)
     (wrap-cache-control {:max-age 2592000 :public true :must-revalidate true} #{"/img" "/css" "/js" "/images"})
     (wrap-base-url)

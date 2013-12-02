@@ -8,7 +8,7 @@
       (let [output-file (output-file gist)
             defaults { :output-to output-file
                        :source-map (str output-file ".map")
-                       :output-dir (temp-dir gist)
+                       :output-dir (output-dir gist)
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
                        :pretty-print false
                        :static-fns true

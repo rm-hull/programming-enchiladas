@@ -3,7 +3,7 @@
         [ring.util.response :only [status file-response response content-type header]]
         [hiccup.core]
         [enchilada.util.compiler :only [regenerate-if-stale]]
-        [enchilada.util.fs :only [output-file]]
+        [enchilada.util.fs :only [output-file output-dir]]
         [enchilada.util.gist :only [fetch]]
         [enchilada.views.common :only [html-exception]]
         [enchilada.views.canvas :only [render-page]])
@@ -20,10 +20,10 @@
     (file-response)
     (content-type "application/javascript")))
 
-(defn- serve-source-map [path]
+(defn- serve-source-file [path file-type]
   (->
     (file-response path)
-    (content-type "application/json")))
+    (content-type file-type)))
 
 (defn- serve-error [ex]
   (->
@@ -50,11 +50,17 @@
   model)
 
 (defroutes routes
-  (GET "/cljs/work/gists/out/:login/:id" [login id :as req]
-       (serve-source-map (subs (:uri req) 6)))
 
-  (GET "/cljs/:id" [id :as req]
-       (-> (create-model id req) (wrap-error-handler serve-js)) )
+  (GET ["/cljs/:id", :id #"\d+$"] [id :as req]
+       (-> (create-model id req) (wrap-error-handler serve-js)))
+
+  (GET "/cljs/*" [:as req]
+       (let [path (subs (:uri req) 6)]
+         (serve-source-file
+           (str (output-dir nil) path)
+           (if (.endsWith path ".js.map")
+             "application/json"
+             "text/plain"))))
 
   (GET "/:login/:id" [login id :as req]
        (-> (create-model id req) perform-audits! render-page)))

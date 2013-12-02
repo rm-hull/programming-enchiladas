@@ -1,6 +1,6 @@
 (ns enchilada.views.welcome
   (:use [compojure.core :only [defroutes GET]]
-        [ring.util.response :only [redirect file-response response header]]
+        [ring.util.response :only [redirect file-response response header content-type]]
         [hiccup.core :only [html]]
         [enchilada.util.time-ago]
         [enchilada.util.gist :only [login-id]]
@@ -27,7 +27,7 @@
        [:p (gist :description)]]
       [:div.gallery-picture
        [:a {:href (str (gist :user :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
-         [:img {:src (str "images/" login-id ".png") :width 400 :height 300}]]]]))
+         [:img {:src (str "images/" (gist :id) ".png") :width 400 :height 300}]]]]))
 
 (def is-json? (partial is-filetype? ".json"))
 
@@ -57,15 +57,17 @@
            (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
            (map gallery-panel gists)]])))
 
-(defn fetch-image [login id]
-  (let [filename (image-file {:id id :user {:login login}})]
+(defn fetch-image [id]
+  (let [filename (image-file {:id id})]
+    (println filename)
     (->
       (if (fs/exists? (io/file filename))
         filename
         "resources/public/images/coming-soon.png")
-      (file-response))))
+      (file-response)
+      (content-type "image/png"))))
 
 (defroutes routes
   (GET "/robots.txt" [] (file-response "resources/private/robots.txt"))
-  (GET "/images/:login/:id.png" [login id] (fetch-image login id))
+  (GET "/images/:id.png" [id] (fetch-image id))
   (GET "/" [] welcome))

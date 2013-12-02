@@ -10,13 +10,14 @@
 
 (defn filename-template [prefix & suffix]
   (fn [gist]
-    (apply str (concat (paths "work" "gists" prefix (get-in gist [:user :login]) (:id gist)) suffix))))
+    (apply str (concat (paths "work" "gists" prefix (:id gist)) suffix))))
 
 (def src-dir     (filename-template "src" "/"))
 (def temp-dir    (filename-template "tmp" "/"))
 (def cache-file  (filename-template "cache" ".json"))
 (def image-file  (filename-template "images" ".png"))
 (def output-file (filename-template "out" ".js"))
+(def output-dir  (filename-template "out" "/"))
 
 ; Attribution: http://clojurescriptone.com/
 (defn delete
