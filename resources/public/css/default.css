@@ -230,8 +230,8 @@ div#error tr:hover {
 }
 
 div#console,
-canvas#world,
-svg#world {
+canvas#canvas-area,
+svg#svg-area {
     display: none;
 }
 
