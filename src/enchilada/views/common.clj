@@ -52,8 +52,8 @@
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]
     [:body
-     [:div#wrapper header-bar]
-     [:div#wrapper content]]))
+     [:div.wrapper header-bar]
+     [:div.wrapper content]]))
 
 (defn ribbon [text href]
   (html
