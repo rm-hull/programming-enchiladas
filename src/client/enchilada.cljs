@@ -4,10 +4,10 @@
     [monet.canvas :only [get-context]]
     [jayq.core :only [$ hide show append]]))
 
-(def console ($ "div#console"))
-(def canvas ($ :canvas#world))
-(def ctx    (get-context (.get canvas 0) "2d"))
-(def svg    ($ :svg#world))
+(def console   ($ "div#console"))
+(def canvas    ($ :#canvas-area))
+(def ctx       (get-context (.get canvas 0) "2d"))
+(def svg       ($ :#svg-area))
 
 (set! *print-fn*
      (fn [s]

@@ -42,10 +42,10 @@
         [:section.container
          [:div#error]]
         [:section.container
-         [:canvas#world { :width 800 :height 600 }]
-         [:svg#world]
+         [:canvas#canvas-area { :width 800 :height 600 }]
+         [:svg#svg-area]
          [:div#console]]
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container
          (include-js (url gist ".js"))]
-        (include-js (str "/cljs/" (:id gist) (query-params model)))]))
+        (include-js (str "/_cljs/" (get-in gist [:user :login]) "/" (:id gist) "/generated.js" (query-params model)))]))
