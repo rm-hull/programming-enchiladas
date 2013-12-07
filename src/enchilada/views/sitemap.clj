@@ -11,7 +11,7 @@
 (defn parent-and-name [^File f]
   (str (fs/name (fs/parent f)) "/" (fs/name f)))
 
-(def is-js? (partial is-filetype? ".js"))
+(def is-json? (partial is-filetype? ".json"))
 
 (defn url-element [url chg-freq priority]
   (fn [^File f]
@@ -24,11 +24,11 @@
 (defn generate-sitemap [base-url work-dir]
   (sexp-as-element
     [:urlset {:xmlns "http://www.sitemaps.org/schemas/sitemap/0.9"}
-      (map (url-element base-url :weekly 0.5) (work-files* is-js? work-dir))]))
+      (map (url-element base-url :weekly 0.5) (work-files* is-json? work-dir))]))
 
 (defroutes routes
   (GET "/sitemap.xml" [:as req]
     (let [base-url (str (name (:scheme req)) "://" (:server-name req) ":" (:server-port req))]
       (->
-        (response (emit-str (generate-sitemap base-url (io/file "work/gists/out"))))
+        (response (emit-str (generate-sitemap base-url (io/file "work/gists/cache"))))
         (content-type "text/xml")))))
