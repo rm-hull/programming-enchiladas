@@ -43,6 +43,7 @@
          [:div#error]]
         [:section.container
          [:canvas#canvas-area { :width 800 :height 600 }]
+         [:canvas#webgl-area { :width 800 :height 600 }]
          [:svg#svg-area]
          [:div#console]]
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")

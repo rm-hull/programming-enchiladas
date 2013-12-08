@@ -4,10 +4,12 @@
     [monet.canvas :only [get-context]]
     [jayq.core :only [$ hide show append]]))
 
-(def console   ($ "div#console"))
-(def canvas    ($ :#canvas-area))
-(def ctx       (get-context (.get canvas 0) "2d"))
-(def svg       ($ :#svg-area))
+(def console ($ "div#console"))
+(def canvas  ($ :#canvas-area))
+(def svg     ($ :#svg-area))
+(def webgl   ($ :#webgl-area))
+
+(def ctx (get-context (.get canvas 0) "2d"))
 
 (set! *print-fn*
      (fn [s]
@@ -43,5 +45,19 @@
 
 (defn url-params []
   (get-params (.-search (.-location js/window))))
+
+(defn to-js [x]
+  (cond
+    (map? x)
+      (let [out (js/Object.)]
+        (doseq [[k v] x]
+          (aset out (name k) (to-js v)))
+        out)
+
+    (= (type x) (type []))
+      (apply array (map to-js x))
+
+    :else x))
+
 
 (hide ($ :div#spinner))
