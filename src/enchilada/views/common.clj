@@ -19,7 +19,7 @@
 
 (def home-url "/")
 
-(def keywords "clojure,clojurescript,gist,programming,lisp,github,html5,canvas,svg,javascript,algorithms,computer,science,noir,compojure,ring,middleware,lein,leiningen")
+(def keywords "clojure,clojurescript,gist,programming,lisp,github,html5,canvas,svg,webgl,3d,javascript,algorithms,computer,science,noir,compojure,ring,middleware,lein,leiningen")
 
 (def blurb "A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ but geared specifically for on-the-fly ClojuresScript code generation.")
 
@@ -45,7 +45,7 @@
      (include-css "/assets/css/spinner.css")
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
-     (include-js "/assets/js/PhiloGL.cli.js")
+     (include-js "/assets/js/PhiloGL.cls.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")
      (ga/generate-tracking-script
