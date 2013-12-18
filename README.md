@@ -38,6 +38,7 @@ The following javascript libraries are loaded and available:
 
 * http://jquery.com/ v2.0.1
 * http://arborjs.org/ v0.9.2
+* http://www.senchalabs.org/philogl/ v1.5.2
 
 **NOTE**: This software is definitely alpha work-in-progress, please treat as such.
 
@@ -124,24 +125,16 @@ Clojurescript debugging/line-stepping in Chrome is now supported. And it works r
 ## TODO
 
 * ~~UI -> home page (carousel of recently viewed, most viewed, rated, etc)~~
-
 * UI -> allow in-page editing
-
 * ~~Stats / tracking~~
-
 * More examples
-
 * Documentation
-
 * ~~Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)~~
-
 * ~~Sitemap based on mongo-db rather than Heroku's ephemeral FS.~~
-
 * Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
-
-* Arbor externs doesnt work properly
-
+* Arbor/PhiloGL externs don't work properly
 * Automatic screenshot capability with https://github.com/ariya/phantomjs/wiki/Screen-Capture
+* Add CORS headers to proxy
 
 ## Contributing
 
@@ -155,15 +148,10 @@ for commit access.
 ## References
 
 * _The (New) Turing Omnibus_, A.K.Dewdney
-
 * http://himera.herokuapp.com/index.html
-
 * http://codepen.io/stuffit/pen/KrAwx
-
 * http://js1k.com/2013-spring/demo/1362
-
 * http://bl.ocks.org
-
 * [Closure Compiler Externs Extractor](http://www.dotnetwise.com/Code/Externs/)
 
 ## License
