@@ -50,7 +50,7 @@
   model)
 
 (defroutes routes
-  (GET ["/_cljs/:user/:id/generated.js", :id #"\d+"] [user id :as req]
+  (GET ["/_cljs/:user/:id/generated.js", :id #"[a-f0-9]+"] [user id :as req]
        (-> (create-model id req) (wrap-error-handler serve-js)))
 
   (GET "/_cljs/*" [:as req]
