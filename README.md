@@ -131,10 +131,14 @@ Clojurescript debugging/line-stepping in Chrome is now supported. And it works r
 * Documentation
 * ~~Stop using local storage - using Heroku's ephemeral FS not so good for permanent storage (github, Amazon S3 instead?)~~
 * ~~Sitemap based on mongo-db rather than Heroku's ephemeral FS.~~
-* Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
-* Arbor/PhiloGL externs don't work properly
 * Automatic screenshot capability with https://github.com/ariya/phantomjs/wiki/Screen-Capture
-* Add CORS headers to proxy
+* ~~Add CORS headers to proxy~~
+
+## Known Bugs
+
+* ~~Routing does not support private gists properly~~ FIXED: 21/12/2013
+* Arbor/PhiloGL externs don't work properly - must be compiled with no optimization
+* Capture all error scenarios (inc. Google closure warnings and errors & trap javascript errors)
 
 ## Contributing
 
