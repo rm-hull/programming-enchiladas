@@ -163,3 +163,7 @@ for commit access.
 Copyright © 2013 Richard Hull
 
 Use/copy/fork as per: [Creative Commons](http://creativecommons.org/licenses/by/3.0/legalcode).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rm-hull/programming-enchiladas/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
