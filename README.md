@@ -67,6 +67,8 @@ The following javascript libraries are loaded and available:
 * [Core.async - Daisy chain benchmark](http://programming-enchiladas.destructuring-bind.org/swannodette/6542719)
 * [Core.async - Rob Pike](http://programming-enchiladas.destructuring-bind.org/swannodette/5903001)
 * [Core.async - Hello world!](http://programming-enchiladas.destructuring-bind.org/swannodette/5882703)
+* [Core.async - Martin Trojer's Sine Generator](http://programming-enchiladas.destructuring-bind.org/rm-hull/7758795)
+* [Core.async - Timothy Baldridge's Blocks](http://programming-enchiladas.destructuring-bind.org/rm-hull/8262502)
 * [Core.logic - simple demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816151)
 * [Core.logic - Classic AI](http://programming-enchiladas.destructuring-bind.org/rm-hull/6816234)
 * [Core.logic - Unit Test Suite](http://programming-enchiladas.destructuring-bind.org/rm-hull/6859633)
