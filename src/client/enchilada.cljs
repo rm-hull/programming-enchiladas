@@ -2,6 +2,7 @@
   (:use
     [clojure.string :only [split]]
     [monet.canvas :only [get-context]]
+    [monet.core :only [animation-frame]]
     [jayq.core :only [$ hide show append]]))
 
 (def console ($ "div#console"))
@@ -59,5 +60,13 @@
 
     :else x))
 
+(defn big-bang!
+  "Loosely based on Racket's big-bang"
+  [& {:keys [initial-state on-tick to-draw]}]
+  (letfn [(loop [state]
+            (fn []
+              (animation-frame (loop (on-tick state)))
+              (to-draw state)))]
+    ((loop initial-state))))
 
 (hide ($ :div#spinner))
