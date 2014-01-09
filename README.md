@@ -135,6 +135,8 @@ Clojurescript debugging/line-stepping in Chrome is now supported. And it works r
 * ~~Sitemap based on mongo-db rather than Heroku's ephemeral FS.~~
 * Automatic screenshot capability with https://github.com/ariya/phantomjs/wiki/Screen-Capture
 * ~~Add CORS headers to proxy~~
+* ~~Implement simple big-bang (http://docs.racket-lang.org/teachpack/2htdpuniverse.html#(form._world._((lib._2htdp/universe..rkt)._big-bang)))~~
+
 
 ## Known Bugs
 
