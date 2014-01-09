@@ -4,14 +4,14 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2127"]
+                 [org.clojure/clojurescript "0.0-2138"]
                  [org.clojure/data.json "0.2.3"]
                  [org.clojure/data.xml "0.0.7"]
                  [tailrecursion/cljs-priority-map "1.0.3"]
                  [org.clojure/core.async "0.1.242.0-44b1e3-alpha"]
                  [org.clojure/core.logic "0.8.5"]
                  ;[org.clojure/core.match "0.2.0"]
-                 [org.clojure/core.typed "0.2.20"]
+                 [org.clojure/core.typed "0.2.21"]
                  [clj-stacktrace "0.2.7"]
                  [clj-http "0.7.8"]
                  [clj-time "0.6.0"]
@@ -28,7 +28,7 @@
                  [rm-hull/monet "0.1.9"]
                  [rm-hull/turtle "0.1.8"]
                  [rm-hull/wireframes "0.0.1-SNAPSHOT"]
-                 [rm-hull/ring-gzip-middleware "0.1.6"]]
+                 [rm-hull/ring-gzip-middleware "0.1.7"]]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
