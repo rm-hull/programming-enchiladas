@@ -62,11 +62,14 @@
 
 (defn big-bang!
   "Loosely based on Racket's big-bang"
-  [& {:keys [initial-state on-tick to-draw]}]
-  (letfn [(loop [state]
-            (fn []
-              (animation-frame (loop (on-tick state)))
-              (to-draw state)))]
-    ((loop initial-state))))
+  [& {:keys [initial-state on-tick to-draw stop-when on-key on-mouse]}]
+  ; :on-key and :on-mouse are presently not implemented
+  (let [stop-when (or stop-when (constantly false))]
+    (letfn [(loop [state]
+              (fn []
+                (when-not (stop-when state)
+                  (animation-frame (loop (on-tick state)))
+                  (to-draw state))))]
+      ((loop initial-state)))))
 
 (hide ($ :div#spinner))
