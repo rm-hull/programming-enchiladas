@@ -45,6 +45,7 @@
      (include-css "/assets/css/spinner.css")
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+     (include-js "http://fb.me/react-0.8.0.js")
      (include-js "/assets/js/PhiloGL.cls.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")

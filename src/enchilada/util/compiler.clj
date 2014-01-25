@@ -14,7 +14,9 @@
                        :static-fns true
                        :externs ["resources/private/externs/arbor.js"
                                  "resources/private/externs/jquery.js"
-                                 "resources/private/externs/three.js"]
+                                 "resources/private/externs/three.js"
+                                 "resources/private/externs/react.js"
+                                 "resources/private/externs/PhiloGL.js"]
                        :libs ["resources/private/js/singult.js"
                               "resources/private/js/three.js" ] }]
         (if debug
