@@ -29,6 +29,7 @@
                  [rm-hull/turtle "0.1.8"]
                  [rm-hull/wireframes "0.0.1-SNAPSHOT"]
                  [rm-hull/ring-gzip-middleware "0.1.7"]
+                 [rm-hull/big-bang "0.0.1-SNAPSHOT"]
                  [om "0.3.0"]]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}

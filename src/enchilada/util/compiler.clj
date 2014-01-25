@@ -17,6 +17,7 @@
                                  "resources/private/externs/three.js"
                                  "resources/private/externs/react.js"
                                  "resources/private/externs/PhiloGL.js"]
+                       :foreign-libs [{:file "resource/private/js/react.js" :provides ["React"]}]
                        :libs ["resources/private/js/singult.js"
                               "resources/private/js/three.js" ] }]
         (if debug

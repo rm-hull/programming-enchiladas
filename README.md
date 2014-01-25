@@ -1,21 +1,21 @@
 [Programming Enchiladas](http://programming-enchiladas.destructuring-bind.org)
 ======================
 
-A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ 
+A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/
 but geared specifically for on-the-fly ClojuresScript code generation: getting sick
 of setting up yet another lein/noir for every new folly,
-so it makes more sense to have a framework which loads public 
-ClojureScript gists directly from github, compiles them on the fly 
+so it makes more sense to have a framework which loads public
+ClojureScript gists directly from github, compiles them on the fly
 and serves them out.
 
 This allows shared/social and version-tracked editable ClojureScripts
 to be run by anyone anywhere with a reasonably modern browser (tested in Chrome/FF/Safari).
 In order to compile and run any .cljs files in gist
-https://gist.github.com/rm-hull/5278162 (for example), go to 
+https://gist.github.com/rm-hull/5278162 (for example), go to
 http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162 - see below
 for more examples.
 
-As part of the available 'stack' (for want of a better word), the 
+As part of the available 'stack' (for want of a better word), the
 following client-side clojureScript bindings are available:
 
 | Function | Notes |
@@ -44,6 +44,7 @@ The following javascript libraries are loaded and available:
 
 ## Examples
 
+* [OM mouse move](http://programming-enchiladas.destructuring-bind.org/rm-hull/8617445) vs. [Big-Bang mouse move](http://programming-enchiladas.destructuring-bind.org/rm-hull/8617788)
 * [WebGL Planets](http://programming-enchiladas.destructuring-bind.org/rm-hull/7778650)
 * [Tumbling 3D Torus](http://programming-enchiladas.destructuring-bind.org/rm-hull/7098992)
 * [Boids!](http://programming-enchiladas.destructuring-bind.org/rm-hull/7145520)
@@ -86,7 +87,7 @@ To start a web server for the application, run:
 
     $ lein ring server
 
-This will start the server at port 3000 or thereabouts. Then create your 
+This will start the server at port 3000 or thereabouts. Then create your
 ClojureScript gist, and slot in the login and id, and hack on.
 
 **Optional:** If a connection to a MongoDB database is supplied via config variable
@@ -99,8 +100,8 @@ If using heroku, add a config param:
 
     $ heroku config:add MONGODB_URL=mongodb://user:password@host:10046/db
 
-**Optional:** By default, Github aggressively throttles requests if requests are anonymous 
-(60 requests per hour); Set GITHUB_OAUTH_TOKEN to a generated authentication token to 
+**Optional:** By default, Github aggressively throttles requests if requests are anonymous
+(60 requests per hour); Set GITHUB_OAUTH_TOKEN to a generated authentication token to
 increase the rate limit to 5000 requests per hour:
 
     $ export GITHUB_OAUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -114,11 +115,11 @@ http://developer.github.com/v3/oauth/#create-a-new-authorization)
 
 ## Troubleshooting
 
-Q. Why doesn't my clojurescript compile, it looks ok? 
+Q. Why doesn't my clojurescript compile, it looks ok?
 
 A1. Did you include a namespace? e.g. `(ns example)`
 
-A2. Did you name it with a .cljs extension? 
+A2. Did you name it with a .cljs extension?
 
 ### NEW! Now supports source maps
 
@@ -147,10 +148,10 @@ Clojurescript debugging/line-stepping in Chrome is now supported. And it works r
 ## Contributing
 
 If there are other ClojureScript (or JavaScript) libraries that would be
-useful to include, please create a 
+useful to include, please create a
 [new issue](https://github.com/rm-hull/programming-enchiladas/issues/new).
 
-There is plenty to do, let me know if you can help out; submit a request 
+There is plenty to do, let me know if you can help out; submit a request
 for commit access.
 
 ## References
