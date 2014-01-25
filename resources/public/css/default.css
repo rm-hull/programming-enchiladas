@@ -280,6 +280,16 @@ div#console {
     padding: 0;
     margin: 15px 0;
 }
+.markdown-body code, .markdown-body tt {
+    margin: 0 2px;
+    padding: 0px 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+}
+pre, code {
+  font: 12px Consolas, "Liberation Mono", Courier, monospace;
+}
 i, cite, em, var, address, dfn {
     font-style: italic;
 }
@@ -300,7 +310,7 @@ h1 {
 }
 .gist-description a {
     color: #4183c4;
-} 
+}
 .gist-description p {
     padding-bottom: 10px;
 }
@@ -330,3 +340,5 @@ h1 {
 .header a:hover {
     color: #4183c4;
 }
+
+
