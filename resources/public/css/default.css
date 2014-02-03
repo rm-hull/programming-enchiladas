@@ -272,6 +272,18 @@ div#console {
     cursor: text;
     position: relative;
 }
+
+.markdown-body h1 {
+    font-size: 2.5em;
+    border-bottom: 1px solid #eee;
+}
+.markdown-body h2 {
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
+}
+.markdown-body h3 {
+    font-size: 1.5em;
+}
 .markdown-body hr {
     background: transparent url(../images/dirty-shade.png) repeat-x 0 0;
     border: 0 none;
