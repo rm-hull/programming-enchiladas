@@ -44,6 +44,7 @@ The following javascript libraries are loaded and available:
 
 ## Examples
 
+* [3D Polyhedra Taxonomy](http://programming-enchiladas.destructuring-bind.org/rm-hull/9261323)
 * [Big-Bang - Rock Paper Scissors](http://programming-enchiladas.destructuring-bind.org/rm-hull/8723389)
 * [Big-Bang - Parametric Equations](http://programming-enchiladas.destructuring-bind.org/rm-hull/8776719)
 * [OM mouse move](http://programming-enchiladas.destructuring-bind.org/rm-hull/8617445) vs. [Big-Bang mouse move](http://programming-enchiladas.destructuring-bind.org/rm-hull/8617788)
