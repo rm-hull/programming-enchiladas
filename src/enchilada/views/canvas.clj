@@ -41,7 +41,7 @@
         (meta-info gist stats)
         [:section.container
          [:div#error]]
-        [:section.container
+        [:section#main-arena.container
          [:canvas#canvas-area { :width 800 :height 600 }]
          [:canvas#webgl-area { :width 800 :height 600 }]
          [:svg#svg-area]

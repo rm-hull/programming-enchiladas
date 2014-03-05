@@ -8,7 +8,7 @@ document.getElementById = function(id) {
         elem = document.createElement('div');
         elem.setAttribute('id', id);
         elem.setAttribute('style', 'width:800px; height:600px;overflow:hidden;');
-        enchilada.canvas.before(elem);
+        document._getElementById('main-arena').appendChild(elem);
     }
     return elem;
 };
