@@ -46,9 +46,13 @@
      (include-css "/assets/css/ribbon.css")
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
      (include-js "http://fb.me/react-0.8.0.js")
+     (include-js "/assets/js/doc.shim.js")
      (include-js "/assets/js/PhiloGL.cls.js")
      (include-js "/assets/js/arbor.js")
      (include-js "/assets/js/arbor-tween.js")
+     (ga/google-maps-jscript-api
+       (System/getenv "GOOGLEMAPS_API_KEY")
+       false)
      (ga/generate-tracking-script
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]

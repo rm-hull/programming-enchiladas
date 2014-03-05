@@ -1,5 +1,7 @@
 (ns enchilada.util.google-analytics
-  (:require [clojure.string :as str]))
+  (:require
+    [clojure.string :as str]
+    [hiccup.page :refer [include-js]]))
 
 (def template
   "<script>
@@ -21,3 +23,12 @@
           template
           (str/replace "TRACKING_ID" tracking-id)
           (str/replace "SITE_URL" site-url))))))
+
+(def google-maps-jscript-api
+  (memoize
+    (fn [api-key sensor?]
+      (when-not (empty? api-key)
+        (include-js
+          (str "https://maps.googleapis.com/maps/api/js?key=" api-key "&sensor=" sensor?))))))
+
+
