@@ -32,7 +32,7 @@
                  [rm-hull/big-bang "0.0.1-SNAPSHOT"]
                  [rm-hull/cljs-dataview "0.0.1-SNAPSHOT"]
                  [rm-hull/polyhedra "0.0.1-SNAPSHOT"]
-                 [om "0.5.0"]]
+                 [om "0.3.0"]]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler enchilada.handler/app}
   :profiles
