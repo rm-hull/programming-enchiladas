@@ -1,6 +1,11 @@
 (ns enchilada.middleware.cache
   "Adds cache control headers to response"
-  (:require [clojure.string :as str]))
+  (:require
+    [clojure.string :as str]
+    [clj-time.core :refer [now plus seconds]]
+    [clj-time.format :refer [formatters unparse]]))
+
+(def rfc822-fmt (formatters :rfc822))
 
 (defn as-str
   "Like clojure.core/str, but if an argument is a keyword or symbol,
@@ -29,7 +34,7 @@
 
 (defn get-path [^String uri]
   (when uri
-    (let [idx (.indexOf uri "/" 1)]
+    (let [idx (.lastIndexOf uri "/")]
       (if (neg? idx)
         uri
         (.substring uri 0 idx)))))
@@ -60,9 +65,12 @@
    {:max-age 3600 :public false :must-revalidate true}
    => Cache-Control: max-age=3600, must-revalidate"
    [handler header-map cacheable]
-   (fn [req]
-     (if-not (cacheable (get-path (:uri req)))
-       (handler req)
-       (overwrite
-         handler req
-         {"Cache-Control" (header-options header-map ", ")}))))
+   (let [seconds (seconds  (or (:max-age header-map) 2592000))
+         cache-ctrl (header-options header-map ", ")]
+     (fn [req]
+       (if-not (cacheable (get-path (:uri req)))
+         (handler req)
+         (overwrite
+           handler req
+           {"Cache-Control" cache-ctrl
+            "Exprires" (unparse rfc822-fmt (plus (now) seconds))})))))

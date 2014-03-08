@@ -1,7 +1,6 @@
 (ns enchilada.util.time-ago
   (:use [clj-time.core :only [interval now in-seconds in-minutes in-hours in-days in-months in-years]]
-        [clj-time.format :only [parse]]
-        ))
+        [clj-time.format :only [parse]]))
 
 (defn elapsed-time [start]
   (let [interval (interval (parse start) (now))]
