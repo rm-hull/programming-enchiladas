@@ -1,9 +1,10 @@
 (ns enchilada.views.common
-  (:use hiccup.core
-        hiccup.page
-        clj-stacktrace.core
-        clj-stacktrace.repl
-        enchilada.util.gist)
+  (:use [hiccup.core]
+        [hiccup.page]
+        [hiccup.util :only [to-uri]]
+        [clj-stacktrace.core]
+        [clj-stacktrace.repl]
+        [enchilada.util.gist])
   (:require [enchilada.util.google-analytics :as ga]))
 
 (defn url [gist & suffixes]
@@ -30,6 +31,10 @@
     [:div.command-bar
      [:ul.top-nav]]]])
 
+(defn include-async-js [& scripts]
+  (for [script scripts]
+    [:script {:type "text/javascript" :src (to-uri script) :async true}]))
+
 (defn layout [& {:keys [title content refresh]}]
   (html5
     [:head
@@ -40,16 +45,19 @@
      (when refresh
        [:meta {:http-equiv "refresh" :content refresh}])
      [:link {:rel "icon" :type "image/png" :href "/assets/images/favicon.png"}]
-     (include-css "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
-     (include-css "/assets/css/default.css")
-     (include-css "/assets/css/spinner.css")
-     (include-css "/assets/css/ribbon.css")
-     (include-js "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
-     (include-js "http://fb.me/react-0.8.0.js")
-     (include-js "/assets/js/doc.shim.js")
-     (include-js "/assets/js/PhiloGL.cls.js")
-     (include-js "/assets/js/arbor.js")
-     (include-js "/assets/js/arbor-tween.js")
+     (include-css
+       "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
+       "/assets/css/default.css"
+       "/assets/css/spinner.css"
+       "/assets/css/ribbon.css")
+     (include-js
+       "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
+       "http://arborjs.org/js/lib/arbor.js"
+       "http://arborjs.org/js/lib/arbor-tween.js")
+     (include-async-js
+       "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"
+       "/assets/js/doc.shim.js"
+       "http://www.senchalabs.org/philogl/PhiloGL/build/PhiloGL.js")
      (ga/google-maps-jscript-api
        (System/getenv "GOOGLEMAPS_API_KEY")
        false)

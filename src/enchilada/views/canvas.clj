@@ -49,4 +49,4 @@
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container
          (include-js (url gist ".js"))]
-        (include-js (str "/_cljs/" (get-in gist [:user :login]) "/" (:id gist) "/generated.js" (query-params model)))]))
+        (include-async-js (str "/_cljs/" (get-in gist [:user :login]) "/" (:id gist) "/generated.js" (query-params model)))]))

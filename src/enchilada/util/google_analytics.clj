@@ -1,7 +1,7 @@
 (ns enchilada.util.google-analytics
   (:require
     [clojure.string :as str]
-    [hiccup.page :refer [include-js]]))
+    [enchilada.views.common :refer [include-async-js]]))
 
 (def template
   "<script>
@@ -28,7 +28,7 @@
   (memoize
     (fn [api-key sensor?]
       (when-not (empty? api-key)
-        (include-js
+        (include-async-js
           (str "https://maps.googleapis.com/maps/api/js?key=" api-key "&sensor=" sensor?))))))
 
 
