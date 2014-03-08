@@ -48,8 +48,8 @@
        "/assets/css/ribbon.css")
      (include-js
        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
-       "http://arborjs.org/js/lib/arbor.js"
-       "http://arborjs.org/js/lib/arbor-tween.js")
+       "/assets/js/arbor.js"
+       "/assets/js/arbor-tween.js")
      (include-async-js
        "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"
        "/assets/js/doc.shim.js"
