@@ -1,7 +1,7 @@
 (ns enchilada.util.google-analytics
   (:require
     [clojure.string :as str]
-    [enchilada.views.common :refer [include-async-js]]))
+    [enchilada.util.page :refer [include-async-js]]))
 
 (def template
   "<script>

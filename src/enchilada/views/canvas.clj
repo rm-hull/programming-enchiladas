@@ -5,6 +5,7 @@
         [hiccup.element :only [image link-to]]
         [hiccup.page :only [include-js]]
         [enchilada.util.time-ago]
+        [enchilada.util.page :only [include-async-js]]
         [enchilada.views.common]))
 
 (defn- meta-info [gist stats]

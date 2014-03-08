@@ -1,10 +1,10 @@
 (ns enchilada.views.common
   (:use [hiccup.core]
         [hiccup.page]
-        [hiccup.util :only [to-uri]]
         [clj-stacktrace.core]
         [clj-stacktrace.repl]
-        [enchilada.util.gist])
+        [enchilada.util.gist]
+        [enchilada.util.page :only [include-async-js]])
   (:require [enchilada.util.google-analytics :as ga]))
 
 (defn url [gist & suffixes]
@@ -30,10 +30,6 @@
     [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
     [:div.command-bar
      [:ul.top-nav]]]])
-
-(defn include-async-js [& scripts]
-  (for [script scripts]
-    [:script {:type "text/javascript" :src (to-uri script) :async true}]))
 
 (defn layout [& {:keys [title content refresh]}]
   (html5
