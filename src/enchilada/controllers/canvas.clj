@@ -38,8 +38,8 @@
     (f model)
     (catch Exception ex (serve-error ex))))
 
-(defn- create-model [id req]
-  (let [gist (fetch id)]
+(defn- create-model [user id req]
+  (let [gist (fetch user id)]
     { :debug (debug? req)
       :optimization-level (get-in req [:params :optimization-level])
       :gist gist
@@ -51,7 +51,7 @@
 
 (defroutes routes
   (GET ["/_cljs/:user/:id/generated.js", :id #"[a-f0-9]+"] [user id :as req]
-       (-> (create-model id req) (wrap-error-handler serve-js)))
+       (-> (create-model user id req) (wrap-error-handler serve-js)))
 
   (GET "/_cljs/*" [:as req]
        (let [path (subs (:uri req) 6)]
@@ -61,5 +61,5 @@
              "application/json"
              "text/plain"))))
 
-  (GET "/:login/:id" [login id :as req]
-       (-> (create-model id req) perform-audits! render-page)))
+  (GET "/:user/:id" [user id :as req]
+       (-> (create-model user id req) perform-audits! render-page)))

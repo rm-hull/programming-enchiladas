@@ -1,9 +1,12 @@
 (ns enchilada.util.fs
-  (:use [enchilada.util.gist :only [last-modified]])
-  (:require [clojure.java.io :as io]
-            [me.raynes.fs :as fs]
-            [clojure.data.json :as json])
-  (:import [java.io File]))
+  (:require
+    [clojure.java.io :as io]
+    [clojure.data.json :as json]
+    [clj-time.format :refer [parse]]
+    [clj-time.coerce :refer [to-long]]
+    [me.raynes.fs :as fs])
+  (:import
+    [java.io File]))
 
 (defn- paths [& paths]
   (interpose "/" (flatten paths)))
@@ -40,6 +43,11 @@
   (if (neg? (.indexOf content "(ns"))
     (str "(ns " (gensym) ")\n\n" content)
     content))
+
+(defn last-modified
+  "Converts the updated_at field into a number of milliseconds since 1.1.1970"
+  [gist]
+  (-> gist :updated_at parse to-long))
 
 (defn persist [gist]
   (clean src-dir gist)
