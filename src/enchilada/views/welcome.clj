@@ -11,14 +11,18 @@
 
 (defn gallery-panel [gist]
   (let [login-id (login-id gist)
+        owner (fn [& props]
+                (or
+                  (get-in gist (cons :user props))
+                  (get-in gist (cons :owner props))))
         gist (fn [& props] (get-in gist props))]
     [:div.gallery-panel
       [:div.gist-header
         [:div.meta
          [:h1
           [:div.author
-           [:img {:src (gist :user :avatar_url) :width 26 :height 26 }]
-           [:span [:a {:href login-id} (gist :user :login)]] " / "
+           [:img {:src (owner :avatar_url) :width 26 :height 26 }]
+           [:span [:a {:href login-id} (owner :login)]] " / "
            [:strong [:a {:href login-id} (:filename (first (vals (gist :files))))]]
            [:div.gist-timestamp
             [:span.datetime "Last updated "
@@ -26,7 +30,7 @@
       [:div.gist-description
        [:p (gist :description)]]
       [:div.gallery-picture
-       [:a {:href (str (gist :user :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
+       [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
          [:img {:src (str "images/" (gist :id) ".png") :width 400 :height 300}]]]]))
 
 (def is-json? (partial is-filetype? ".json"))
@@ -35,7 +39,7 @@
 
 (defn filename->gist [file]
   (let [[_ user id] (re-find user-id-regex (fs/absolute-path file))]
-    {:id id :user { :login user}}))
+    {:id id :owner { :login user}}))
 
 (defn welcome [req]
   (let [files    (work-files* is-json? (io/file "work/gists/cache"))

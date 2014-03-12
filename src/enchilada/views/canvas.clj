@@ -15,8 +15,8 @@
         [:div.meta
          [:h1
           [:div.author
-           (image { :width 26 :height 26 } (gist :user :avatar_url))
-           [:span (link-to (gist :user :html_url) (gist :user :login))] " / "
+           (image { :width 26 :height 26 } (gist :owner :avatar_url))
+           [:span (link-to (gist :owner :html_url) (gist :owner :login))] " / "
            [:strong (link-to (gist :html_url) (:filename (first (vals (gist :files)))))]
            (when stats
              [:div.stats
@@ -35,7 +35,7 @@
 
 (defn render-page [{:keys [gist debug stats] :as model}]
   (layout
-    :title (str "Programming Enchiladas :: " (get-in gist [:user :login]) " / " (:filename (first (vals (:files gist)))))
+    :title (str "Programming Enchiladas :: " (get-in gist [:owner :login]) " / " (:filename (first (vals (:files gist)))))
     :content
       [:div
         (spinner "container grey")
@@ -50,4 +50,4 @@
        (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
         [:section.container
          (include-js (url gist ".js"))]
-        (include-async-js (str "/_cljs/" (get-in gist [:user :login]) "/" (:id gist) "/generated.js" (query-params model)))]))
+        (include-async-js (str "/_cljs/" (get-in gist [:owner :login]) "/" (:id gist) "/generated.js" (query-params model)))]))

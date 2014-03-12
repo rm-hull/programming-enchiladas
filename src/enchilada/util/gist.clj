@@ -6,23 +6,29 @@
 
 (defn- url [id] (str "https://api.github.com/gists/" id))
 
-(def github-authentication
-  (when-let [token (get (System/getenv) "GITHUB_OAUTH_TOKEN")]
-    {"authorization" (str "token " token)}))
+(def github-headers
+  (merge
+    {"Accept" "application/vnd.github.v3+json"}
+    (when-let [token (get (System/getenv) "GITHUB_OAUTH_TOKEN")]
+      {"authorization" (str "token " token)})))
 
 (defn fetch
   "Fetches a gist from the mothership and parses it from JSON into a keyword hash"
-  [user id]
+  [owner id]
   (try
-    (let [{:keys [status headers body] :as resp} (http/get (url id) {:headers github-authentication})]
+    (let [{:keys [status headers body]} (http/get (url id) {:headers github-headers})]
         (when (= status 200)
+          (println headers)
           (json/read-str body :key-fn keyword)))
     (catch Exception e
-      (fetch-gist {:user {:login user} :id id}))))
+      (fetch-gist {:owner {:login owner} :id id}))))
 
 (defn login-id
   "Constructs the github \"login/id\" path element"
   [gist]
-  (str (get-in gist [:user :login]) "/" (:id gist)))
-
-
+  (str
+    (or
+      (get-in gist [:owner :login])
+      (get-in gist [:user :login]))
+    "/"
+    (:id gist)))
