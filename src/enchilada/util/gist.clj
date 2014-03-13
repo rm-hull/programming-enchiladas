@@ -18,7 +18,6 @@
   (try
     (let [{:keys [status headers body]} (http/get (url id) {:headers github-headers})]
         (when (= status 200)
-          (println headers)
           (json/read-str body :key-fn keyword)))
     (catch Exception e
       (fetch-gist {:owner {:login owner} :id id}))))
