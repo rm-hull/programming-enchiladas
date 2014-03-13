@@ -13,7 +13,7 @@
 
 (defn filename-template [prefix & suffix]
   (fn [gist]
-    (apply str (concat (paths "work" "gists" prefix (get-in gist [:user :login]) (:id gist)) suffix))))
+    (apply str (concat (paths "work" "gists" prefix (get-in gist [:owner :login]) (:id gist)) suffix))))
 
 (def src-dir     (filename-template "src" "/"))
 (def temp-dir    (filename-template "tmp" "/"))

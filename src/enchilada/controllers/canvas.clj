@@ -50,8 +50,8 @@
   model)
 
 (defroutes routes
-  (GET ["/_cljs/:user/:id/generated.js", :id #"[a-f0-9]+"] [user id :as req]
-       (-> (create-model user id req) (wrap-error-handler serve-js)))
+  (GET ["/_cljs/:owner/:id/generated.js", :id #"[a-f0-9]+"] [owner id :as req]
+       (-> (create-model owner id req) (wrap-error-handler serve-js)))
 
   (GET "/_cljs/*" [:as req]
        (let [path (subs (:uri req) 6)]
@@ -61,5 +61,5 @@
              "application/json"
              "text/plain"))))
 
-  (GET "/:user/:id" [user id :as req]
-       (-> (create-model user id req) perform-audits! render-page)))
+  (GET "/:owner/:id" [owner id :as req]
+       (-> (create-model owner id req) perform-audits! render-page)))
