@@ -44,6 +44,8 @@ The following javascript libraries are loaded and available:
 
 ## Examples
 
+* [WebGL Photospheres](http://programming-enchiladas.destructuring-bind.org/rm-hull/9842972)
+* [OM - Chess Demo](http://programming-enchiladas.destructuring-bind.org/rm-hull/8906851)
 * [3D Polyhedra Taxonomy](http://programming-enchiladas.destructuring-bind.org/rm-hull/9261323)
 * [Big-Bang - Rock Paper Scissors](http://programming-enchiladas.destructuring-bind.org/rm-hull/8723389)
 * [Big-Bang - Parametric Equations](http://programming-enchiladas.destructuring-bind.org/rm-hull/8776719)
