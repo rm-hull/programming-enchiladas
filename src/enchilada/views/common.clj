@@ -24,14 +24,19 @@
 
 (def blurb "A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ but geared specifically for on-the-fly ClojuresScript code generation.")
 
-(def header-bar
+(defn header-bar [sort-param]
   [:div.header
    [:section.container
     [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
-    [:div.command-bar
-     [:ul.top-nav]]]])
+    [:span.command-bar
+     [:ul.top-nav
+      (for [s ["random" "latest" "popular" "favourites" "unloved"]]
+        [:li
+         (if (not= s sort-param)
+           [:a {:href (str home-url "?sort=" s)} s]
+           s)])]]]])
 
-(defn layout [& {:keys [title content refresh]}]
+(defn layout [& {:keys [title content refresh sort-param]}]
   (html5
     [:head
      [:title title]
@@ -61,7 +66,7 @@
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]
     [:body
-     [:div.wrapper header-bar]
+     [:div.wrapper (header-bar sort-param)]
      [:div.wrapper content]]))
 
 (defn ribbon [text href]

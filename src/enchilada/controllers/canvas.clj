@@ -45,8 +45,11 @@
       :gist gist
       :stats (gamification/view gist)}))
 
-(defn- perform-audits! [{:keys [gist] :as model}]
-  (gamification/update gist)
+(defn- perform-audits! [{:keys [gist stats] :as model}]
+  (gamification/increment-visits gist)
+  (let [delta (gamification/staleness stats (gist :updated_at))]
+    (when-not (zero? delta)
+      (gamification/set-last-updated gist delta)))
   model)
 
 (defroutes routes

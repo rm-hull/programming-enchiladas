@@ -1,13 +1,17 @@
 (ns enchilada.views.welcome
-  (:use [compojure.core :only [defroutes GET]]
-        [ring.util.response :only [redirect file-response response header content-type]]
-        [hiccup.core :only [html]]
-        [enchilada.util.time-ago]
-        [enchilada.util.gist :only [login-id]]
-        [enchilada.util.fs :only [is-filetype? work-files* fetch-gist image-file]]
-        [enchilada.views.common])
-  (:require [clojure.java.io :as io]
-            [me.raynes.fs :as fs]))
+  (:use
+    [compojure.core :only [defroutes GET]]
+    [ring.util.response :only [redirect file-response response header content-type]]
+    [hiccup.core :only [html]]
+    [enchilada.services.gamification :only [top-n]]
+    [enchilada.util.time-ago]
+    [enchilada.util.gist :only [login-id]]
+    [enchilada.util.fs :only [is-filetype? work-files* fetch-gist image-file]]
+    [enchilada.views.common])
+  (:require
+    [clojure.string :as str]
+    [clojure.java.io :as io]
+    [me.raynes.fs :as fs]))
 
 (defn gallery-panel [gist]
   (let [login-id (login-id gist)
@@ -41,13 +45,36 @@
   (let [[_ user id] (re-find user-id-regex (fs/absolute-path file))]
     {:id id :owner { :login user}}))
 
+(defn mongo->gist [mongo-record]
+  (let [[user id] (str/split (:gist mongo-record) #"/")]
+    {:id id :owner { :login user}}))
+
+(defn pick-mongo [n sort-param]
+  (map
+    mongo->gist
+    (case sort-param
+      "popular"    (top-n :visits -1 n)
+      "unloved"    (top-n :visits 1 n)
+      "latest"     (top-n :last_updated -1 n)
+      "favourites" (top-n :stars -1 n))))
+
+(defn pick-random [n]
+  (->>
+    (io/file "work/gists/cache")
+    (work-files* is-json?)
+    (map filename->gist)
+    (shuffle)
+    (take n)))
+
 (defn welcome [req]
-  (let [files    (work-files* is-json? (io/file "work/gists/cache"))
-        pick-ten (take 10 (sort-by (fn [x] (rand)) files))
-        gists    (map (comp fetch-gist filename->gist) pick-ten)]
+  (let [sort-param (get-in req [:query-params "sort"])
+        pick-ten (if (= (or sort-param "random") "random")
+                   (pick-random 10)
+                   (pick-mongo 10 sort-param))]
     (layout
       :title "Programming Enchiladas :: Gallery"
       :refresh 300
+      :sort-param sort-param
       :content
         [:section.container
           [:h1 [:i.fa.fa-film.fa-x2] "&nbsp;&nbsp;Gallery"]
@@ -59,7 +86,7 @@
 
           [:div.gallery-parent
            (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-           (map gallery-panel gists)]])))
+           (pmap (comp gallery-panel fetch-gist) pick-ten)]])))
 
 (defn fetch-image [id]
   (let [filename (image-file {:id id})]
