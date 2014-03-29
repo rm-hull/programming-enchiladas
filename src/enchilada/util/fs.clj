@@ -15,12 +15,13 @@
   (fn [gist]
     (apply str (concat (paths "work" "gists" prefix (get-in gist [:owner :login]) (:id gist)) suffix))))
 
-(def src-dir     (filename-template "src" "/"))
-(def temp-dir    (filename-template "tmp" "/"))
-(def cache-file  (filename-template "cache" ".json"))
-(def image-file  (filename-template "images" ".png"))
-(def output-file (filename-template "out" "/generated.js"))
-(def output-dir  (filename-template "out" "/"))
+(def src-dir      (filename-template "src" "/"))
+(def temp-dir     (filename-template "tmp" "/"))
+(def cache-file   (filename-template "cache" ".json"))
+(def png-img-file (filename-template "images" ".png"))
+(def jpg-img-file (filename-template "images" ".jpg"))
+(def output-file  (filename-template "out" "/generated.js"))
+(def output-dir   (filename-template "out" "/"))
 
 ; Attribution: http://clojurescriptone.com/
 (defn delete

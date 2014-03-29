@@ -6,7 +6,7 @@
     [enchilada.services.gamification :only [top-n]]
     [enchilada.util.time-ago]
     [enchilada.util.gist :only [login-id]]
-    [enchilada.util.fs :only [is-filetype? work-files* fetch-gist image-file]]
+    [enchilada.util.fs :only [is-filetype? work-files* fetch-gist png-img-file jpg-img-file]]
     [enchilada.views.common])
   (:require
     [clojure.string :as str]
@@ -35,7 +35,7 @@
        [:p (gist :description)]]
       [:div.gallery-picture
        [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
-         [:img {:src (str "images/" (gist :id) ".png") :width 400 :height 300}]]]]))
+         [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]]))
 
 (def is-json? (partial is-filetype? ".json"))
 
@@ -94,16 +94,22 @@
            (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
            (pmap (comp gallery-panel fetch-gist) pick-ten)]])))
 
-(defn fetch-image [id]
-  (let [filename (image-file {:id id})]
+(defn img-resource [[mime-type filename]]
+  (if (fs/exists? (io/file filename))
     (->
-      (if (fs/exists? (io/file filename))
-        filename
-        "resources/public/images/coming-soon.png")
-      (file-response)
-      (content-type "image/png"))))
+      (file-response filename)
+      (content-type mime-type))))
+
+(defn fetch-image [id]
+  (first
+    (for [f [["image/png" (png-img-file {:id id})]
+             ["image/jpg" (jpg-img-file {:id id})]
+             ["image/png" "resources/public/images/coming-soon.png"]]
+          :let [resource (img-resource f)]
+          :when resource]
+      resource)))
 
 (defroutes routes
   (GET "/robots.txt" [] (file-response "resources/private/robots.txt"))
-  (GET "/images/:id.png" [id] (fetch-image id))
+  (GET "/_images/:id" [id] (fetch-image id))
   (GET "/" [] welcome))
