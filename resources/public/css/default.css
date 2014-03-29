@@ -160,6 +160,7 @@ div.author span {
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     font-size: 14px;
     line-height: 1.4;
+    word-wrap: break-word;
 }
 
 .stars>a {
