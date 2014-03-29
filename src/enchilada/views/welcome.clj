@@ -66,15 +66,21 @@
     (shuffle)
     (take n)))
 
+(defn to-int [s]
+  (Integer/parseInt s))
+
 (defn welcome [req]
-  (let [sort-param (get-in req [:query-params "sort"])
+  (let [num-items (to-int (get-in req [:query-params "n"] "10"))
+        sort-param (get-in req [:query-params "sort"])
         pick-ten (if (= (or sort-param "random") "random")
-                   (pick-random 10)
-                   (pick-mongo 10 sort-param))]
+                   (pick-random num-items)
+                   (pick-mongo num-items sort-param))]
     (layout
       :title "Programming Enchiladas :: Gallery"
-      :refresh 300
+      :refresh (if (= sort-param "random") 300)
       :sort-param sort-param
+      :count-param num-items
+      :home-page? true
       :content
         [:section.container
           [:h1 [:i.fa.fa-film.fa-x2] "&nbsp;&nbsp;Gallery"]

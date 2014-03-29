@@ -353,14 +353,17 @@ h1 {
     color: #4183c4;
 }
 
+.command-bar form,
 .command-bar ul {
+    padding-left: 40px;
+    font: 13px Helvetica, arial, freesans, clean, sans-serif;
+    font-weight: normal!important;
     display: inline;
+    color: #333333;
 }
 .command-bar li {
     list-style-type: none;
     display: inline;
-    font: 13px Helvetica, arial, freesans, clean, sans-serif;
-    font-weight: normal!important;
     color: #aaaaaa;
 }
 .command-bar li > a {
@@ -373,4 +376,5 @@ h1 {
 }
 .command-bar li:last-child:after {
   content:"";
+  margin: 0;
 }

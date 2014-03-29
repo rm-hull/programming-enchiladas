@@ -24,7 +24,13 @@
 
 (def blurb "A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ but geared specifically for on-the-fly ClojuresScript code generation.")
 
-(defn header-bar [sort-param]
+(defn link [url sort-param num-items]
+  (str
+    url "?sort=" sort-param
+    (if num-items
+      (str "&n=" num-items))))
+
+(defn header-bar [sort-param num-items home-page?]
   [:div.header
    [:section.container
     [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
@@ -33,10 +39,25 @@
       (for [s ["random" "latest" "popular" "favourites" "unloved"]]
         [:li
          (if (not= s sort-param)
-           [:a {:href (str home-url "?sort=" s)} s]
-           s)])]]]])
+           [:a {:href (link home-url s num-items)} s]
+           s)])]
+     (when home-page?
+       [:span
+        [:form#num-items-form {:method "GET"}
+         "Display"
+         [:input {:type "hidden" :name "sort" :value sort-param}]
+         [:select#num-items {:name "n"}
+          (for [[k v] (array-map 10 10, 20 20, 50 50, -1 "All")]
+            [:option
+             (if (= k num-items)
+               {:selected true :value k}
+               {:value k})
+             v])]
+         "Items"]
+        [:script {:type "text/javascript"}
+         "document.getElementById('num-items').onchange = function(){ document.getElementById('num-items-form').submit();};"]])]]])
 
-(defn layout [& {:keys [title content refresh sort-param]}]
+(defn layout [& {:keys [title content refresh sort-param count-param home-page?]}]
   (html5
     [:head
      [:title title]
@@ -66,7 +87,7 @@
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]
     [:body
-     [:div.wrapper (header-bar sort-param)]
+     [:div.wrapper (header-bar sort-param count-param home-page?)]
      [:div.wrapper content]]))
 
 (defn ribbon [text href]
