@@ -5,7 +5,7 @@
         [hiccup.element :only [image link-to]]
         [hiccup.page :only [include-js]]
         [enchilada.util.time-ago]
-        [enchilada.util.page :only [include-async-js]]
+        [enchilada.util.page :only [include-async-js add-anchors]]
         [enchilada.views.common]))
 
 (defn- meta-info [gist stats]
@@ -26,7 +26,7 @@
             [:span.datetime "Last updated "
              [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]]]]]
       [:div.gist-description
-       [:p (gist :description)]]]))
+       [:p (add-anchors (gist :description))]]]))
 
 (defn- query-params [model]
   (let [params (select-keys model [:debug :optimization-level])]

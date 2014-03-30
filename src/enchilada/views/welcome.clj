@@ -5,6 +5,7 @@
     [hiccup.core :only [html]]
     [enchilada.services.gamification :only [top-n]]
     [enchilada.util.time-ago]
+    [enchilada.util.page :only [add-anchors]]
     [enchilada.util.gist :only [login-id]]
     [enchilada.util.fs :only [is-filetype? work-files* fetch-gist png-img-file jpg-img-file]]
     [enchilada.views.common])
@@ -32,7 +33,7 @@
             [:span.datetime "Last updated "
              [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]]]]]
       [:div.gist-description
-       [:p (gist :description)]]
+       [:p (add-anchors (gist :description))]]
       [:div.gallery-picture
        [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
          [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]]))
