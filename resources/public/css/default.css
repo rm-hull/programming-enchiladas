@@ -379,3 +379,6 @@ h1 {
   content:"";
   margin: 0;
 }
+.datetime time {
+    cursor: help;
+}
