@@ -8,8 +8,9 @@
         [enchilada.util.page :only [include-async-js add-anchors]]
         [enchilada.views.common]))
 
-(defn- meta-info [gist stats]
-  (let [gist (fn [& props] (get-in gist props))]
+(defn- meta-info  [gist stats]
+  (let [last-updated (latest-commit-date gist)
+        gist (fn [& props] (get-in gist props))]
     [:section.container
       [:div.gist-header
         [:div.meta
@@ -24,7 +25,7 @@
               [:span.stars [:a {:href :# :title "Star this gist"} (get stats :stars 0) " \u2605"]]])
            [:div.gist-timestamp
             [:span.datetime "Last updated "
-             [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]]]]]
+             [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
       [:div.gist-description
        [:p (add-anchors (gist :description))]]]))
 

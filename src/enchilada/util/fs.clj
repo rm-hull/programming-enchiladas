@@ -4,7 +4,8 @@
     [clojure.data.json :as json]
     [clj-time.format :refer [parse]]
     [clj-time.coerce :refer [to-long]]
-    [me.raynes.fs :as fs])
+    [me.raynes.fs :as fs]
+    [enchilada.util.time-ago :refer [latest-commit-date]])
   (:import
     [java.io File]))
 
@@ -45,14 +46,9 @@
     (str "(ns " (gensym) ")\n\n" content)
     content))
 
-(defn last-modified
-  "Converts the updated_at field into a number of milliseconds since 1.1.1970"
-  [gist]
-  (-> gist :updated_at parse to-long))
-
 (defn persist [gist]
   (clean src-dir gist)
-  (let [last-modified (last-modified gist)
+  (let [last-modified (to-long (latest-commit-date gist))
         dir           (src-dir gist)]
     (doseq [{filename :filename content :content} (vals (:files gist))]
       (write-file (io/file dir filename) (add-namespace content) last-modified)))
@@ -79,7 +75,7 @@
   [gist]
   (<
     (fs/mod-time (io/file (output-file gist)))
-    (last-modified gist)))
+    (to-long (latest-commit-date gist))))
 
 (defn is-filetype? [suffix ^File f]
   (and

@@ -20,6 +20,7 @@
                 (or
                   (get-in gist (cons :user props))
                   (get-in gist (cons :owner props))))
+        last-updated (latest-commit-date gist)
         gist (fn [& props] (get-in gist props))]
     [:div.gallery-panel
       [:div.gist-header
@@ -31,7 +32,7 @@
            [:strong [:a {:href login-id} (:filename (first (vals (gist :files))))]]
            [:div.gist-timestamp
             [:span.datetime "Last updated "
-             [:time {:title (gist :updated_at) :datetime (gist :updated_at)}] (elapsed-time (gist :updated_at))]]]]]]
+             [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
       [:div.gist-description
        [:p (add-anchors (gist :description))]]
       [:div.gallery-picture

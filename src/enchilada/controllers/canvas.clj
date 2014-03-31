@@ -1,13 +1,15 @@
 (ns enchilada.controllers.canvas
-  (:use [compojure.core :only [defroutes GET]]
-        [ring.util.response :only [status file-response response content-type header]]
-        [hiccup.core]
-        [enchilada.util.compiler :only [regenerate-if-stale]]
-        [enchilada.util.fs :only [output-file output-dir]]
-        [enchilada.util.gist :only [fetch]]
-        [enchilada.views.common :only [html-exception]]
-        [enchilada.views.canvas :only [render-page]])
-  (:require [enchilada.services.gamification :as gamification]))
+  (:require
+    [compojure.core :refer [defroutes GET]]
+    [ring.util.response :refer [status file-response response content-type header]]
+    [hiccup.core :refer :all]
+    [enchilada.util.compiler :refer [regenerate-if-stale]]
+    [enchilada.util.fs :refer [output-file output-dir]]
+    [enchilada.util.gist :refer [fetch]]
+    [enchilada.util.time-ago :refer [latest-commit-date]]
+    [enchilada.views.common :refer [html-exception]]
+    [enchilada.views.canvas :refer [render-page]]
+    [enchilada.services.gamification :as gamification]))
 
 
 (defn- debug? [req]
@@ -47,7 +49,7 @@
 
 (defn- perform-audits! [{:keys [gist stats] :as model}]
   (gamification/increment-visits gist)
-  (let [delta (gamification/staleness stats (gist :updated_at))]
+  (let [delta (gamification/staleness stats (latest-commit-date gist))]
     (when-not (zero? delta)
       (gamification/set-last-updated gist delta)))
   model)
