@@ -1,6 +1,7 @@
 (ns enchilada.util.compiler
   (:use [enchilada.util.fs])
-  (:require [cljs.closure :as cljsc]))
+  (:require
+    [cljs.closure :as cljsc]))
 
 (def cljs-build-opts
   (let [valid-opts #{:simple :whitespace :advanced}]
@@ -19,7 +20,9 @@
                                  "resources/private/externs/PhiloGL.js"]
                        :foreign-libs [{:file "resources/private/js/react.js" :provides ["React"]}
                                       {:file "resources/private/js/three.js" :provides ["THREE"]}]
-                       :libs ["resources/private/js/singult.js"]}]
+                       :libs ["resources/private/js/singult.js"]
+                       :closure-warnings {:externs-validation :off
+                                          :non-standard-jsdoc :off}}]
         (if debug
           (merge defaults {:optimizations :simple, :pretty-print true})
           defaults)))))
