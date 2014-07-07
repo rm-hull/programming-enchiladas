@@ -8,7 +8,7 @@
                  [org.clojure/data.json "0.2.5"]
                  [org.clojure/data.xml "0.0.7"]
                  [tailrecursion/cljs-priority-map "1.1.0" :exclusions [org.clojure/clojurescript]]
-                 [org.clojure/core.async "0.1.278.0-76b25b-alpha" :exclusions [org.clojure/clojurescript]]
+                 [org.clojure/core.async "0.1.303.0-886421-alpha" :exclusions [org.clojure/clojurescript]]
                  [org.clojure/core.logic "0.8.8" :exclusions [org.clojure/clojurescript]]
                  ;[org.clojure/core.match "0.2.0"]
                  [org.clojure/core.typed "0.2.56" :exclusions [org.clojure/clojurescript]]
@@ -33,9 +33,9 @@
                  [rm-hull/cljs-dataview "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/polyhedra "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [om "0.3.0" :exclusions [org.clojure/clojurescript]]]
-  :plugins [[lein-ring "0.8.10"]]
+  :plugins [[lein-ring "0.8.11"]]
   :ring {:handler enchilada.handler/app}
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.5"]]}}
-  :min-lein-version "2.3.4"
+  :min-lein-version "2.4.2"
   :global-vars { *warn-on-reflection* true})
