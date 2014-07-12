@@ -5,7 +5,8 @@
         [hiccup.element :only [image link-to]]
         [hiccup.page :only [include-js]]
         [enchilada.util.time-ago]
-        [enchilada.util.page :only [include-async-js add-anchors]]
+        [enchilada.util.page :only [include-async-js]]
+        [enchilada.util.markdown :only [simple-md]]
         [enchilada.views.common]))
 
 (defn- meta-info  [gist stats]
@@ -27,7 +28,7 @@
             [:span.datetime "Last updated "
              [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
       [:div.gist-description
-       [:p (add-anchors (gist :description))]]]))
+       [:p (-> :description gist simple-md)]]]))
 
 (defn- query-params [model]
   (let [params (select-keys model [:debug :optimization-level])]
@@ -35,6 +36,7 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
+  (println (md-to-html-string "This is_a_t*es*t"))
   (layout
     :title (str "Programming Enchiladas :: " (get-in gist [:owner :login]) " / " (:filename (first (vals (:files gist)))))
     :content
@@ -52,3 +54,4 @@
         [:section.container
          (include-js (url gist ".js"))]
         (include-async-js (str "/_cljs/" (get-in gist [:owner :login]) "/" (:id gist) "/generated.js" (query-params model)))]))
+

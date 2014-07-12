@@ -3,9 +3,10 @@
     [compojure.core :only [defroutes GET]]
     [ring.util.response :only [redirect file-response response header content-type]]
     [hiccup.core :only [html]]
+    [markdown.core :only [md-to-html-string]]
     [enchilada.services.gamification :only [top-n]]
     [enchilada.util.time-ago]
-    [enchilada.util.page :only [add-anchors]]
+    [enchilada.util.markdown :only [simple-md]]
     [enchilada.util.gist :only [login-id]]
     [enchilada.util.fs :only [is-filetype? work-files* fetch-gist png-img-file jpg-img-file]]
     [enchilada.views.common])
@@ -46,7 +47,7 @@
               [:span.datetime "Last updated "
                [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
         [:div.gist-description
-         [:p (-> :description gist (limit 200) add-anchors)]]
+         [:p (-> :description gist (limit 200) simple-md)]]
         [:div.gallery-picture
          [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
            [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]])))
