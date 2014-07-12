@@ -15,6 +15,8 @@
     [clojure.java.io :as io]
     [me.raynes.fs :as fs]))
 
+(def *default-sort-order* "latest")
+
 (defn find-next-space [text max-length]
   (let [idx (.indexOf text " " max-length)]
     (if (neg? idx)
@@ -86,8 +88,8 @@
 
 (defn welcome [req]
   (let [num-items (to-int (get-in req [:query-params "n"] "10"))
-        sort-param (get-in req [:query-params "sort"])
-        pick-ten (if (= (or sort-param "random") "random")
+        sort-param (get-in req [:query-params "sort"] *default-sort-order*)
+        pick-ten (if (= sort-param "random")
                    (pick-random num-items)
                    (pick-mongo num-items sort-param))]
     (layout
