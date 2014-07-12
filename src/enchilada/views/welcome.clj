@@ -3,7 +3,6 @@
     [compojure.core :only [defroutes GET]]
     [ring.util.response :only [redirect file-response response header content-type]]
     [hiccup.core :only [html]]
-    [markdown.core :only [md-to-html-string]]
     [enchilada.services.gamification :only [top-n]]
     [enchilada.util.time-ago]
     [enchilada.util.markdown :only [simple-md]]
