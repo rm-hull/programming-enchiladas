@@ -7,7 +7,7 @@
     [me.raynes.fs :as fs]
     [enchilada.util.time-ago :refer [latest-commit-date]])
   (:import
-    [java.io File]))
+    [java.io File FileNotFoundException]))
 
 (defn- paths [& paths]
   (interpose "/" (flatten paths)))
@@ -60,8 +60,11 @@
 (defn fetch-gist
   "Fetches a gist from a local filestore, and parses it into a keyword hash"
   [gist]
-  (with-open [r (io/reader (cache-file gist))]
-    (json/read r :key-fn keyword)))
+  (try
+    (with-open [r (io/reader (cache-file gist))]
+      (json/read r :key-fn keyword))
+    (catch FileNotFoundException fnfe
+      nil)))
 
 (defn prepare [gist]
   (fs/mkdirs (fs/parent (io/file (output-file gist))))

@@ -15,29 +15,30 @@
     [me.raynes.fs :as fs]))
 
 (defn gallery-panel [gist]
-  (let [login-id (login-id gist)
-        owner (fn [& props]
-                (or
-                  (get-in gist (cons :user props))
-                  (get-in gist (cons :owner props))))
-        last-updated (latest-commit-date gist)
-        gist (fn [& props] (get-in gist props))]
-    [:div.gallery-panel
-      [:div.gist-header
-        [:div.meta
-         [:h1
-          [:div.author
-           [:img {:src (owner :avatar_url) :width 26 :height 26 }]
-           [:span [:a {:href login-id} (owner :login)]] " / "
-           [:strong [:a {:href login-id} (:filename (first (vals (gist :files))))]]
-           [:div.gist-timestamp
-            [:span.datetime "Last updated "
-             [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
-      [:div.gist-description
-       [:p (add-anchors (gist :description))]]
-      [:div.gallery-picture
-       [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
-         [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]]))
+  (when gist
+    (let [login-id (login-id gist)
+          owner (fn [& props]
+                  (or
+                    (get-in gist (cons :user props))
+                    (get-in gist (cons :owner props))))
+          last-updated (latest-commit-date gist)
+          gist (fn [& props] (get-in gist props))]
+      [:div.gallery-panel
+        [:div.gist-header
+          [:div.meta
+           [:h1
+            [:div.author
+             [:img {:src (owner :avatar_url) :width 26 :height 26 }]
+             [:span [:a {:href login-id} (owner :login)]] " / "
+             [:strong [:a {:href login-id} (:filename (first (vals (gist :files))))]]
+             [:div.gist-timestamp
+              [:span.datetime "Last updated "
+               [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
+        [:div.gist-description
+         [:p (add-anchors (gist :description))]]
+        [:div.gallery-picture
+         [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
+           [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]])))
 
 (def is-json? (partial is-filetype? ".json"))
 
