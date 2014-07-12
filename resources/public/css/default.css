@@ -323,6 +323,7 @@ h1 {
 }
 .gist-description a {
     color: #4183c4;
+    word-break: break-all;
 }
 .gist-description p {
     padding-bottom: 10px;

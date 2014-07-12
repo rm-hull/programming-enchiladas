@@ -14,6 +14,17 @@
     [clojure.java.io :as io]
     [me.raynes.fs :as fs]))
 
+(defn find-next-space [text max-length]
+  (let [idx (.indexOf text " " max-length)]
+    (if (neg? idx)
+      (count text)
+      idx)))
+
+(defn limit [text max-length]
+  (if (> (count text) max-length)
+    (str (subs text 0 (find-next-space text max-length)) "...")
+    text))
+
 (defn gallery-panel [gist]
   (when gist
     (let [login-id (login-id gist)
@@ -35,7 +46,7 @@
               [:span.datetime "Last updated "
                [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
         [:div.gist-description
-         [:p (add-anchors (gist :description))]]
+         [:p (-> :description gist (limit 200) add-anchors)]]
         [:div.gallery-picture
          [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
            [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]])))
