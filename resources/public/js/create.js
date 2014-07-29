@@ -7,6 +7,7 @@ $(document).ready(function() {
     editor.setShowInvisibles(false);
     editor.setShowFoldWidgets(false);
     editor.setDisplayIndentGuides(true);
+    editor.setValue(window.localStorage.lastUnsavedSource);
 
     var $spinner = $('#spinner');
 
@@ -16,17 +17,14 @@ $(document).ready(function() {
             editor.setReadOnly(true);
             $spinner.show();
             $compile.attr('disabled', true);
-            $.ajax('/_create/compile?_=' + new Date().getTime(),
+            $.ajax(
+                '/_create/compile?_=' + new Date().getTime(),
                 {
                     type: 'POST',
                     dataType: 'script',
                     data: {source: editor.getValue()}
                 }
-             ).done(function(data, textStatus, jqXHR) {
-
-             }).fail(function(ijqXHR, textStatus, errorThrown) {
-
-             }).always(function() {
+             ).always(function() {
                 $spinner.hide();
                 $compile.attr('disabled', false);
                 editor.setReadOnly(false);
@@ -35,6 +33,10 @@ $(document).ready(function() {
 
         return false;
     });
+
+    setInterval(function() {
+        window.localStorage.lastUnsavedSource = editor.getValue();
+    }, 5000);
 
     $spinner.hide();
 });
