@@ -37,6 +37,8 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
+  (println "owner" (gist :owner))
+  (println "user" (gist :user))
   (let [owner (or (gist :owner) (gist :user))]
     (layout
       :title (str "Programming Enchiladas :: " (owner :login) " / " (:filename (first (vals (:files gist)))))
