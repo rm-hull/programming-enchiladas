@@ -57,7 +57,7 @@
         [:script {:type "text/javascript"}
          "document.getElementById('num-items').onchange = function(){ document.getElementById('num-items-form').submit();};"]])]]])
 
-(defn layout [& {:keys [title content refresh sort-param count-param home-page?]}]
+(defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js]}]
   (html5
     [:head
      [:title title]
@@ -72,10 +72,11 @@
        "/assets/css/default.css"
        "/assets/css/spinner.css"
        "/assets/css/ribbon.css")
-     (include-js
+     (apply include-js
        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
        "/assets/js/arbor.js"
-       "/assets/js/arbor-tween.js")
+       "/assets/js/arbor-tween.js"
+       extra-js)
      (include-async-js
        "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"
        "/assets/js/doc.shim.js"

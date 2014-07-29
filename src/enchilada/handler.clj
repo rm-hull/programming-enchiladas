@@ -11,6 +11,7 @@
             [enchilada.controllers.canvas :as canvas]
             [enchilada.views.not-found :as not-found]
             [enchilada.views.proxy :as proxy]
+            [enchilada.views.create :as create]
             [enchilada.views.stats :as stats]
             [enchilada.views.sitemap :as sitemap]
             [enchilada.views.welcome :as welcome]))
@@ -21,6 +22,7 @@
 
 (defroutes app-routes
   welcome/routes
+  create/routes
   stats/routes
   canvas/routes
   sitemap/routes

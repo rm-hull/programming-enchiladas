@@ -26,5 +26,5 @@
     gist
     :history
     (map (comp to-long parse :committed_at))
-    (reduce max)
+    (reduce max 0)
     (from-long)))

@@ -2,7 +2,9 @@
   (:require
     [clj-http.client :as http]
     [clojure.data.json :as json]
-    [enchilada.util.fs :refer [fetch-gist]]))
+    [enchilada.util.fs :refer [fetch-gist]])
+  (:import
+    [java.util UUID]))
 
 (defn- url [id] (str "https://api.github.com/gists/" id))
 
@@ -31,3 +33,9 @@
       (get-in gist [:user :login]))
     "/"
     (:id gist)))
+
+(defn anonymous [src]
+  {:owner {:login "__anonymous"}
+   :id (str (UUID/randomUUID))
+   :history []
+   :files {"not_yet_created.cljs" {:filename "__temp.cljs" :content src }}})
