@@ -6,7 +6,7 @@
     [compojure.core :refer [defroutes GET POST]]
     [ring.util.response :refer [response file-response content-type]]
     [hiccup.core :refer [html]]
-    [enchilada.util.fs :refer [output-file]]
+    [enchilada.util.fs :refer [clean src-dir temp-dir cache-file output-dir output-file]]
     [enchilada.util.gist :refer [anonymous]]
     [enchilada.util.compiler :refer [generate-js]]
     [enchilada.views.common :refer [spinner layout ribbon]]))
@@ -23,36 +23,38 @@
                  "/assets/js/create.js"
                  ]
       :content
-        [:section.container
-          [:h1 [:i.fa.fa-bug] "&nbsp;&nbsp;Create"]
-          [:div.gist-description
-            [:p "Code up some ClojureScript, press this compile button "
-             [:i.fa.fa-hand-o-right] " "
-             [:a#compile {:href "#" :title "Compile clojurescript"} [:i.fa.fa-play-circle.fa-lg]]
-             " to test it, and then save it as a gist."]]
-          [:div.create-parent
-           (spinner "container grey hidden")
-           (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-           [:div#editor]]]
-        [:section.container
-         [:div#error]]
-        [:section#main-arena.container
-         [:canvas#canvas-area { :width 800 :height 600 }]
-         [:canvas#webgl-area { :width 800 :height 600 }]
-         [:svg#svg-area]
-         [:div#console]])))
+        [:div
+          [:section.container
+            [:h1 [:i.fa.fa-bug] "&nbsp;&nbsp;Create"]
+            [:div.gist-description
+              [:p "Code up some ClojureScript, press " [:i "this"] " compile button "
+               [:i.fa.fa-hand-o-right] " "
+               [:a#compile {:href "#" :title "Compile clojurescript"} [:i.fa.fa-play-circle.fa-lg]]
+               " to test it, and then save it as a gist."]]
+            [:div.create-parent
+             (spinner "container grey")
+             (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
+             [:div#editor]]]
+          [:section.container
+           [:div#error]]
+          [:section#main-arena.container
+           [:canvas#canvas-area { :width 800 :height 600 }]
+           [:canvas#webgl-area { :width 800 :height 600 }]
+           [:svg#svg-area]
+           [:div#console]]])))
 
 (defn compile [req]
   (let [src (get-in req [:params :source])
         gist (anonymous src)]
     (generate-js gist {:debug true})
-    (->
-      (output-file gist)
-      (file-response)
-      ;(response "alert('hello');")
-      (content-type "text/javascript"))))
+    (let [out (->
+                (output-file gist)
+                (file-response)
+                (content-type "text/javascript"))]
+      (doseq [path [src-dir temp-dir cache-file]]
+        (clean path gist))
+      out)))
 
 (defroutes routes
   (GET "/_create" [:as req] (create req))
-  (POST "/_create/compile" [:as req] (compile req))
-  (GET "/_create/compile" [:as req] (compile req)))
+  (POST "/_create/compile" [:as req] (compile req)))

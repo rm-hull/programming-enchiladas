@@ -3,15 +3,18 @@ $(document).ready(function() {
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/clouds");
     editor.getSession().setMode("ace/mode/clojure");
-    editor.setFontSize(12);
+    editor.setFontSize(14);
     editor.setShowInvisibles(false);
     editor.setShowFoldWidgets(false);
     editor.setDisplayIndentGuides(true);
 
+    var $spinner = $('#spinner');
+
     var $compile = $("#compile");
     $compile.bind('click', function(event) {
-        if ($compile.attr('disabled') === undefined) {
-            $('#spinner').removeClass('hidden');
+        if (!$spinner.is(':visible')) {
+            editor.setReadOnly(true);
+            $spinner.show();
             $compile.attr('disabled', true);
             $.ajax('/_create/compile?_=' + new Date().getTime(),
                 {
@@ -24,12 +27,14 @@ $(document).ready(function() {
              }).fail(function(ijqXHR, textStatus, errorThrown) {
 
              }).always(function() {
-                $('#spinner').addClass('hidden');
+                $spinner.hide();
                 $compile.attr('disabled', false);
+                editor.setReadOnly(false);
              });
          }
 
         return false;
     });
 
+    $spinner.hide();
 });

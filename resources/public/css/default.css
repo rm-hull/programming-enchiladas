@@ -388,6 +388,7 @@ h1 {
     width: 1024px;
     height: 600px;
     border: 1px lightgrey solid;
+    margin-bottom: 10px;
 }
 #spinner {
     z-index: 20;
