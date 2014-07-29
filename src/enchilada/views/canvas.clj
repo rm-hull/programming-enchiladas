@@ -11,14 +11,15 @@
 
 (defn- meta-info  [gist stats]
   (let [last-updated (latest-commit-date gist)
-        gist (fn [& props] (get-in gist props))]
+        gist (fn [& props] (get-in gist props))
+        owner (or (gist :owner) (gist :user))]
     [:section.container
       [:div.gist-header
         [:div.meta
          [:h1
           [:div.author
-           (image { :width 26 :height 26 } (gist :owner :avatar_url))
-           [:span (link-to (gist :owner :html_url) (gist :owner :login))] " / "
+           (image { :width 26 :height 26 } (owner :avatar_url))
+           [:span (link-to (owner :html_url) (owner :login))] " / "
            [:strong (link-to (gist :html_url) (:filename (first (vals (gist :files)))))]
            (when stats
              [:div.stats
@@ -36,21 +37,22 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
-  (layout
-    :title (str "Programming Enchiladas :: " (get-in gist [:owner :login]) " / " (:filename (first (vals (:files gist)))))
-    :content
-      [:div
-        (spinner "container grey")
-        (meta-info gist stats)
-        [:section.container
-         [:div#error]]
-        [:section#main-arena.container
-         [:canvas#canvas-area { :width 800 :height 600 }]
-         [:canvas#webgl-area { :width 800 :height 600 }]
-         [:svg#svg-area]
-         [:div#console]]
-       (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-        [:section.container
-         (include-js (url gist ".js"))]
-        (include-async-js (str "/_cljs/" (get-in gist [:owner :login]) "/" (:id gist) "/generated.js" (query-params model)))]))
+  (let [owner (or (gist :owner) (gist :user))]
+    (layout
+      :title (str "Programming Enchiladas :: " (owner :login) " / " (:filename (first (vals (:files gist)))))
+      :content
+        [:div
+          (spinner "container grey")
+          (meta-info gist stats)
+          [:section.container
+           [:div#error]]
+          [:section#main-arena.container
+           [:canvas#canvas-area { :width 800 :height 600 }]
+           [:canvas#webgl-area { :width 800 :height 600 }]
+           [:svg#svg-area]
+           [:div#console]]
+         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
+          [:section.container
+           (include-js (url gist ".js"))]
+          (include-async-js (str "/_cljs/" (owner :login) "/" (:id gist) "/generated.js" (query-params model)))])))
 
