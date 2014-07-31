@@ -32,6 +32,7 @@
                  [rm-hull/big-bang "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/cljs-dataview "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/polyhedra "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
+                 [rm-hull/inkspot "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [om "0.3.0" :exclusions [org.clojure/clojurescript]]]
   :plugins [[lein-ring "0.8.11"]]
   :ring {:handler enchilada.handler/app}
