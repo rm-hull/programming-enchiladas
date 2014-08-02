@@ -1,11 +1,13 @@
 (ns enchilada.views.common
-  (:use [hiccup.core]
-        [hiccup.page]
-        [clj-stacktrace.core]
-        [clj-stacktrace.repl]
-        [enchilada.util.gist]
-        [enchilada.util.page :only [include-async-js]])
-  (:require [enchilada.util.google-analytics :as ga]))
+  (:require
+    [hiccup.core :refer :all]
+    [hiccup.page :refer :all]
+    [clj-stacktrace.core :refer :all]
+    [clj-stacktrace.repl :refer :all]
+    [clj-time.core :refer [year now]]
+    [enchilada.util.page :refer [include-async-js]]
+    [enchilada.util.gist :refer :all]
+    [enchilada.util.google-analytics :as ga]))
 
 (defn url [gist & suffixes]
   (apply str "https://gist.github.com/" (login-id gist) suffixes))
@@ -57,6 +59,12 @@
         [:script {:type "text/javascript"}
          "document.getElementById('num-items').onchange = function(){ document.getElementById('num-items-form').submit();};"]])]]])
 
+(defn footer-bar [home-page?]
+  [:div.footer
+   [:section.container
+    [:p "Copyright © " (year (now)) " Richard Hull. License: "
+     [:a {:href "http://creativecommons.org/licenses/by/3.0/legalcode"} "Creative Commons v3.0"]]]])
+
 (defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js]}]
   (html5
     [:head
@@ -89,7 +97,8 @@
        (System/getenv "SITE_URL"))]
     [:body
      [:div.wrapper (header-bar sort-param count-param home-page?)]
-     [:div.wrapper content]]))
+     [:div.wrapper.content content]]
+     [:div.wrapper (footer-bar home-page?)]))
 
 (defn ribbon [text href]
   (html
