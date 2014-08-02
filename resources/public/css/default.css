@@ -328,7 +328,11 @@ h1 {
 .gist-description p {
     padding-bottom: 10px;
 }
-.header {
+.content {
+    padding-top: 45px;
+    padding-bottom: 30px;
+}
+.header, .footer {
     background-color: #f3f3f3;
     background-image: -moz-linear-gradient(#f9f9f9, #f3f3f3);
     background-image: -webkit-linear-gradient(#f9f9f9, #f3f3f3);
@@ -339,9 +343,23 @@ h1 {
     min-width: 1000px;
     line-height: 40px;
     height: 40px;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
 }
 
-.header a {
+.footer {
+    padding-top: 3px;
+    line-height: 18px;
+    height: 18px;
+    border-top: 1px solid #e5e5e5;
+    bottom: 0;
+    right: 0;
+    font: 13px Helvetica, arial, freesans, clean, sans-serif;
+}
+
+.header a,
+.footer a {
     text-decoration: none;
     padding-top: 5px;
     font: 13px Helvetica, arial, freesans, clean, sans-serif;
@@ -351,7 +369,8 @@ h1 {
     -webkit-transition: all 0.1s ease-in 0;
 }
 
-.header a:hover {
+.header a:hover,
+.footer a:hover {
     color: #4183c4;
 }
 
