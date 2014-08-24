@@ -93,7 +93,7 @@
                    (pick-mongo num-items sort-param))]
     (layout
       :title "Programming Enchiladas :: Gallery"
-      :refresh (if (= sort-param "random") 300)
+      :refresh (if (= sort-param "random") 3600)
       :sort-param sort-param
       :count-param num-items
       :home-page? true
