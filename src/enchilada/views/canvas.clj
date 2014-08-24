@@ -40,7 +40,7 @@
 (defn render-page [{:keys [gist debug stats] :as model}]
   (let [owner (or (gist :owner) (gist :user))]
     (layout
-      :title (str "Programming Enchiladas :: " (owner :login) " / " (:filename (first (vals (:files gist)))))
+      :title (str "Programming Enchiladas :: " (owner :login) " / " (first-filename gist))
       :content
         [:div
           (spinner "container grey")
