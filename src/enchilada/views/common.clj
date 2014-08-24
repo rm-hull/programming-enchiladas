@@ -62,8 +62,10 @@
 (defn footer-bar [home-page?]
   [:div.footer
    [:section.container
-    [:p "Copyright © " (year (now)) " Richard Hull. License: "
-     [:a {:href "http://creativecommons.org/licenses/by/3.0/legalcode"} "Creative Commons v3.0"]]]])
+    [:p "Site: copyright © " (year (now)) " Richard Hull. License: "
+     [:a {:href "http://creativecommons.org/licenses/by/3.0/legalcode"} "Creative Commons v3.0"]
+     "&nbsp;&nbsp;Content: copyright as per respective owners else as otherwise specified."
+     ]]])
 
 (defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js]}]
   (html5
