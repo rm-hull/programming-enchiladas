@@ -139,3 +139,18 @@
            [:table.trace
              [:tbody (map elem-partial (:trimmed-elems cause))]]])])))
 
+(defn first-filename [gist]
+  (->>
+    :files
+    gist
+    vals
+    (map :filename)
+    (filter #(.endsWith % ".cljs"))
+    first))
+
+(defn fork-info [gist]
+  (when-let [fork (gist :fork_of)]
+    (let [orig-owner (get-in fork [:owner :login])]
+      [:span.text
+       "— forked from "
+       [:a {:href (str "/" orig-owner "/" (:id fork))} (str orig-owner "/" (first-filename gist))]])))

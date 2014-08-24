@@ -20,14 +20,15 @@
           [:div.author
            (image { :width 26 :height 26 } (owner :avatar_url))
            [:span (link-to (owner :html_url) (owner :login))] " / "
-           [:strong (link-to (gist :html_url) (:filename (first (vals (gist :files)))))]
+           [:strong (link-to (gist :html_url) (first-filename gist))]
            (when stats
              [:div.stats
               [:span.views (get stats :visits 1) " views "]
               [:span.stars [:a {:href :# :title "Star this gist"} (get stats :stars 0) " \u2605"]]])
            [:div.gist-timestamp
             [:span.datetime "Last updated "
-             [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
+             [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]
+            (fork-info gist)]]]]]
       [:div.gist-description
        [:p (-> :description gist simple-md)]]]))
 
@@ -37,8 +38,6 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
-  (println "owner" (gist :owner))
-  (println "user" (gist :user))
   (let [owner (or (gist :owner) (gist :user))]
     (layout
       :title (str "Programming Enchiladas :: " (owner :login) " / " (:filename (first (vals (:files gist)))))

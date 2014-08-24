@@ -43,10 +43,11 @@
             [:div.author
              [:img {:src (owner :avatar_url) :width 26 :height 26 }]
              [:span [:a {:href login-id} (owner :login)]] " / "
-             [:strong [:a {:href login-id} (:filename (first (vals (gist :files))))]]
+             [:strong [:a {:href login-id} (first-filename gist)]]
              [:div.gist-timestamp
               [:span.datetime "Last updated "
-               [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]]]]]]
+               [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]
+               (fork-info gist)]]]]]
         [:div.gist-description
          [:p (-> :description gist (limit 200) simple-md)]]
         [:div.gallery-picture
