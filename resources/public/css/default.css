@@ -145,6 +145,9 @@ div.author span {
 .stats {
     float: right;
 }
+.stats > span {
+    vertical-align: top;
+}
 
 .gist-header {
     border-bottom: 1px solid #e5e5e5;
@@ -165,6 +168,7 @@ div.author span {
 
 .stars>a {
     color: #666666!important;
+    vertical-align: top;
 }
 
 .meta h1 {

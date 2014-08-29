@@ -45,6 +45,7 @@
     { :debug (debug? req)
       :optimization-level (get-in req [:params :optimization-level])
       :gist gist
+      :request req
       :stats (gamification/view gist)}))
 
 (defn- perform-audits! [{:keys [gist stats] :as model}]

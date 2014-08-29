@@ -16,26 +16,12 @@
 
 (def *default-sort-order* "latest")
 
-(defn find-next-space [text max-length]
-  (let [idx (.indexOf text " " max-length)]
-    (if (neg? idx)
-      (count text)
-      idx)))
-
-(defn limit [text max-length]
-  (if (> (count text) max-length)
-    (str (subs text 0 (find-next-space text max-length)) "...")
-    text))
-
 (defn gallery-panel [gist]
   (when gist
     (let [login-id (login-id gist)
-          owner (fn [& props]
-                  (or
-                    (get-in gist (cons :user props))
-                    (get-in gist (cons :owner props))))
           last-updated (latest-commit-date gist)
-          gist (fn [& props] (get-in gist props))]
+          gist (fn [& props] (get-in gist props))
+          owner (or (gist :owner) (gist :user))]
       [:div.gallery-panel
         [:div.gist-header
           [:div.meta

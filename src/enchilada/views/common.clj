@@ -67,12 +67,13 @@
      "&nbsp;&nbsp;Content: copyright as per respective owners else as otherwise specified."
      ]]])
 
-(defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js]}]
+(defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js extra-metadata]}]
   (html5
     [:head
      [:title title]
      [:meta {:name "keywords" :content keywords}]
      [:meta {:name "description" :content blurb}]
+     extra-metadata
 
      (when refresh
        [:meta {:http-equiv "refresh" :content refresh}])
@@ -154,3 +155,14 @@
       [:span.text
        "— forked from "
        [:a {:href (str "/" orig-owner "/" (:id fork))} (str orig-owner "/" (first-filename gist))]])))
+
+(defn find-next-space [text max-length]
+  (let [idx (.indexOf text " " max-length)]
+    (if (neg? idx)
+      (count text)
+      idx)))
+
+(defn limit [text max-length]
+  (if (> (count text) max-length)
+    (str (subs text 0 (find-next-space text max-length)) "...")
+    text))

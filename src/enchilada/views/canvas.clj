@@ -7,6 +7,7 @@
         [enchilada.util.time-ago]
         [enchilada.util.page :only [include-async-js]]
         [enchilada.util.markdown :only [simple-md]]
+        [enchilada.util.twitter :as twitter]
         [enchilada.views.common]))
 
 (defn- meta-info  [gist stats]
@@ -23,6 +24,7 @@
            [:strong (link-to (gist :html_url) (first-filename gist))]
            (when stats
              [:div.stats
+              [:span.share-buttons twitter/share-button]
               [:span.views (get stats :visits 1) " views "]
               [:span.stars [:a {:href :# :title "Star this gist"} (get stats :stars 0) " \u2605"]]])
            [:div.gist-timestamp
@@ -41,6 +43,10 @@
   (let [owner (or (gist :owner) (gist :user))]
     (layout
       :title (str "Programming Enchiladas :: " (owner :login) " / " (first-filename gist))
+      :extra-metadata (twitter/generate-card-metadata
+                        (System/getenv "TWITTER_HANDLE")
+                        (System/getenv "FULL_SITE_URL")
+                        gist)
       :content
         [:div
           (spinner "container grey")
