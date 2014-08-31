@@ -74,7 +74,7 @@
   (Integer/parseInt s))
 
 (defn welcome [req]
-  (let [num-items (to-int (get-in req [:query-params "n"] "10"))
+  (let [num-items (to-int (get-in req [:query-params "n"] "20"))
         sort-param (get-in req [:query-params "sort"] *default-sort-order*)
         pick-ten (if (= sort-param "random")
                    (pick-random num-items)
