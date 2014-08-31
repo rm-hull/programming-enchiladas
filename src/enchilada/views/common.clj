@@ -24,7 +24,7 @@
 
 (def keywords "clojure,clojurescript,gist,programming,lisp,github,html5,canvas,svg,webgl,3d,javascript,algorithms,computer,science,noir,compojure,ring,middleware,lein,leiningen")
 
-(def blurb "A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/ but geared specifically for on-the-fly ClojuresScript code generation.")
+(def blurb "A ClojureScript-based HTML5 Canvas and SVG Graphics Playground, much like http://bl.ocks.org/ but specifically designed for showcasing small ClojuresScript code demos: The underlying agenda is to show how small simple functional programs can generate complex behaviour.")
 
 (defn link [url sort-param num-items]
   (str
@@ -32,16 +32,24 @@
     (if num-items
       (str "&n=" num-items))))
 
+(def categories
+  {:random "Gists chosen at random"
+   :latest "The most recently updated gists"
+   :popular "The gists with most page views"
+   :favourites "Gists which have been starred most"
+   :unloved "Old, forgotten about, gists" })
+
 (defn header-bar [sort-param num-items home-page?]
   [:div.header
    [:section.container
     [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
     [:span.command-bar
      [:ul.top-nav
-      (for [s ["random" "latest" "popular" "favourites" "unloved"]]
+      (for [[s title] categories
+            :let [s (name s)]]
         [:li
          (if (not= s sort-param)
-           [:a {:href (link home-url s num-items)} s]
+           [:a {:href (link home-url s num-items) :title title} s]
            s)])]
      (when home-page?
        [:span
@@ -134,6 +142,7 @@
         [:div#exception
           [:h3.info (h (remove-newlines (str ex)))]
           [:table.trace
+      :content
             [:tbody (map elem-partial (:trace-elems exception))]]]
         (for [cause causes :while cause]
           [:div#causes

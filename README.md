@@ -1,19 +1,21 @@
 [Programming Enchiladas](http://programming-enchiladas.destructuring-bind.org)
 ======================
 
-A sort-of gist for ClojureScript/canvas/SVG experiments, much like http://bl.ocks.org/
-but geared specifically for on-the-fly ClojuresScript code generation: getting sick
-of setting up yet another lein/noir for every new folly,
-so it makes more sense to have a framework which loads public
-ClojureScript gists directly from github, compiles them on the fly
-and serves them out.
+A ClojureScript-based HTML5 Canvas and SVG Graphics Playground, much like
+http://bl.ocks.org/ but specifically designed for showcasing small
+ClojuresScript code demos: The underlying agenda is to show how small simple
+functional programs can generate complex behaviour.
 
-This allows shared/social and version-tracked editable ClojureScripts
-to be run by anyone anywhere with a reasonably modern browser (tested in Chrome/FF/Safari).
-In order to compile and run any .cljs files in gist
+I was getting sick of setting up yet another lein/noir for every new folly, so
+it made more sense to have a framework which loads public ClojureScript gists
+directly from github, compiles them on the fly and serves them out.
+
+This allows shared/social and version-tracked editable ClojureScripts to be run
+by anyone anywhere with a reasonably modern browser (tested in
+Chrome/FF/Safari).  In order to compile and run any .cljs files in gist
 https://gist.github.com/rm-hull/5278162 (for example), go to
-http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162 - see below
-for more examples.
+http://programming-enchiladas.destructuring-bind.org/rm-hull/5278162 - see
+below for more examples.
 
 As part of the available 'stack' (for want of a better word), the
 following client-side clojureScript bindings are available:

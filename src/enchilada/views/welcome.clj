@@ -92,9 +92,9 @@
             "&nbsp;&nbsp;Gallery"
             [:div.stats [:span.share-buttons twitter/share-button]] ]
           [:div.gist-description
-            [:p "A sort-of gist for ClojureScript/canvas/SVG experiments, much like "
+            [:p "A ClojureScript-based HTML5 Canvas and SVG Graphics Playground, much like "
                [:a {:href "http://bl.ocks.org/"} "http://bl.ocks.org/"]
-               " but geared specifically for on-the-fly ClojuresScript code generation: getting sick of setting up yet another lein/noir for every new folly, so it makes more sense to have a framework which loads public ClojureScript gists directly from github, compiles them on the fly and serves them out."]
+               " but specifically designed for showcasing small ClojuresScript code demos: The underlying agenda is to show how small simple functional programs can generate complex behaviour."]
             [:p "This page shows some of the gists we know about. Why not add yours?"]]
 
           [:div.gallery-parent
