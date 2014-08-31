@@ -6,6 +6,7 @@
     [enchilada.services.gamification :only [top-n]]
     [enchilada.util.time-ago]
     [enchilada.util.markdown :only [simple-md]]
+    [enchilada.util.twitter :as twitter]
     [enchilada.util.gist :only [login-id]]
     [enchilada.util.fs :only [is-filetype? work-files* fetch-gist png-img-file jpg-img-file]]
     [enchilada.views.common])
@@ -86,7 +87,10 @@
       :home-page? true
       :content
         [:section.container
-          [:h1 [:i.fa.fa-film.fa-x2] "&nbsp;&nbsp;Gallery"]
+          [:h1
+            [:i.fa.fa-film.fa-x2]
+            "&nbsp;&nbsp;Gallery"
+            [:div.stats [:span.share-buttons twitter/share-button]] ]
           [:div.gist-description
             [:p "A sort-of gist for ClojureScript/canvas/SVG experiments, much like "
                [:a {:href "http://bl.ocks.org/"} "http://bl.ocks.org/"]
