@@ -33,11 +33,12 @@
       (str "&n=" num-items))))
 
 (def categories
-  {:random "Gists chosen at random"
-   :latest "The most recently updated gists"
-   :popular "The gists with most page views"
-   :favourites "Gists which have been starred most"
-   :unloved "Old, forgotten about, gists" })
+  (array-map
+    :random "Gists chosen at random"
+    :latest "The most recently updated gists"
+    :popular "The gists with most page views ☺"
+    :favourites "Gists which have been ★'d the most"
+    :unloved "Old, forgotten about, gists ☹" ))
 
 (defn header-bar [sort-param num-items home-page?]
   [:div.header
