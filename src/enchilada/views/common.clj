@@ -102,7 +102,7 @@
        "/assets/js/doc.shim.js"
        "http://www.senchalabs.org/philogl/PhiloGL/build/PhiloGL.js")
      [:script {:type "text/x-mathjax-config"}
-        "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});" ]
+        "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});" ]
      (ga/google-maps-jscript-api
        (System/getenv "GOOGLEMAPS_API_KEY")
        false)
