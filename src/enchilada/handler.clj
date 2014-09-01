@@ -34,7 +34,9 @@
   (->
     (handler/site app-routes)
     (wrap-gzip)
-    (wrap-cache-control {:max-age 2592000 :public true :must-revalidate true} #{"/assets/images" "/assets/css" "/assets/js" "/images"})
+    (wrap-cache-control
+      {:max-age 2592000 :public true :must-revalidate true}
+      #{"/_assets/images" "/_assets/css" "/_assets/js" "/_images"})
     (wrap-base-url)
     (wrap-params)))
 

@@ -86,21 +86,21 @@
 
      (when refresh
        [:meta {:http-equiv "refresh" :content refresh}])
-     [:link {:rel "icon" :type "image/png" :href "/assets/images/favicon.png"}]
+     [:link {:rel "icon" :type "image/png" :href "/_assets/images/favicon.png"}]
      (include-css
        "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
-       "/assets/css/default.css"
-       "/assets/css/spinner.css"
-       "/assets/css/ribbon.css")
+       "/_assets/css/default.css"
+       "/_assets/css/spinner.css"
+       "/_assets/css/ribbon.css")
      (apply include-js
        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
-       "/assets/js/arbor.js"
-       "/assets/js/arbor-tween.js"
+       "/_assets/js/arbor.js"
+       "/_assets/js/arbor-tween.js"
        extra-js)
      (include-async-js
        "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"
        "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-       "/assets/js/doc.shim.js"
+       "/_assets/js/doc.shim.js"
        "http://www.senchalabs.org/philogl/PhiloGL/build/PhiloGL.js")
      [:script {:type "text/x-mathjax-config"}
         "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});" ]

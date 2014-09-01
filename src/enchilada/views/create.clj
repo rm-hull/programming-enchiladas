@@ -20,7 +20,7 @@
                  "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/theme-clouds.js"
                  "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-clojure.js"
                  "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/snippets/clojure.js"
-                 "/assets/js/create.js"
+                 "/_assets/js/create.js"
                  ]
       :content
         [:div
