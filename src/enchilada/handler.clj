@@ -27,8 +27,8 @@
   canvas/routes
   sitemap/routes
   proxy/routes
-  (route/resources "/assets")
-  (route/not-found (not-found/page "You step in the stream, but the water has moved on.")))
+  (route/resources "/_assets")
+  (route/not-found (not-found/page)))
 
 (def app
   (->

@@ -76,9 +76,9 @@
 (defn welcome [req]
   (let [num-items (to-int (get-in req [:query-params "n"] "20"))
         sort-param (get-in req [:query-params "sort"] *default-sort-order*)
-        pick-ten (if (= sort-param "random")
-                   (pick-random num-items)
-                   (pick-mongo num-items sort-param))]
+        picked-items (if (= sort-param "random")
+                       (pick-random num-items)
+                       (pick-mongo num-items sort-param))]
     (layout
       :title "Programming Enchiladas :: Gallery"
       :refresh (if (= sort-param "random") 3600)
@@ -99,7 +99,7 @@
 
           [:div.gallery-parent
            (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-           (pmap (comp gallery-panel fetch-gist) pick-ten)]])))
+           (pmap (comp gallery-panel fetch-gist) picked-items)]])))
 
 (defn img-resource [[mime-type filename]]
   (if (fs/exists? (io/file filename))

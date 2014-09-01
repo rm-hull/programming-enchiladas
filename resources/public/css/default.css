@@ -78,9 +78,9 @@ div#info {
 }
 
 div#not-found {
-    position: absolute;
+    position: fixed;
     top: 40px;
-    bottom: 0;
+    bottom: -60px;
     left: 0;
     right: 0;
     background-image: url("../images/404.jpg");
@@ -93,6 +93,11 @@ div#not-found p {
     color: #fff;
     text-shadow: 1px 0 0 #555, 0 -1px 0 #555, 0 1px 0 #555, -1px 0 0 #555;
     margin: 10px;
+}
+div#not-found p.err404 {
+    font-size: 250pt;
+    text-align: center;
+    vertical-align: middle;
 }
 
 section.container {
@@ -344,7 +349,6 @@ h1 {
     background-repeat: repeat-x;
     text-shadow: 0 1px 0 #fff;
     border-bottom: 1px solid #e5e5e5;
-    min-width: 1000px;
     line-height: 40px;
     height: 40px;
     width: 100%;

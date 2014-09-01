@@ -1,14 +1,16 @@
 (ns enchilada.views.canvas
-  (:use [compojure.core :only [defroutes GET]]
-        [ring.util.response :only [file-response content-type header]]
-        [hiccup.core :only [html]]
-        [hiccup.element :only [image link-to]]
-        [hiccup.page :only [include-js]]
-        [enchilada.util.time-ago]
-        [enchilada.util.page :only [include-async-js]]
-        [enchilada.util.markdown :only [simple-md]]
-        [enchilada.util.twitter :as twitter]
-        [enchilada.views.common]))
+  (:require
+    [compojure.core :refer [defroutes GET]]
+    [hiccup.core :refer [html]]
+    [hiccup.element :refer [image link-to]]
+    [hiccup.page :refer [include-js]]
+    [enchilada.util.page :refer [include-async-js]]
+    [enchilada.util.markdown :refer [simple-md]]
+    [enchilada.util.twitter :as twitter]
+    [enchilada.util.time-ago :refer :all]
+    [enchilada.views.not-found :as not-found]
+    [enchilada.views.common :refer :all]
+    ))
 
 (defn- meta-info  [gist stats]
   (let [last-updated (latest-commit-date gist)
@@ -40,26 +42,28 @@
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
 (defn render-page [{:keys [gist debug stats] :as model}]
-  (let [owner (or (gist :owner) (gist :user))]
-    (layout
-      :title (str "Programming Enchiladas :: " (owner :login) " / " (first-filename gist))
-      :extra-metadata (twitter/generate-card-metadata
-                        (System/getenv "TWITTER_HANDLE")
-                        (System/getenv "FULL_SITE_URL")
-                        gist)
-      :content
-        [:div
-          (spinner "container grey")
-          (meta-info gist stats)
-          [:section.container
-           [:div#error]]
-          [:section#main-arena.container
-           [:canvas#canvas-area { :width 800 :height 600 }]
-           [:canvas#webgl-area { :width 800 :height 600 }]
-           [:svg#svg-area]
-           [:div#console]]
-         (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
-          [:section.container
-           (include-js (url gist ".js"))]
-          (include-async-js (str "/_cljs/" (owner :login) "/" (:id gist) "/generated.js" (query-params model)))])))
+  (if (nil? gist)
+    (not-found/page)
+    (let [owner (or (gist :owner) (gist :user))]
+      (layout
+        :title (str "Programming Enchiladas :: " (owner :login) " / " (first-filename gist))
+        :extra-metadata (twitter/generate-card-metadata
+                          (System/getenv "TWITTER_HANDLE")
+                          (System/getenv "FULL_SITE_URL")
+                          gist)
+        :content
+          [:div
+            (spinner "container grey")
+            (meta-info gist stats)
+            [:section.container
+             [:div#error]]
+            [:section#main-arena.container
+             [:canvas#canvas-area { :width 800 :height 600 }]
+             [:canvas#webgl-area { :width 800 :height 600 }]
+             [:svg#svg-area]
+             [:div#console]]
+           (ribbon "Fork me on GitHub!" "https://github.com/rm-hull/programming-enchiladas")
+            [:section.container
+             (include-js (url gist ".js"))]
+            (include-async-js (str "/_cljs/" (owner :login) "/" (:id gist) "/generated.js" (query-params model)))]))))
 
