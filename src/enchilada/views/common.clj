@@ -82,7 +82,6 @@
      [:title title]
      [:meta {:name "keywords" :content keywords}]
      [:meta {:name "description" :content blurb}]
-     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
      extra-metadata
 
      (when refresh
