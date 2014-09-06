@@ -89,9 +89,7 @@
      [:link {:rel "icon" :type "image/png" :href "/_assets/images/favicon.png"}]
      (include-css
        "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"
-       "/_assets/css/default.css"
-       "/_assets/css/spinner.css"
-       "/_assets/css/ribbon.css")
+       "/_assets/css/default.css")
      (apply include-js
        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
        "/_assets/js/arbor.js"
