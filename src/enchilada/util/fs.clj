@@ -85,5 +85,7 @@
     (fs/file? f)
     (.endsWith (.getName f) suffix)))
 
+(def is-json? (partial is-filetype? ".json"))
+
 (defn work-files* [pred ^File dir]
   (filter pred (file-seq dir)))

@@ -9,6 +9,7 @@
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [enchilada.controllers.canvas :as canvas]
+            [enchilada.services.search :as search]
             [enchilada.views.not-found :as not-found]
             [enchilada.views.proxy :as proxy]
             [enchilada.views.create :as create]
@@ -19,6 +20,8 @@
 (def keep-alive
   (when-let [url (System/getenv "KEEPALIVE_URL")]
     (ping url 47)))
+
+(search/index-all)
 
 (defroutes app-routes
   welcome/routes

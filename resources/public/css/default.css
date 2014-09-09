@@ -1,7 +1,7 @@
 html {
-	margin:0;
-	padding:0;
-	border:0;
+    margin:0;
+    padding:0;
+    border:0;
 }
 
 body {
@@ -16,40 +16,40 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section {
-	margin: 0;
-	border: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
 }
 
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section {
-	display:block;
+    display:block;
 }
 
 html,body {
-	line-height: 1.5;
-	background: white;
+    line-height: 1.5;
+    background: white;
     color: black;
     width: 100%;
     height: 100%;
 }
 
 table {
-	border-collapse: separate;
-	border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 caption, th, td {
-	text-align: left;
-	font-weight: normal;
-	float:none !important;
+    text-align: left;
+    font-weight: normal;
+    float:none !important;
 }
 table, th, td {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 blockquote:before, blockquote:after, q:before, q:after { content: ''; }
@@ -471,7 +471,7 @@ div.spinner div {
   -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);
   -moz-animation: fade 1s linear infinite;
   -moz-border-radius: 50px;
-  -moz-box-shadow: 0 0 3px rgba(0,0,0,0.2);		  
+  -moz-box-shadow: 0 0 3px rgba(0,0,0,0.2);       
   border-radius: 50px;
 }
 
@@ -479,27 +479,27 @@ div.spinner div.bar1 {
     -webkit-transform:rotate(0deg) translate(0, -142%); 
     -webkit-animation-delay: 0s;
     -moz-transform:rotate(0deg) translate(0, -142%); 
-    -moz-animation-delay: 0s;	
+    -moz-animation-delay: 0s;   
     -ms-transform:rotate(0deg) translate(0, -142%); 
     -ms-animation-delay: 0s;}    
 div.spinner div.bar2 {
     -webkit-transform:rotate(30deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.9167s;	
+    -webkit-animation-delay: -0.9167s;  
     -moz-transform:rotate(30deg) translate(0, -142%); 
     -moz-animation-delay: -0.9167s;}
 div.spinner div.bar3 {
     -webkit-transform:rotate(60deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.833s;	
+    -webkit-animation-delay: -0.833s;   
     -moz-transform:rotate(60deg) translate(0, -142%); 
     -moz-animation-delay: -0.833s;}
 div.spinner div.bar4 {
     -webkit-transform:rotate(90deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.75s;	
+    -webkit-animation-delay: -0.75s;    
     -moz-transform:rotate(90deg) translate(0, -142%); 
     -moz-animation-delay: -0.75s;}
 div.spinner div.bar5 {
     -webkit-transform:rotate(120deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.667s;	
+    -webkit-animation-delay: -0.667s;   
     -moz-transform:rotate(120deg) translate(0, -142%); 
     -moz-animation-delay: -0.667s;}
 div.spinner div.bar6 {
@@ -509,17 +509,17 @@ div.spinner div.bar6 {
     -moz-animation-delay: -0.5833s;}
 div.spinner div.bar7 {
     -webkit-transform:rotate(180deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.5s;	
+    -webkit-animation-delay: -0.5s; 
     -moz-transform:rotate(180deg) translate(0, -142%); 
     -moz-animation-delay: -0.5s;}
 div.spinner div.bar8 {
     -webkit-transform:rotate(210deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.41667s;	
+    -webkit-animation-delay: -0.41667s; 
     -moz-transform:rotate(210deg) translate(0, -142%); 
     -moz-animation-delay: -0.41667s;}
 div.spinner div.bar9 {
     -webkit-transform:rotate(240deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.333s;	
+    -webkit-animation-delay: -0.333s;   
     -moz-transform:rotate(240deg) translate(0, -142%); 
     -moz-animation-delay: -0.333s;}
 div.spinner div.bar10 {
@@ -534,7 +534,7 @@ div.spinner div.bar11 {
     -moz-animation-delay: -0.1667s;}
 div.spinner div.bar12 {
     -webkit-transform:rotate(330deg) translate(0, -142%); 
-    -webkit-animation-delay: -0.0833s;		
+    -webkit-animation-delay: -0.0833s;      
     -moz-transform:rotate(330deg) translate(0, -142%); 
     -moz-animation-delay: -0.0833s;}
 
@@ -570,3 +570,12 @@ div.container.grey div.spinner {
 
 div.container div.spinner div {background: #fff;}
 
+.search button {
+    margin-left: -30px;
+}
+.search input[type="search"] {
+    padding-right: 30px;
+}
+span.num-items {
+    padding-left: 40px;
+}

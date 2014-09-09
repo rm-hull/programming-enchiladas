@@ -1,7 +1,8 @@
 (ns enchilada.util.compiler
   (:use [enchilada.util.fs])
   (:require
-    [cljs.closure :as cljsc]))
+    [cljs.closure :as cljsc]
+    [enchilada.services.search :as search]))
 
 (def cljs-build-opts
   (let [valid-opts #{:simple :whitespace :advanced}]
@@ -11,7 +12,6 @@
                        :source-map (str output-file ".map")
                        :output-dir (output-dir gist)
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
-                       :incremental? true
                        :pretty-print false
                        :static-fns true
                        :externs ["resources/private/externs/arbor.js"
@@ -39,5 +39,5 @@
 
 (defn regenerate-if-stale [gist build-opts]
   (if (or (:debug build-opts) (stale? gist))
-    (generate-js gist build-opts)
+    (-> (search/index gist) (generate-js build-opts))
     gist))

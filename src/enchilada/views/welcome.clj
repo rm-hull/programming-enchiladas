@@ -3,19 +3,20 @@
     [compojure.core :only [defroutes GET]]
     [ring.util.response :only [redirect file-response response header content-type]]
     [hiccup.core :only [html]]
-    [enchilada.services.gamification :only [top-n]]
+    [enchilada.services.gamification :as gam]
+    [enchilada.services.search :as search]
     [enchilada.util.time-ago]
     [enchilada.util.markdown :only [simple-md]]
     [enchilada.util.twitter :as twitter]
-    [enchilada.util.gist :only [login-id]]
-    [enchilada.util.fs :only [is-filetype? work-files* fetch-gist png-img-file jpg-img-file]]
+    [enchilada.util.gist :only [login-id filename->gist mongo->gist]]
+    [enchilada.util.fs :only [is-json? work-files* fetch-gist png-img-file jpg-img-file]]
     [enchilada.views.common])
   (:require
     [clojure.string :as str]
     [clojure.java.io :as io]
     [me.raynes.fs :as fs]))
 
-(def *default-sort-order* "latest")
+(def +default-sort-order+ "latest")
 
 (defn gallery-panel [gist]
   (when gist
@@ -41,26 +42,22 @@
          [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
            [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]])))
 
-(def is-json? (partial is-filetype? ".json"))
+(defn take-1 [n coll]
+  (if (neg? n)
+    coll
+    (take n coll)))
 
-(def user-id-regex #".*/(.*)/(.*).(json|png)")
-
-(defn filename->gist [file]
-  (let [[_ user id] (re-find user-id-regex (fs/absolute-path file))]
-    {:id id :owner { :login user}}))
-
-(defn mongo->gist [mongo-record]
-  (let [[user id] (str/split (:gist mongo-record) #"/")]
-    {:id id :owner { :login user}}))
-
-(defn pick-mongo [n sort-param]
+(defn pick-choice [n sort-param]
   (map
     mongo->gist
     (case sort-param
-      "popular"    (top-n :visits -1 n)
-      "unloved"    (top-n :visits 1 n)
-      "latest"     (top-n :last_updated -1 n)
-      "favourites" (top-n :stars -1 n))))
+      "popular"    (gam/top-n :visits -1 n)
+      "unloved"    (gam/top-n :visits 1 n)
+      "favourites" (gam/top-n :stars -1 n)
+                   (gam/top-n :last_updated -1 n))))
+
+(defn pick-search [n search-param]
+  (take-1 n (map first (search/query search-param))))
 
 (defn pick-random [n]
   (->>
@@ -68,21 +65,26 @@
     (work-files* is-json?)
     (map filename->gist)
     (shuffle)
-    (take n)))
+    (take-1 n)))
 
 (defn to-int [s]
   (Integer/parseInt s))
 
 (defn welcome [req]
-  (let [num-items (to-int (get-in req [:query-params "n"] "20"))
-        sort-param (get-in req [:query-params "sort"] *default-sort-order*)
-        picked-items (if (= sort-param "random")
-                       (pick-random num-items)
-                       (pick-mongo num-items sort-param))]
+  (let [num-items    (to-int (get-in req [:query-params "n"] "20"))
+        search-param (get-in req [:query-params "search"])
+        sort-param   (if-not (empty? search-param)
+                       "search"
+                       (get-in req [:query-params "sort"] +default-sort-order+))
+        picked-items (case sort-param
+                       "random" (pick-random num-items)
+                       "search" (pick-search num-items search-param)
+                                (pick-choice num-items sort-param))]
     (layout
       :title "Programming Enchiladas :: Gallery"
       :refresh (if (= sort-param "random") 3600)
       :sort-param sort-param
+      :search-param search-param
       :count-param num-items
       :home-page? true
       :content

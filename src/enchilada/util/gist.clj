@@ -1,7 +1,9 @@
 (ns enchilada.util.gist
   (:require
+    [clojure.string :as str]
     [clj-http.client :as http]
     [clojure.data.json :as json]
+    [me.raynes.fs :refer [absolute-path]]
     [enchilada.util.fs :refer [fetch-gist]])
   (:import
     [java.util UUID]))
@@ -39,3 +41,13 @@
    :id (str (UUID/randomUUID))
    :history []
    :files {"not_yet_created.cljs" {:filename "__temp.cljs" :content src }}})
+
+(def user-id-regex #".*/(.*)/(.*).(json|png)")
+
+(defn filename->gist [file]
+  (let [[_ user id] (re-find user-id-regex (absolute-path file))]
+    {:id id :owner { :login user}}))
+
+(defn mongo->gist [mongo-record]
+  (let [[user id] (str/split (:gist mongo-record) #"/")]
+    {:id id :owner { :login user}}))

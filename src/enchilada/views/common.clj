@@ -40,7 +40,7 @@
     :favourites "Gists which have been ★'d the most"
     :unloved "Old, forgotten about, gists ☹" ))
 
-(defn header-bar [sort-param num-items home-page?]
+(defn header-bar [sort-param search-param num-items home-page?]
   [:div.header
    [:section.container
     [:a.header-logo {:href home-url :title "Explore other ClojureScript Gists"} [:i.fa.fa-cutlery] " Programming Enchiladas"]
@@ -52,21 +52,25 @@
          (if (not= s sort-param)
            [:a {:href (link home-url s num-items) :title title} s]
            s)])]
-     (when home-page?
-       [:span
-        [:form#num-items-form {:method "GET"}
-         "Display"
-         [:input {:type "hidden" :name "sort" :value sort-param}]
-         [:select#num-items {:name "n"}
-          (for [[k v] (array-map 10 10, 20 20, 50 50, -1 "All")]
-            [:option
-             (if (= k num-items)
-               {:selected true :value k}
-               {:value k})
-             v])]
-         "Items"]
-        [:script {:type "text/javascript"}
-         "document.getElementById('num-items').onchange = function(){ document.getElementById('num-items-form').submit();};"]])]]])
+     [:form#search-form {:method "GET" :action "/"}
+      (when-not (= sort-param "search")
+        [:input {:type "hidden" :name "sort" :value sort-param}])
+       [:span.search
+        [:input {:type "search" :placeholder "Search..." :name "search" :value search-param}]
+        [:button {:type "submit"} [:i.fa.fa-search]]]
+       (when home-page?
+         [:span.num-items
+           "Display"
+           [:select#num-items {:name "n"}
+            (for [[k v] (array-map 10 10, 20 20, 50 50, -1 "All")]
+              [:option
+               (if (= k num-items)
+                 {:selected true :value k}
+                 {:value k})
+               v])]
+           "Items"
+           [:script {:type "text/javascript"}
+            "document.getElementById('num-items').onchange = function(){ document.getElementById('search-form').submit();};"]])]]]])
 
 (defn footer-bar [home-page?]
   [:div.footer
@@ -76,7 +80,7 @@
      "&nbsp;&nbsp;Content: copyright as per respective owners else as otherwise specified."
      ]]])
 
-(defn layout [& {:keys [title content refresh sort-param count-param home-page? extra-js extra-metadata]}]
+(defn layout [& {:keys [title content refresh sort-param search-param count-param home-page? extra-js extra-metadata]}]
   (html5
     [:head
      [:title title]
@@ -109,7 +113,7 @@
        (System/getenv "GA_TRACKING_ID")
        (System/getenv "SITE_URL"))]
     [:body
-     [:div.wrapper (header-bar sort-param count-param home-page?)]
+     [:div.wrapper (header-bar sort-param search-param count-param home-page?)]
      [:div.wrapper.content content]]
      [:div.wrapper (footer-bar home-page?)]))
 
