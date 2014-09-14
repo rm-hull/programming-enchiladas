@@ -96,8 +96,8 @@
        "/_assets/css/default.css")
      (apply include-js
        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"
-       "/_assets/js/arbor.js"
-       "/_assets/js/arbor-tween.js"
+       ;"/_assets/js/arbor.js"
+       ;"/_assets/js/arbor-tween.js"
        extra-js)
      (include-async-js
        "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"

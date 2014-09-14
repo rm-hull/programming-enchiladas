@@ -12,6 +12,8 @@
                        :source-map (str output-file ".map")
                        :output-dir (output-dir gist)
                        :optimizations (get valid-opts (keyword optimization-level) :advanced)
+                       :language-in :ecmascript5
+                       :language-out :ecmascript5
                        :pretty-print false
                        :static-fns true
                        :externs ["resources/private/externs/arbor.js"
@@ -19,7 +21,8 @@
                                  "resources/private/externs/three.js"
                                  "resources/private/externs/react.js"
                                  "resources/private/externs/PhiloGL.js"]
-                       :foreign-libs [{:file "resources/private/js/react.js" :provides ["React"]}
+                       :foreign-libs [{:file "resources/private/js/arbor.js" :provides ["arbor"]}
+                                      {:file "resources/private/js/react.js" :provides ["React"]}
                                       {:file "resources/private/js/three.js" :provides ["THREE"]}
                                       {:file "resources/private/js/gl-matrix-min.js" :provides ["mat3","mat4","vec3"]}
                                       {:file "resources/private/js/webgl-utils.js" :provides ["WebGLUtils"]}]
