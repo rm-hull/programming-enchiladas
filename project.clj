@@ -28,7 +28,7 @@
                  [spellhouse/clairvoyant "0.0-29-g825d69c"]
                  [me.raynes/fs "1.4.5"]
                  [cljs-webgl "0.1.5-SNAPSHOT"]
-                 [rm-hull/monet "0.2.0" :exclusions [org.clojure/clojurescript]]
+                 [rm-hull/monet "0.2.1" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/turtle "0.1.9-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/wireframes "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/ring-gzip-middleware "0.1.7"]
