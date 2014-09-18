@@ -20,7 +20,7 @@
 	path = gists/penrose-tiling
 	url = https://gist.github.com/5732587.git
 [submodule "gists/digraph"]
-	path = gists/digraph
+	path = gists/quadratic-residues
 	url = https://gist.github.com/5694738.git
 [submodule "gists/world-choropleth"]
 	path = gists/world-choropleth
@@ -55,3 +55,72 @@
 [submodule "gists/simple-demo"]
 	path = gists/simple-demo
 	url = https://gist.github.com/5201050.git
+[submodule "gist/glass-box"]
+	path = gists/glass-box
+	url = https://gist.github.com/c91e2ce2e68ea4969c76.git
+[submodule "lorenz-attractor"]
+	path = gists/lorenz-attractor
+	url = https://gist.github.com/05e64fa45aea27755240.git
+[submodule "radiant-and-simple"]
+	path = gists/radiant-and-simple
+	url = https://gist.github.com/896d4599eff07b7493e0.git
+[submodule "10-print"]
+	path = gists/10-print
+	url = https://gist.github.com/4bf4ce47c4f615e9cfe6.git
+[submodule "gist/collatz-orbit"]
+	path = gists/collatz-orbit
+	url = https://gist.github.com/11890fb5bb8789847259.git
+[submodule "nks1"]
+	path = gists/nks1
+	url = https://gist.github.com/968c6f0ab6b14e20e4fa.git
+[submodule "gists/plasma"]
+	path = gists/plasma
+	url = https://gist.github.com/1be4335002213cce2999.git
+[submodule "gists/illusory-cones"]
+	path = gists/illusory-cones
+	url = https://gist.github.com/efee7bef4dcc615728a7.git
+[submodule "gists/newtons-method"]
+	path = gists/newtons-method
+	url = https://gist.github.com/89f92e408c66179914a2.git
+[submodule "gists/biomorph-designer"]
+	path = gists/biomorph-designer
+	url = https://gist.github.com/4dc725bc783416fbbdda.git
+[submodule "gists/cumulative-selection"]
+	path = gists/cumulative-selection
+	url = https://gist.github.com/8347c8fd72570d7a8b32.git
+[submodule "gists/lissajous-curve"]
+	path = gists/lissajous-curve
+	url = https://gist.github.com/0e25ddb2b667f9e24ce9.git
+[submodule "gists/recursive-tree"]
+	path = gists/recursive-tree
+	url = https://gist.github.com/4a74ef32e6956801b289.git
+[submodule "gists/cellular-automata"]
+	path = gists/cellular-automata
+	url = https://gist.github.com/2e6bb141d9361fb1af03.git
+[submodule "gists/barnesley-fern"]
+	path = gists/barnesley-fern
+	url = https://gist.github.com/b971d77087ff873ed7c2.git
+[submodule "gists/fractal"]
+	path = gists/fractal
+	url = https://gist.github.com/b30f4c0e7d499810e669.git
+[submodule "gists/yamátárájabhánasalagám"]
+	path = gists/yamátárájabhánasalagám
+	url = https://gist.github.com/bac724292cc7578dc182.git
+[submodule "gists/solar-system"]
+	path = gists/solar-system
+	url = https://gist.github.com/9904891.git
+[submodule "gists/photosphere"]
+	path = gists/photosphere
+	url = https://gist.github.com/9842972.git
+[submodule "gists/polyhedra"]
+	path = gists/polyhedra
+	url = https://gist.github.com/9261323.git
+[submodule "chess"]
+	path = gists/chess
+	url = https://gist.github.com/8906851.git
+[submodule "gists/parametric-equations"]
+	path = gists/parametric-equations
+	url = https://gist.github.com/8776719.git
+[submodule "gists/big-bang-rps"]
+	path = gists/big-bang-rps
+	url = https://gist.github.com/8723389.git
