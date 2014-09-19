@@ -124,3 +124,6 @@
 [submodule "gists/big-bang-rps"]
 	path = gists/big-bang-rps
 	url = https://gist.github.com/8723389.git
+[submodule "gists/unknown-pleasures"]
+	path = gists/unknown-pleasures
+	url = https://gist.github.com/rm-hull/ce68010960db55beb9de
