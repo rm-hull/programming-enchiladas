@@ -23,7 +23,8 @@
     (let [login-id (login-id gist)
           last-updated (latest-commit-date gist)
           gist (fn [& props] (get-in gist props))
-          owner (or (gist :owner) (gist :user))]
+          owner (or (gist :owner) (gist :user))
+          filename (first-filename gist)]
       [:div.gallery-panel
         [:div.gist-header
           [:div.meta
@@ -31,7 +32,7 @@
             [:div.author
              [:img {:src (owner :avatar_url) :width 26 :height 26 }]
              [:span [:a {:href login-id} (owner :login)]] " / "
-             [:strong [:a {:href login-id} (first-filename gist)]]
+             [:strong [:a {:href login-id} filename]]
              [:div.gist-timestamp
               [:span.datetime "Last updated "
                [:time {:title last-updated :datetime last-updated} (elapsed-time last-updated)]]
@@ -39,7 +40,7 @@
         [:div.gist-description
          [:p (-> :description gist (limit 200) simple-md)]]
         [:div.gallery-picture
-         [:a {:href (str (owner :login) "/" (gist :id)) :title (:filename (first (vals (gist :files))))}
+         [:a {:href (str (owner :login) "/" (gist :id)) :title filename}
            [:img {:src (str "_images/" (gist :id)) :width 400 :height 300}]]]])))
 
 (defn take-1 [n coll]
