@@ -570,12 +570,22 @@ div.container.grey div.spinner {
 
 div.container div.spinner div {background: #fff;}
 
-.search button {
-    margin-left: -30px;
+span.search {
+    position: relative;
 }
-.search input[type="search"] {
-    padding-right: 30px;
+
+.search div {
+    display: inline-block;
+    color: #333333;
+    padding: 13px 8px;
+    position: absolute;
+    z-index:3;
 }
+
+.search input {
+    padding-left: 20px
+}
+
 span.num-items {
     padding-left: 40px;
 }

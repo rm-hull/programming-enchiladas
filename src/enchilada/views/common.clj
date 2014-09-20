@@ -56,8 +56,8 @@
       (when-not (= sort-param "search")
         [:input {:type "hidden" :name "sort" :value sort-param}])
        [:span.search
-        [:input {:type "search" :placeholder "Search..." :name "search" :value search-param}]
-        [:button {:type "submit"} [:i.fa.fa-search]]]
+        [:div [:i.fa.fa-search]]
+        [:input {:type "search" :placeholder "Search..." :name "search" :value search-param}]]
        (when home-page?
          [:span.num-items
            "Display"
