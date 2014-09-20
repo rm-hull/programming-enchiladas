@@ -12,7 +12,6 @@
 ;<meta name="twitter:domain" content="http://programming-enchiladas.destructuring-bind.org">
 
 (defn share-button [site-url req]
-  (println req)
   (let [url (str site-url (:uri req))]
   (html
     [:a.twitter-share-button {:href "https://twitter.com/share" :data-hashtags "clojurescript" :data-lang "en" :data-counturl url}]
