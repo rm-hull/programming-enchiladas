@@ -92,7 +92,7 @@
           [:h1
             [:i.fa.fa-film.fa-x2]
             "&nbsp;&nbsp;Gallery"
-            [:div.stats [:span.share-buttons twitter/share-button]] ]
+            [:div.stats [:span.share-buttons (twitter/share-button (System/getenv "FULL_SITE_URL") req)]] ]
           [:div.gist-description
             [:p "A ClojureScript-based HTML5 Canvas and SVG Graphics Playground, much like "
                [:a {:href "http://bl.ocks.org/"} "http://bl.ocks.org/"]

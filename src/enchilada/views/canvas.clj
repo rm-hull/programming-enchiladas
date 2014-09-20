@@ -12,7 +12,7 @@
     [enchilada.views.common :refer :all]
     ))
 
-(defn- meta-info  [gist stats]
+(defn- meta-info  [gist stats request]
   (let [last-updated (latest-commit-date gist)
         gist (fn [& props] (get-in gist props))
         owner (or (gist :owner) (gist :user))]
@@ -26,7 +26,7 @@
            [:strong (link-to (gist :html_url) (first-filename gist))]
            (when stats
              [:div.stats
-              [:span.share-buttons twitter/share-button]
+              [:span.share-buttons (twitter/share-button (System/getenv "FULL_SITE_URL") request)]
               [:span.views (get stats :visits 1) " views "]
               [:span.stars [:a {:href :# :title "Star this gist"} (get stats :stars 0) " \u2605"]]])
            [:div.gist-timestamp
@@ -41,7 +41,7 @@
     (when (seq params)
       (str "?" (clojure.string/join "&" (for [[k v] params] (str (name k) "=" v)))))))
 
-(defn render-page [{:keys [gist debug stats] :as model}]
+(defn render-page [{:keys [gist debug stats request] :as model}]
   (if (nil? gist)
     (not-found/page)
     (let [owner (or (gist :owner) (gist :user))]
@@ -54,7 +54,7 @@
         :content
           [:div
             (spinner "container grey")
-            (meta-info gist stats)
+            (meta-info gist stats request)
             [:section.container
              [:div#error]]
             [:section#main-arena.container
