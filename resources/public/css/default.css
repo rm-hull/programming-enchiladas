@@ -589,3 +589,9 @@ span.search {
 span.num-items {
     padding-left: 40px;
 }
+
+.gist-syntax .MathJax .mi,
+.gist-syntax .MathJax .mo {
+    color: #333;
+}
+
