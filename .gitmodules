@@ -127,3 +127,6 @@
 [submodule "gists/unknown-pleasures"]
 	path = gists/unknown-pleasures
 	url = https://gist.github.com/rm-hull/ce68010960db55beb9de
+[submodule "gists/corewar"]
+	path = gists/corewar
+	url = https://gist.github.com/7a7b0656a7a8c95ff853.git
