@@ -103,7 +103,8 @@
        "//cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"
        "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
        "/_assets/js/doc.shim.js"
-       "http://www.senchalabs.org/philogl/PhiloGL/build/PhiloGL.js")
+       ;"http://www.senchalabs.org/philogl/PhiloGL/build/PhiloGL.js")
+       "/_assets/js/PhiloGL.js")
      [:script {:type "text/x-mathjax-config"}
         "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});" ]
      (ga/google-maps-jscript-api
