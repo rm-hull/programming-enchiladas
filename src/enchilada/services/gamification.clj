@@ -44,8 +44,10 @@
 
 (defn top-n [field order n]
   (when mongo-client
-    (with-collection doc
-      (find {})
-      (fields [:gist])
-      (sort (sorted-map field order))
-      (limit n))))
+    (->>
+      (with-collection doc
+        (find {})
+        (fields [:gist :hidden])
+        (sort (sorted-map field order))
+        (limit n))
+      (remove :hidden))))
