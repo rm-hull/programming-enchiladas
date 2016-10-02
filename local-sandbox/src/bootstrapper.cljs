@@ -5,7 +5,7 @@
 
     ; Add some content in files under src/enchilada, and view http://localhost:3449
     ; Require some def from the target source file here
-    ; e.g. [enchilada.simple-demo :refer [dummy]]
+    [enchilada.simple-demo :refer [dummy]]
 
     ))
 

@@ -3,31 +3,31 @@
   :url "http://programming-enchiladas.destructuring-bind.org"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2342"]
-                 [figwheel "0.1.4-SNAPSHOT"]
-                 [tailrecursion/cljs-priority-map "1.1.0" :exclusions [org.clojure/clojurescript]]
-                 [org.clojure/core.async "0.1.338.0-5c5012-alpha" :exclusions [org.clojure/clojurescript]]
-                 [org.clojure/core.logic "0.8.8" :exclusions [org.clojure/clojurescript]]
-                 [org.clojure/core.typed "0.2.68" :exclusions [org.clojure/clojurescript]]
-                 [jayq "2.5.2" :exclusions [org.clojure/clojurescript]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.229"]
+                 [figwheel "0.5.8"]
+                 [tailrecursion/cljs-priority-map "1.2.0" :exclusions [org.clojure/clojurescript]]
+                 [org.clojure/core.async "0.2.391" :exclusions [org.clojure/clojurescript]]
+                 [org.clojure/core.logic "0.8.10" :exclusions [org.clojure/clojurescript]]
+                 [org.clojure/core.typed "0.3.28" :exclusions [org.clojure/clojurescript]]
+                 [jayq "2.5.4" :exclusions [org.clojure/clojurescript]]
                  [com.keminglabs/c2 "0.2.3" :exclusions [org.clojure/clojurescript]]
                  [com.keminglabs/vomnibus "0.3.2" :exclusions [org.clojure/clojurescript]]
                  [com.keminglabs/singult "0.1.7-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/dommy "0.1.4-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [spellhouse/clairvoyant "0.0-29-g825d69c"]
                  [rm-hull/cljs-webgl "0.1.5-SNAPSHOT"]
-                 [rm-hull/monet "0.2.1" :exclusions [org.clojure/clojurescript]]
-                 [rm-hull/turtle "0.1.9-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
+                 [rm-hull/monet "0.3.0" :exclusions [org.clojure/clojurescript]]
+                 [rm-hull/turtle "0.1.9" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/wireframes "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript cljs-webgl]]
                  [rm-hull/ring-gzip-middleware "0.1.7"]
                  [rm-hull/big-bang "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/cljs-dataview "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
                  [rm-hull/polyhedra "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
-                 [rm-hull/inkspot "0.0.1-SNAPSHOT" :exclusions [org.clojure/clojurescript]]
-                 [om "0.3.0" :exclusions [org.clojure/clojurescript]]]
-  :plugins [[lein-cljsbuild "1.0.3"]
-            [lein-figwheel "0.1.4-SNAPSHOT"]]
+                 [rm-hull/inkspot "0.2.1" :exclusions [org.clojure/clojurescript]]
+                 [om "0.7.3" :exclusions [org.clojure/clojurescript]]]
+  :plugins [[lein-cljsbuild "1.1.4"]
+            [lein-figwheel "0.5.8"]]
   :min-lein-version "2.4.2"
   :global-vars { *warn-on-reflection* true}
   :source-paths ["../src/enchilada/client" "src"]
@@ -45,7 +45,7 @@
           :output-to "resources/public/js/compiled/generated.js"
           :output-dir "resources/public/js/compiled/out"
           :optimizations :none
-          :source-map "resources/public/js/compiled/generated.map"
+          :source-map true
           :language-in :ecmascript5
           :language-out :ecmascript5
           :pretty-print true
