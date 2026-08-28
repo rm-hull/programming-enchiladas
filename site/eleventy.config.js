@@ -1,29 +1,46 @@
 import * as yaml from 'js-yaml';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// Merge gists.yaml listing with fetched demos/<slug>/meta.json state
+function loadDemos() {
+  const raw = readFileSync(join(__dirname, '../gists.yaml'), 'utf-8');
+  const data = yaml.load(raw);
+  const demosDir = join(__dirname, '../demos');
+  
+  return data.demos.map(demo => {
+    const slug = `${demo.owner}-${demo.gist_id}`;
+    const metaPath = join(demosDir, slug, 'meta.json');
+    
+    let fetchedMeta = {};
+    if (existsSync(metaPath)) {
+      fetchedMeta = JSON.parse(readFileSync(metaPath, 'utf-8'));
+    }
+    
+    // Merge: gist.yaml entry first, then fetched meta.json overrides with runtime state
+    return { ...demo, ...fetchedMeta };
+  });
+}
+
 export default function (eleventyConfig) {
   // ── Data ─────────────────────────────────────────────────────────────────
   eleventyConfig.addGlobalData('demos', () => {
-    const raw = readFileSync(join(__dirname, '../gists.yaml'), 'utf-8');
-    const data = yaml.load(raw);
-    return data.demos;
+    return loadDemos();
   });
 
   // ── Collections ──────────────────────────────────────────────────────────
 
   // All demos (latest first by gist_id, which is chronological)
   eleventyConfig.addCollection('demosLatest', (collectionApi) => {
-    const demos = yaml.load(readFileSync(join(__dirname, '../gists.yaml'), 'utf-8')).demos;
-    return [...demos].sort((a, b) => Number(b.gist_id) - Number(a.gist_id));
+    return loadDemos().sort((a, b) => Number(b.gist_id) - Number(a.gist_id));
   });
 
   // Demos grouped by tag (returns sorted array of {tag, demos})
   eleventyConfig.addCollection('demosByTag', (collectionApi) => {
-    const demos = yaml.load(readFileSync(join(__dirname, '../gists.yaml'), 'utf-8')).demos;
+    const demos = loadDemos();
     const grouped = {};
     for (const demo of demos) {
       for (const tag of (demo.tags || [])) {
@@ -60,15 +77,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'public/css': 'css' });
   eleventyConfig.addPassthroughCopy({ 'public/images': 'images' });
   eleventyConfig.addPassthroughCopy({ 'public/js': 'js' });
+  eleventyConfig.addPassthroughCopy({ '../compiler/public/js': 'js' });
   eleventyConfig.addPassthroughCopy({ 'public/favicon.png': 'favicon.png' });
 
-  // Don't copy compiled JS yet (Phase 4 handles that)
+  
 
-// ── Global Data ──────────────────────────────────────────────────────────────
+  // ── Global Data ─────────────────────────────────────────────────────────
   eleventyConfig.addGlobalData('currentYear', () => new Date().getFullYear());
-  // eleventyConfig.addPassthroughCopy({ 'public/js': 'js' });
 
-  // ── Config ────────────────────────────────────────────────────────────────
+  // ── Config ─�─────────────────────────────────────────────────────────────
   return {
     dir: {
       input: '.',

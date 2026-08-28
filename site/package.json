@@ -6,8 +6,9 @@
   "scripts": {
     "prestart": "[ -L content ] || ln -s ../content content",
     "prebuild": "[ -L content ] || ln -s ../content content",
-    "build": "@11ty/eleventy && pagefind --site _site",
-    "start": "@11ty/eleventy --serve"
+    "build": "eleventy && pagefind --site _site",
+    "pagefind": "pagefind --site _site",
+    "start": "eleventy --serve"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.6",

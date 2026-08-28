@@ -9,6 +9,7 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 ---
 
 {% set slug = demo.owner ~ '-' ~ demo.gist_id %}
+{% set compiled_js = '/js/' ~ slug ~ '.js' %}
 
 <div class="spinner container grey" id="spinner">
   <div class="spinner">
@@ -18,11 +19,11 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
   </div>
 </div>
 
-{% if demo.tags %}
+{% if demo.tags or demo.title %}
 <section class="container">
   <div class="gist-header">
     <div class="meta">
-      <h1>{{ demo.title }}</h1>
+      <h1>{% if demo.title %}{{ demo.title }}{% else %}Untitled demo{% endif %}</h1>
       <div class="tags">
         {% for tag in demo.tags %}
         <span class="tag">{{ tag }}</span>
@@ -37,15 +38,28 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
   <div id="error"></div>
 </section>
 
+{% if demo.broken %}
+<section class="container" id="main-arena">
+  <div class="broken-demo">
+    <h2>This demo is no longer available</h2>
+    <p>Sorry, the original gist could not be fetched:</p>
+    <blockquote>{{ demo.error }}</blockquote>
+    <p>You can view or restore the gist directly on <a href="https://github.com/{{ demo.owner }}/gist/{{ demo.gist_id }}" target="_blank">GitHub</a>.</p>
+  </div>
+</section>
+{% else %}
 <section class="container" id="main-arena">
   <canvas id="canvas-area" width="800" height="600"></canvas>
   <canvas id="webgl-area" width="800" height="600"></canvas>
   <svg id="svg-area"></svg>
   <div id="console"></div>
 </section>
+{% endif %}
 
 <a class="github-ribbon" href="https://github.com/{{ demo.owner }}/gist/{{ demo.gist_id }}" title="View original gist">{{ demo.owner }}/{{ demo.gist_id }}</a>
 
 <section class="container">
-  <script type="module" src="/js/{{ slug }}.js"></script>
+  {% if not demo.broken %}
+  <script type="module" src="{{ compiled_js }}"></script>
+  {% endif %}
 </section>
