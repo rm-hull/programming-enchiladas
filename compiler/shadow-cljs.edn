@@ -1,0 +1,18 @@
+{
+  :deps true
+  :npm-deps true
+  ;; :source-paths configured via deps.edn :paths
+
+  :builds {
+    ;; Phase 3: basic enchilada.core + util.macros sanity build (single module)
+    :app {:target :browser
+          :output-dir "public/js"
+          :asset-path "/js"
+          :modules {:main {:entries [enchilada.core]}}}
+    ;; Test module to verify macro expansion compiles correctly
+    :macros-test {:target :browser
+                  :output-dir "public/js"
+                  :asset-path "/js"
+                  :modules {:macros-main {:entries [enchilada.util.macros-test]}}}
+  }
+}
