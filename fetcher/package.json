@@ -13,6 +13,8 @@
   "type": "module",
   "dependencies": {
     "@octokit/rest": "^22.0.1",
+    "chalk": "^6.0.0",
+    "dotenv": "^17.4.2",
     "js-yaml": "^5.4.1"
   }
 }
