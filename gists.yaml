@@ -1,0 +1,219 @@
+# Demo registry for the v2-nextgen static rebuild.
+#
+# Seeded from the ~35 examples listed in the original README
+# (https://github.com/rm-hull/programming-enchiladas/blob/master/README.md).
+#
+# Notes:
+# - `added` is deliberately omitted here. The fetcher should backfill it from the
+#   Gist API's `created_at` field at fetch time unless a demo needs a specific
+#   override (e.g. if the gist itself predates when it was actually added to the
+#   site). Add an explicit `added: YYYY-MM-DD` per-entry only if that distinction
+#   actually matters for a given demo.
+# - `tags` below are inferred from each gist's title/description, not verified
+#   against the actual source — expect to refine these once Phase 2 (fetcher)
+#   pulls real content and Phase 0 confirms which legacy libs a given demo needs.
+# - Ordering follows gist_id, which is roughly chronological (GitHub gist ids are
+#   assigned sequentially), as a rough proxy for original creation order.
+
+demos:
+  - owner: mjg123
+    gist_id: "1098417"
+    title: "Ajax example (from Stack Overflow)"
+    tags: [ajax, jayq]
+
+  - owner: rm-hull
+    gist_id: "5201050"
+    title: "ClojureScript says Boo!"
+    tags: [intro]
+
+  - owner: rm-hull
+    gist_id: "5229369"
+    title: "Turtle graphics demo"
+    tags: [turtle]
+
+  - owner: rm-hull
+    gist_id: "5233367"
+    title: "Champernowne's Constant and other transcendentals"
+    tags: [math, canvas]
+
+  - owner: rm-hull
+    gist_id: "5257851"
+    title: "Flower of Life"
+    tags: [svg, geometry]
+
+  - owner: rm-hull
+    gist_id: "5259306"
+    title: Turmites
+    tags: [canvas, cellular-automata]
+
+  - owner: rm-hull
+    gist_id: "5272126"
+    title: "Compilation error"
+    tags: [error-demo]
+    # Intentionally broken — exercises the "gist fails to compile" path end to
+    # end. Keep this one; it's a nice built-in test of Phase 4's per-demo error
+    # handling, and it was clearly deliberate in the original too.
+
+  - owner: rm-hull
+    gist_id: "5278162"
+    title: Chroma-Spirals
+    tags: [svg, colour]
+
+  - owner: rm-hull
+    gist_id: "5285431"
+    title: "Heighway Dragon"
+    tags: [canvas, fractals]
+
+  - owner: rm-hull
+    gist_id: "5491968"
+    title: "Arnold's Cat-map"
+    tags: [canvas, math]
+
+  - owner: rm-hull
+    gist_id: "5514551"
+    title: "US Choropleth C2"
+    tags: [c2, maps, data-viz]
+
+  - owner: rm-hull
+    gist_id: "5522065"
+    title: "Psychedelic Animation"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "5537192"
+    title: "World Choropleth C2"
+    tags: [c2, maps, data-viz]
+
+  - owner: rm-hull
+    gist_id: "5694738"
+    title: "Quadratic Residues & Fixed Points"
+    tags: [math, canvas]
+    # Original URL included ?optimization-level=simple — that let the old
+    # on-the-fly compiler pick a Closure optimization level per request.
+    # Not applicable now (we precompile once at build time); no action needed
+    # beyond making sure this compiles fine under whatever level Phase 4 settles on.
+
+  - owner: rm-hull
+    gist_id: "5732587"
+    title: "Penrose Tiling"
+    tags: [svg, geometry]
+
+  - owner: rm-hull
+    gist_id: "5736733"
+    title: "3D Auto-stereograms"
+    tags: [canvas, 3d]
+
+  - owner: swannodette
+    gist_id: "5882703"
+    title: "Core.async - Hello world!"
+    tags: [core.async]
+
+  - owner: swannodette
+    gist_id: "5903001"
+    title: "Core.async - Rob Pike"
+    tags: [core.async]
+
+  - owner: rm-hull
+    gist_id: "6816151"
+    title: "Core.logic - simple demo"
+    tags: [core.logic]
+
+  - owner: rm-hull
+    gist_id: "6816234"
+    title: "Core.logic - Classic AI"
+    tags: [core.logic]
+
+  - owner: rm-hull
+    gist_id: "6857333"
+    title: "Dijkstra's Maze Solver"
+    tags: [canvas, algorithms]
+
+  - owner: rm-hull
+    gist_id: "6859633"
+    title: "Core.logic - Unit Test Suite"
+    tags: [core.logic]
+
+  - owner: rm-hull
+    gist_id: "6952960"
+    title: "Core.logic - Einstein's Zebra Puzzle"
+    tags: [core.logic]
+
+  - owner: swannodette
+    gist_id: "6542719"
+    title: "Core.async - Daisy chain benchmark"
+    tags: [core.async]
+
+  - owner: rm-hull
+    gist_id: "7060918"
+    title: "ClojureScript Quine"
+    tags: [quine]
+
+  - owner: rm-hull
+    gist_id: "7098992"
+    title: "Tumbling 3D Torus"
+    tags: [webgl, 3d]
+
+  - owner: rm-hull
+    gist_id: "7145520"
+    title: "Boids!"
+    tags: [canvas, simulation]
+
+  - owner: rm-hull
+    gist_id: "7758795"
+    title: "Core.async - Martin Trojer's Sine Generator"
+    tags: [core.async]
+
+  - owner: rm-hull
+    gist_id: "7778650"
+    title: "WebGL Planets"
+    tags: [webgl, 3d]
+
+  - owner: rm-hull
+    gist_id: "8262502"
+    title: "Core.async - Timothy Baldridge's Blocks"
+    tags: [core.async]
+
+  - owner: rm-hull
+    gist_id: "8617445"
+    title: "OM mouse move"
+    tags: [om]
+
+  - owner: rm-hull
+    gist_id: "8617788"
+    title: "Big-Bang mouse move"
+    tags: [big-bang]
+
+  - owner: rm-hull
+    gist_id: "8723389"
+    title: "Big-Bang - Rock Paper Scissors"
+    tags: [big-bang]
+
+  - owner: rm-hull
+    gist_id: "8776719"
+    title: "Big-Bang - Parametric Equations"
+    tags: [big-bang, math]
+
+  - owner: mynomoto
+    gist_id: "8787765"
+    title: "OM - Contacts Demo"
+    tags: [om]
+
+  - owner: rm-hull
+    gist_id: "8906851"
+    title: "OM - Chess Demo"
+    tags: [om]
+
+  - owner: nodename
+    gist_id: "8762403"
+    title: "OM - Google Maps"
+    tags: [om, maps]
+
+  - owner: rm-hull
+    gist_id: "9261323"
+    title: "3D Polyhedra Taxonomy"
+    tags: [webgl, 3d, geometry]
+
+  - owner: rm-hull
+    gist_id: "9842972"
+    title: "WebGL Photospheres"
+    tags: [webgl, 3d]
