@@ -1,0 +1,17 @@
+# Phase 2: fetched gist content (gitignored — regenerated each build)
+demos/
+
+# Phase 4: compiled shadow-cljs output
+compiler/out/
+
+# Dependencies
+compiler/node_modules/
+site/node_modules/
+site/_site/
+site/pagefind/
+
+# JVM
+compiler/.cpcache/
+
+# OS
+.DS_Store

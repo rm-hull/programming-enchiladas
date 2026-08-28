@@ -1,0 +1,51 @@
+---
+layout: base.njk
+pagination:
+  data: collections.demosLatest
+  size: 1
+  alias: demo
+  addAllPagesToCollections: true
+permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
+---
+
+{% set slug = demo.owner ~ '-' ~ demo.gist_id %}
+
+<div class="spinner container grey" id="spinner">
+  <div class="spinner">
+    {% for i in range(1, 12) %}
+    <div class="bar{{ i }}"></div>
+    {% endfor %}
+  </div>
+</div>
+
+{% if demo.tags %}
+<section class="container">
+  <div class="gist-header">
+    <div class="meta">
+      <h1>{{ demo.title }}</h1>
+      <div class="tags">
+        {% for tag in demo.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="container">
+  <div id="error"></div>
+</section>
+
+<section class="container" id="main-arena">
+  <canvas id="canvas-area" width="800" height="600"></canvas>
+  <canvas id="webgl-area" width="800" height="600"></canvas>
+  <svg id="svg-area"></svg>
+  <div id="console"></div>
+</section>
+
+<a class="github-ribbon" href="https://github.com/{{ demo.owner }}/gist/{{ demo.gist_id }}" title="View original gist">{{ demo.owner }}/{{ demo.gist_id }}</a>
+
+<section class="container">
+  <script type="module" src="/js/{{ slug }}.js"></script>
+</section>

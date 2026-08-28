@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A ClojureScript-based HTML5 Canvas and SVG Graphics Playground, fetching and compiling ClojureScript gists at build time with shadow-cljs.">
+
+  {% if title %}
+    <title>Programming Enchiladas{{ ' · ' ~ title if title }}</title>
+  {% else %}
+    <title>Programming Enchiladas</title>
+  {% endif %}
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  {% if pagefind %}<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">{% endif %}
+</head>
+<body>
+  <div class="header">
+    <section class="container">
+      <a class="header-logo" href="/" title="Programming Enchiladas Home">
+        <i class="fa fa-cutlery"></i> Programming Enchiladas
+      </a>
+      <span class="command-bar">
+        <ul class="top-nav">
+          <li><a href="/random/" title="Random demo">Random</a></li>
+          <li><a href="/latest/" title="Most recently added">Latest</a></li>
+          <li><a href="/tags/" title="Browse by tag">Tags</a></li>
+          <li><a href="/search/" title="Search demos">Search</a></li>
+        </ul>
+      </span>
+    </section>
+  </div>
+
+  <div class="content">
+    {{ content | safe }}
+  </div>
+
+  <div class="footer">
+    <section class="container">
+      <p>
+        Site: copyright © {{ currentYear }} Richard Hull.
+        License: <a href="http://creativecommons.org/licenses/by/3.0/legalcode">Creative Commons v3.0</a>
+        &nbsp;&nbsp;Content: copyright as per respective owners.
+      </p>
+    </section>
+  </div>
+
+  {% if pagefind %}
+  <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+---
+layout: base.njk
+pagination:
+  data: collections.demosByTag
+  size: 1
+  alias: entry
+permalink: "/tags/{{ entry.tag }}/"
+renderKeys: ["title", "entry"]
+---
+
+<section class="container">
+  <h1>Tag: {{ entry.tag }}</h1>
+
+  <ul class="demo-list">
+    {% for demo in entry.demos %}
+    <li class="demo-item">
+      <a href="{{ demo.owner }}/{{ demo.gist_id }}/">{{ demo.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="/tags/">&larr; All tags</a></p>
+</section>

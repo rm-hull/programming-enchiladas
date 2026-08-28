@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Search
+permalink: /search/
+pagefind: true
+---
+
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+
+<section class="container">
+  <h1>Search</h1>
+
+  <pagefind-input></pagefind-input>
+  <pagefind-summary></pagefind-summary>
+  <pagefind-results>
+    <script type="text/pagefind-template">
+      {% raw %}
+      <li class="demo-item">
+        <a href="{{ url }}">{{ meta.title }}</a>
+        <span class="tags">
+          {% for tag in meta.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </span>
+      </li>
+      {% endraw %}
+    </script>
+  </pagefind-results>
+</section>
+
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>

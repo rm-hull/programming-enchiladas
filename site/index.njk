@@ -1,0 +1,36 @@
+---
+layout: base.njk
+title: Latest
+pagination:
+  data: collections.demosLatest
+  size: 50
+  alias: demos
+  addAllPagesToCollections: true
+permalink: "{% if pagination.pageNumber == 0 %}/latest/{% else %}/latest/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<section class="container">
+  <h1>Latest demos</h1>
+
+  <ul class="demo-list">
+    {% for demo in demos %}
+    <li class="demo-item">
+      <a href="/{{ demo.owner }}/{{ demo.gist_id }}/">{{ demo.title }}</a>
+      <span class="tags">
+        {% for tag in demo.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if pagination.href.previous or pagination.href.next %}
+  <nav class="pagination">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">← Newer</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">Older →</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>

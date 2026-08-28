@@ -1,0 +1,19 @@
+{
+  "name": "programming-enchiladas-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prestart": "[ -L content ] || ln -s ../content content",
+    "prebuild": "[ -L content ] || ln -s ../content content",
+    "build": "@11ty/eleventy && pagefind --site _site",
+    "start": "@11ty/eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "js-yaml": "^5.3.0"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

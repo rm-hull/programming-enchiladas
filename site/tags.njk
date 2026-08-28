@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Tags
+permalink: /tags/
+---
+
+<section class="container">
+  <h1>Browse by tag</h1>
+
+  <ul class="tag-list">
+    {% for entry in collections.demosByTag %}
+    <li>
+      <a href="/tags/{{ entry.tag }}/">{{ entry.tag }} ({{ entry.demos.length }})</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

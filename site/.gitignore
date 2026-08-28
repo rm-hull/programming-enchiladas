@@ -1,0 +1,9 @@
+node_modules/
+_site/
+pagefind/
+
+# Phase 2: fetched demo content (gitignored — generated at build time)
+# demos/
+
+# compiled JS (Phase 4)
+# js/*.js

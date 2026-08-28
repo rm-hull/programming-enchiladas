@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Random
+permalink: /random/
+---
+
+<section class="container">
+  <p>Redirecting to a random demo…</p>
+  <p>If you are not redirected, <a id="random-link" href="#">click here</a>.</p>
+</section>
+
+<script>
+{% set all_demos = collections.demosLatest %}
+const slugs = [
+{% for demo in all_demos %}
+  "{{ demo.owner }}/{{ demo.gist_id }}/",
+{% endfor %}
+];
+const url = slugs[Math.floor(Math.random() * slugs.length)];
+document.getElementById('random-link').href = url;
+window.location.href = url;
+</script>
