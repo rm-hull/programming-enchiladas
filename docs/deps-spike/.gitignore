@@ -1,0 +1,4 @@
+.cpcache
+.shadow-cljs
+node_modules/
+out/

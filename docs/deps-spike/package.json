@@ -1,0 +1,13 @@
+{
+  "name": "deps-spike",
+  "version": "1.0.0",
+  "description": "Phase 0 dependency feasibility spike",
+  "private": true,
+  "scripts": {
+    "compile:none": "shadow-cljs compile",
+    "compile:release": "shadow-cljs release"
+  },
+  "dependencies": {
+    "shadow-cljs": "^3.5.0"
+  }
+}

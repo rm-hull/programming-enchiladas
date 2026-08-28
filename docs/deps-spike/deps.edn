@@ -1,0 +1,64 @@
+{:deps {thheller/shadow-cljs {:mvn/version "3.5.0"}
+
+        ;; Safe (actively maintained)
+        org.clojure/core.async {:mvn/version "1.9.865"}
+        org.clojure/core.logic {:mvn/version "1.1.1"}
+        tailrecursion/cljs-priority-map {:mvn/version "1.2.1"}
+
+        ;; Jayq — no Maven deps, just foreign libs (jQuery)
+        jayq/jayq {:mvn/version "2.5.5"}
+
+        ;; Monet 0.3.0 — depends on CLJS (provided)
+        rm-hull/monet {:mvn/version "0.3.0"}
+
+        ;; Turtle — depends on monet 0.3.0 + hiccup (JVM-only, excluded)
+        rm-hull/turtle {:mvn/version "0.1.11"
+                        :exclusions [hiccup/hiccup]}
+
+        ;; c2 — depends on singult, reflex, core.match
+        com.keminglabs/c2 {:mvn/version "0.2.3"}
+
+        ;; vomnibus — wraps c2
+        com.keminglabs/vomnibus {:mvn/version "0.3.2"}
+
+        ;; dommy — SNAPSHOT
+        rm-hull/dommy {:mvn/version "0.1.4-SNAPSHOT"}
+
+        ;; big-bang — SNAPSHOT, exclude missing/unavailable transitive deps
+        rm-hull/big-bang {:mvn/version "0.0.1-SNAPSHOT"
+                          :exclusions [org.clojure/core.async
+                                       rm-hull/cljs-dataview
+                                       rm-hull/cljs-test
+                                       rm-hull/dommy
+                                       rm-hull/monet]}
+
+        ;; om 0.3.0 — depends on React 0.8, old CLJS, old core.async
+        om/om {:mvn/version "0.3.0"
+               :exclusions [org.clojure/clojurescript
+                            org.clojure/core.async
+                            com.facebook/react]}
+
+        ;; cljs-dataview — needed by polyhedra
+        rm-hull/cljs-dataview {:mvn/version "0.0.1-SNAPSHOT"
+                               :exclusions [org.clojure/clojure
+                                            org.clojure/clojurescript]}
+
+        ;; core.rrb-vector — needed by wireframes.shapes.primitives
+        org.clojure/core.rrb-vector {:mvn/version "0.0.11"}
+
+        ;; wireframes — SNAPSHOT, only exclude unavailable deps
+        rm-hull/wireframes {:mvn/version "0.0.1-SNAPSHOT"
+                            :exclusions [org.clojure/clojurescript
+                                         org.clojure/clojure
+                                         potemkin/potemkin
+                                         byte-streams/byte-streams
+                                         cljs-webgl/cljs-webgl
+                                         rm-hull/cljs-test]}
+
+        ;; polyhedra — depends on wireframes + dataview
+        rm-hull/polyhedra {:mvn/version "0.0.1-SNAPSHOT"
+                           :exclusions [org.clojure/clojurescript
+                                        org.clojure/clojure
+                                        rm-hull/cljs-test]}
+        }
+ :paths ["src" "test"]}

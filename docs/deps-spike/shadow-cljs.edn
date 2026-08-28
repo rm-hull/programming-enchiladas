@@ -1,0 +1,59 @@
+;; Phase 0 dependency feasibility spike
+;; Tests whether 2012-2014 era CLJS libraries compile under modern shadow-cljs
+;; One build per library, each with its own minimal test namespace.
+
+{:deps {}
+ :builds {
+   :jayq {:target :browser
+          :output-dir "out/jayq"
+          :asset-path "/out/jayq"
+          :modules {:main {:entries [spike.jayq]}}}
+   :c2 {:target :browser
+        :output-dir "out/c2"
+        :asset-path "/out/c2"
+        :modules {:main {:entries [spike.c2]}}}
+   :vomnibus {:target :browser
+              :output-dir "out/vomnibus"
+              :asset-path "/out/vomnibus"
+              :modules {:main {:entries [spike.vomnibus]}}}
+   :priority-map {:target :browser
+                  :output-dir "out/priority-map"
+                  :asset-path "/out/priority-map"
+                  :modules {:main {:entries [spike.priority-map]}}}
+   :core-async {:target :browser
+                :output-dir "out/core-async"
+                :asset-path "/out/core-async"
+                :modules {:main {:entries [spike.core-async]}}}
+   :core-logic {:target :browser
+                :output-dir "out/core-logic"
+                :asset-path "/out/core-logic"
+                :modules {:main {:entries [spike.core-logic]}}}
+   :turtle {:target :browser
+            :output-dir "out/turtle"
+            :asset-path "/out/turtle"
+            :modules {:main {:entries [spike.turtle]}}}
+   :dommy {:target :browser
+           :output-dir "out/dommy"
+           :asset-path "/out/dommy"
+           :modules {:main {:entries [spike.dommy]}}}
+   :monet {:target :browser
+           :output-dir "out/monet"
+           :asset-path "/out/monet"
+           :modules {:main {:entries [spike.monet]}}}
+   :big-bang {:target :browser
+              :output-dir "out/big-bang"
+              :asset-path "/out/big-bang"
+              :modules {:main {:entries [spike.big-bang]}}}
+   :om {:target :browser
+        :output-dir "out/om"
+        :asset-path "/out/om"
+        :modules {:main {:entries [spike.om]}}}
+   :wireframes {:target :browser
+                :output-dir "out/wireframes"
+                :asset-path "/out/wireframes"
+                :modules {:main {:entries [spike.wireframes]}}}
+   :polyhedra {:target :browser
+               :output-dir "out/polyhedra"
+               :asset-path "/out/polyhedra"
+               :modules {:main {:entries [spike.polyhedra]}}}
+ }}
