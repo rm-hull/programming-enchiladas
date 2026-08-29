@@ -66,16 +66,13 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 
 {% if not demo.broken and demo.gist_meta and demo.gist_meta.files %}
 <section class="container">
-  <details class="gist-source">
-    <summary>Source code</summary>
-    {% for file in demo.gist_meta.files %}
-    {% set rendered = file | renderSource(slug) %}
-    <div class="source-file">
-      <div class="source-filename">{{ file }}</div>
-      <div class="source-content">{{ rendered.html | safe }}</div>
-    </div>
-    {% endfor %}
-  </details>
+  {% for file in demo.gist_meta.files %}
+  {% set rendered = file | renderSource(slug) %}
+  <div class="source-file">
+    <div class="source-filename">{{ file }}</div>
+    <div class="source-content">{{ rendered.html | safe }}</div>
+  </div>
+  {% endfor %}
 </section>
 {% endif %}
 

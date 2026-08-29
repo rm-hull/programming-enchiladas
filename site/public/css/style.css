@@ -596,42 +596,6 @@ span.num-items {
 }
 
 
-/* Source code display */
-details.gist-source {
-    margin-top: 20px;
-    border-top: 1px solid #e5e5e5;
-}
-
-details.gist-source summary {
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    color: #666;
-    padding: 10px 0;
-}
-
-details.gist-source[open] summary {
-    color: #333;
-}
-
-details.gist-source pre {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    padding: 16px;
-    overflow-x: auto;
-    font-size: 12px;
-    line-height: 1.45;
-    margin: 10px 0;
-}
-
-details.gist-source pre code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    display: block;
-    white-space: pre-wrap;
-    word-break: break-word;
-}
-
 /* Gist description styling */
 .gist-description {
     margin: 8px 0;
