@@ -111,7 +111,6 @@ div.meta {
     font-weight: normal;
     letter-spacing: -1px;
     line-height: 28px;
-    text-shadow: 1px 1px 0 #fff;
     color: #495961;
 }
 
@@ -639,7 +638,7 @@ span.num-items {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: 3px;
+    border-radius: 5px;
     line-height: 1.6;
     white-space: nowrap;
 }
