@@ -109,7 +109,6 @@ div.meta {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 20px;
     font-weight: normal;
-    letter-spacing: -1px;
     line-height: 28px;
     color: #495961;
 }
@@ -180,7 +179,6 @@ div.author span {
     margin: 0 0 10px 0;
     font-size: 20px;
     font-weight: normal;
-    letter-spacing: -1px;
     line-height: 28px;
     text-shadow: 1px 1px 0 #fff;
     color: #495961;
@@ -328,7 +326,6 @@ h1 {
     color: #4183c4;
     font-weight: bold;
     font-size: 28px;
-    letter-spacing: -1px;
     font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 .gist-description a {
