@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Dynamically list files in site/public/js
-const jsDir = path.join(__dirname, 'site/public/js');
+const jsDir = path.join(__dirname, 'site/public/js/generated');
 const files = fs.readdirSync(jsDir).filter(file => file.endsWith('.js') && file !== 'main.js');
 
 for (const file of files) {

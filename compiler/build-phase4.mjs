@@ -45,18 +45,37 @@ try {
   exec('npx shadow-cljs compile demos', { cwd: join(repoRoot, 'compiler') });
 
   // Step 5: Copy compiled JS to site
-  log('Step 5: Copying compiled JS to site/public/js/');
+  log('Step 5: Copying compiled JS to site/public/js/generated/');
   const srcJsDir = join(repoRoot, 'compiler', 'public', 'js');
-  const destJsDir = join(repoRoot, 'site', 'public', 'js');
+  const destRootJsDir = join(repoRoot, 'site', 'public', 'js');
+  const destGenJsDir = join(destRootJsDir, 'generated');
   
   if (existsSync(srcJsDir)) {
-    mkdirSync(destJsDir, { recursive: true });
-    cpSync(srcJsDir, destJsDir, { recursive: true });
-    log(`Copied JS from ${srcJsDir} to ${destJsDir}`);
+    mkdirSync(destGenJsDir, { recursive: true });
+    
+    // Copy only the demo bundle JS files + main.js to generated/
+    const filesToCopy = readdirSync(srcJsDir).filter(f => f.endsWith('.js'));
+    for (const file of filesToCopy) {
+      cpSync(join(srcJsDir, file), join(destGenJsDir, file));
+    }
+    // Copy cljs-runtime to the root /js/ directory (shared by all demos)
+    const cljsRuntimeSrc = join(srcJsDir, 'cljs-runtime');
+    if (existsSync(cljsRuntimeSrc)) {
+      cpSync(cljsRuntimeSrc, join(destRootJsDir, 'cljs-runtime'), { recursive: true });
+    }
+    // Copy manifest to generated/ (needed for module loading)
+    const manifestSrc = join(srcJsDir, 'manifest.edn');
+    if (existsSync(manifestSrc)) {
+      cpSync(manifestSrc, join(destGenJsDir, 'manifest.edn'));
+    }
+    
+    log(`Copied ${filesToCopy.length} JS bundles + cljs-runtime to site/public/js/`);
+    log(`  - main.js + demo bundles -> /js/generated/`);
+    log(`  - cljs-runtime -> /js/cljs-runtime/`);
     
     // List generated demo files
-    const files = readdirSync(srcJsDir).filter(f => f.endsWith('.js') && !f.includes('cljs-runtime'));
-    log(`Generated ${files.length} demo bundles: ${files.slice(0, 5).join(', ')}...`);
+    const demoFiles = filesToCopy.filter(f => f !== 'main.js');
+    log(`Generated ${demoFiles.length} demo bundles: ${demoFiles.slice(0, 5).join(', ')}...`);
   }
 
   log('Phase 4 complete!');

@@ -6,4 +6,4 @@ pagefind/
 # demos/
 
 # compiled JS (Phase 4)
-# js/*.js
+js/generated/
