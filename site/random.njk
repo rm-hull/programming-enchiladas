@@ -13,7 +13,7 @@ permalink: /random/
 {% set all_demos = collections.demosLatest %}
 const slugs = [
 {% for demo in all_demos %}
-  "{{ demo.owner }}/{{ demo.gist_id }}/",
+  "/{{ demo.owner }}/{{ demo.gist_id }}/",
 {% endfor %}
 ];
 const url = slugs[Math.floor(Math.random() * slugs.length)];
