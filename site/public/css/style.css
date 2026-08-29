@@ -106,7 +106,7 @@ section.container {
 }
 
 div.meta {
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 20px;
     font-weight: normal;
     letter-spacing: -1px;
@@ -165,7 +165,7 @@ div.author span {
 .stats,
 .gist-description {
     color: #666666;
-    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 14px;
     line-height: 1.4;
     word-wrap: break-word;
@@ -185,6 +185,7 @@ div.author span {
     text-shadow: 1px 1px 0 #fff;
     color: #495961;
     z-index: 0;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 div#error {
