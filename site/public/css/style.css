@@ -636,3 +636,100 @@ details.gist-source pre code {
 .gist-description {
     margin: 8px 0;
 }
+
+/* Source code display with filename headers */
+.source-file {
+    margin-bottom: 16px;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.source-filename {
+    background-color: #f6f8fa;
+    border-bottom: 1px solid #e1e4e8;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.source-content {
+    padding: 12px;
+}
+
+.source-content pre {
+    background-color: #f6f8fa;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    overflow-x: auto;
+    font-size: 12px;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.source-content pre code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.source-content h1,
+.source-content h2,
+.source-content h3,
+.source-content h4 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.source-content p {
+    margin: 8px 0;
+}
+
+.source-content ul,
+.source-content ol {
+    margin: 8px 0;
+    padding-left: 24px;
+}
+
+.source-content li {
+    margin: 4px 0;
+}
+
+.source-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.source-content th,
+.source-content td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+.source-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.source-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.source-content a:hover {
+    text-decoration: underline;
+}
+
+.source-content blockquote {
+    margin: 0;
+    padding: 0 0 0 12px;
+    color: #6a737d;
+    border-left: 4px solid #e1e4e8;
+}

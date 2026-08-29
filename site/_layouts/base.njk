@@ -14,6 +14,34 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/prism.min.css">
+
+  <!-- MathJax for rendering embedded math (MathML, LaTeX, AsciiMath) -->
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      startup: {
+        pageDuration: 0
+      }
+    };
+    (function() {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.async = true;
+      document.head.appendChild(script);
+    })();
+  }
+  </script>
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosIpRL+wnnmlOmQLhAYw6M6mODe0u84J/en7bKFjc4o=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react.min.js"></script>
@@ -56,11 +84,18 @@
         License: <a href="https://opensource.org/licenses/MIT">MIT</a>
         &nbsp;&nbsp;Content: copyright as per respective owners.
       </p>
-    </div>
+    </section>
   </div>
 
-  {% if pagefind and false %}
+  {% if pagefind %}
   <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    if (window.pagefind && window.pagefind.init) {
+      window.pagefind.init();
+    }
+  });
+  </script>
   {% endif %}
 </body>
 </html>

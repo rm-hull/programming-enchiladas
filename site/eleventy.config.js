@@ -1,9 +1,32 @@
 import * as yaml from 'js-yaml';
+import MarkdownIt from 'markdown-it';
+import markdownItTexmath from 'markdown-it-texmath';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-clojure.js';
 import { readFileSync, readdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ── Markdown renderer with syntax highlighting and math support ────────────
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+  highlight: (code, lang) => {
+    if (lang === 'clojure' || lang === 'cljs') {
+      const highlighted = Prism.highlight(code, Prism.languages.clojure, 'clojure');
+      return '<pre class="language-clojure"><code>' + highlighted + '</code></pre>';
+    }
+    return null;
+  }
+});
+// Enable TeX/LaTeX math rendering (MathJax compatible delimiters)
+md.use(markdownItTexmath, {
+  engine: 'mathjax',
+  delimiters: ['(', ')', '$', '$', '\\[', '\\]']
+});
 
 // Merge gists.yaml listing with fetched demos/<slug>/meta.json state
 function loadDemos() {
@@ -81,6 +104,48 @@ export default function (eleventyConfig) {
       return readFileSync(filePath, 'utf-8');
     } catch (e) {
       return `[Could not read ${filename} from ${slug}/]`;
+    }
+  });
+
+  // Render markdown content to HTML
+  eleventyConfig.addFilter('renderMarkdown', (content) => {
+    if (!content) return '';
+    return md.render(content);
+  });
+
+  // Render a demo source file as HTML: markdown → rendered, .cljs → highlighted
+  eleventyConfig.addFilter('renderSource', (filename, slug) => {
+    const filePath = join(__dirname, '../demos', slug, filename);
+    try {
+      const content = readFileSync(filePath, 'utf-8');
+
+      if (/\.md$/i.test(filename)) {
+        // Render markdown with math support
+        return { html: md.render(content), filename, isMarkdown: true };
+      }
+
+      if (/\.cljs$/i.test(filename)) {
+        // Syntax-highlight ClojureScript
+        const highlighted = Prism.highlight(content, Prism.languages.clojure, 'clojure');
+        return {
+          html: '<pre class="language-clojure"><code>' + highlighted + '</code></pre>',
+          filename,
+          isClojure: true
+        };
+      }
+
+      // Plain text (e.g., .html, .txt)
+      return {
+        html: '<pre><code>' + content.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>',
+        filename,
+        isText: true
+      };
+    } catch (e) {
+      return {
+        html: '<p>[Could not read ' + filename + ' from ' + slug + '/]</p>',
+        filename,
+        error: true
+      };
     }
   });
 
