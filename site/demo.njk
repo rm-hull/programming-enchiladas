@@ -23,14 +23,7 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 <section class="container">
   <div class="gist-header">
     <div class="meta">
-      <h1>{% if demo.title %}{{ demo.title }}{% else %}Untitled demo{% endif %}</h1>
-      {% if demo.tags %}
-      <div class="tags">
-        {% for tag in demo.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
+      <h1>{% if demo.title %}{{ demo.title }}{% else %}Untitled demo{% endif %}</h1>{% if demo.tags %}<div class="tags">{% for tag in demo.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
       {% if demo.gist_meta and demo.gist_meta.description %}
       <p class="gist-description">{{ demo.gist_meta.description }}</p>
       {% endif %}
