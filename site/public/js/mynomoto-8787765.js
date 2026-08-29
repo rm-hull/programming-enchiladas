@@ -1,0 +1,2 @@
+SHADOW_ENV.evalLoad("demo.mynomoto_8787765.core.js", true, "goog.provide(\x27demo.mynomoto_8787765.core\x27);\n");
+SHADOW_ENV.evalLoad("shadow.module.mynomoto-8787765.append.js", false, ";\nSHADOW_ENV.setLoaded(\x22demo.mynomoto_8787765.core.js\x22);\nSHADOW_ENV.setLoaded(\x22shadow.module.mynomoto-8787765.append.js\x22);");

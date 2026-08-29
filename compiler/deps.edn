@@ -52,6 +52,9 @@
         ;; core.rrb-vector — needed by wireframes.shapes.primitives
         org.clojure/core.rrb-vector {:mvn/version "0.0.11"}
 
+        ;; tools.macro — needed by core.logic demos
+        org.clojure/tools.macro {:mvn/version "0.1.5"}
+
         ;; wireframes — SNAPSHOT, only exclude unavailable deps
         rm-hull/wireframes {:mvn/version "0.0.1-SNAPSHOT"
                             :exclusions [org.clojure/clojurescript
@@ -66,8 +69,11 @@
                            :exclusions [org.clojure/clojurescript
                                         org.clojure/clojure
                                         rm-hull/cljs-test]}
+
+        ;; hipo — CLJS hiccup replacement used by turtle vendor port
+        hipo/hipo {:mvn/version "0.5.2"}
         }
- :paths ["src" "demo-src" "vendor/turtle" "vendor/c2" "vendor/reflex"]
+ :paths ["src" "demo-src" "vendor"]
  :npm-deps {"jquery" "3.7.1"
             "three" "0.166.1"}
  }

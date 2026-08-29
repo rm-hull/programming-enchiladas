@@ -21,7 +21,8 @@ function loadDemos() {
     }
     
     // Merge: gist.yaml entry first, then fetched meta.json overrides with runtime state
-    return { ...demo, ...fetchedMeta };
+    const merged = { ...demo, ...fetchedMeta, slug: `${demo.owner}-${demo.gist_id}` };
+    return merged;
   });
 }
 
@@ -42,7 +43,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection('demosByTag', (collectionApi) => {
     const demos = loadDemos();
     const grouped = {};
-    for (const demo of demos) {
+    for (const demo of demos.map(d => ({ ...d, slug: `${d.owner}-${d.gist_id}` }))) {
       for (const tag of (demo.tags || [])) {
         (grouped[tag] = grouped[tag] || []).push(demo);
       }
@@ -73,11 +74,20 @@ export default function (eleventyConfig) {
     });
   });
 
+  // Read a file from a demo directory and return its contents
+  eleventyConfig.addFilter('readFile', (filename, slug) => {
+    const filePath = join(__dirname, '../demos', slug, filename);
+    try {
+      return readFileSync(filePath, 'utf-8');
+    } catch (e) {
+      return `[Could not read ${filename} from ${slug}/]`;
+    }
+  });
+
   // ── Passthrough Copy ─────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy({ 'public/css': 'css' });
   eleventyConfig.addPassthroughCopy({ 'public/images': 'images' });
   eleventyConfig.addPassthroughCopy({ 'public/js': 'js' });
-  eleventyConfig.addPassthroughCopy({ '../compiler/public/js': 'js' });
   eleventyConfig.addPassthroughCopy({ 'public/favicon.png': 'favicon.png' });
 
   

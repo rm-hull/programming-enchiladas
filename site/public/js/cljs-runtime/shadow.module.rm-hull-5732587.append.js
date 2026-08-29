@@ -1,0 +1,10 @@
+;
+SHADOW_ENV.setLoaded("hipo.interceptor.js");
+SHADOW_ENV.setLoaded("hipo.hiccup.js");
+SHADOW_ENV.setLoaded("hipo.attribute.js");
+SHADOW_ENV.setLoaded("hipo.dom.js");
+SHADOW_ENV.setLoaded("hipo.interpreter.js");
+SHADOW_ENV.setLoaded("hipo.core.js");
+SHADOW_ENV.setLoaded("turtle.renderer.vector.js");
+SHADOW_ENV.setLoaded("demo.rm_hull_5732587.core.js");
+SHADOW_ENV.setLoaded("shadow.module.rm-hull-5732587.append.js");

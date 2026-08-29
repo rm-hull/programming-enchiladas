@@ -7,20 +7,25 @@
 ;; DOM element references matching the Phase 5 skeleton (#canvas-area, #webgl-area, #svg-area, #console, #error-div).
 ;; These are resolved lazily at first access since the DOM may not be ready when the namespace loads.
 
-(defn ^:private find-by-id [id]
+(defn find-by-id [id]
   (dom/getElement id))
 
-(defn canvas []
-  (find-by-id "canvas-area"))
+(defn _cached-canvas []
+  (or (find-by-id "canvas-area") (.-canvas-element js/window)))
 
-(defn ^:private ctx* []
-  (let [c (canvas)]
+(defn _cached-ctx []
+  (let [c (dom/getElement "canvas-area")]
     (when c
-      (or (.getContext ^js c "2d")))))
+      (or (.getContext ^js c "2d")
+          (.getContext ^js c "moz-curve" "webkit-2d-context")))))
 
-;; `ctx` is used by gists as both a var (passed to functions) and sometimes called.
-;; Keep it as a function returning the current 2D context.
-(def ctx ctx*)
+;; `ctx` is a function that returns the current 2D canvas context.
+;; Demos using monet.canvas should call @(ctx) or (ctx) to get the context.
+(defn ctx []
+  (_cached-ctx))
+
+(defn canvas []
+  (_cached-canvas))
 
 (defn webgl []
   (find-by-id "webgl-area"))

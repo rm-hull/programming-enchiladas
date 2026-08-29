@@ -15,7 +15,18 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
   <link rel="stylesheet" href="/css/style.css">
 
-  {% if pagefind %}<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">{% endif %}
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosIpRL+wnnmlOmQLhAYw6M6mODe0u84J/en7bKFjc4o=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react.min.js"></script>
+  <script>
+    // Ensure jQuery and $ are available globally for jayq
+    if (typeof jQuery !== 'undefined') {
+      window.$ = jQuery;
+    }
+  </script>
+
+  {% if pagefind %}
+  <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+  {% endif %}
 </head>
 <body>
   <div class="header">
@@ -31,7 +42,7 @@
           <li><a href="/search/" title="Search demos">Search</a></li>
         </ul>
       </span>
-    </section>
+    </div>
   </div>
 
   <div class="content">
@@ -42,13 +53,13 @@
     <section class="container">
       <p>
         Site: copyright © {{ currentYear }} Richard Hull.
-        License: <a href="http://creativecommons.org/licenses/by/3.0/legalcode">Creative Commons v3.0</a>
+        License: <a href="https://opensource.org/licenses/MIT">MIT</a>
         &nbsp;&nbsp;Content: copyright as per respective owners.
       </p>
-    </section>
+    </div>
   </div>
 
-  {% if pagefind %}
+  {% if pagefind and false %}
   <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
   {% endif %}
 </body>

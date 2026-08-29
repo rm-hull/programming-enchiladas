@@ -8,7 +8,7 @@ pagination:
 permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 ---
 
-{% set slug = demo.owner ~ '-' ~ demo.gist_id %}
+{% set slug = demo.slug or (demo.owner ~ '-' ~ demo.gist_id) %}
 {% set compiled_js = '/js/' ~ slug ~ '.js' %}
 
 <div class="spinner container grey" id="spinner">
@@ -19,11 +19,17 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
   </div>
 </div>
 
-{% if demo.tags or demo.title %}
+{% if demo.title or demo.tags or demo.gist_meta %}
 <section class="container">
   <div class="gist-header">
     <div class="meta">
       <h1>{% if demo.title %}{{ demo.title }}{% else %}Untitled demo{% endif %}</h1>
+      {% if demo.gist_meta and demo.gist_meta.description %}
+      <p class="gist-description">{{ demo.gist_meta.description }}</p>
+      {% endif %}
+      {% if demo.gist_meta and demo.gist_meta.created_at %}
+      <span class="gist-timestamp">{{ demo.gist_meta.created_at | readableDate }} by <a href="https://github.com/{{ demo.owner }}" target="_blank">{{ demo.owner }}</a></span>
+      {% endif %}
       <div class="tags">
         {% for tag in demo.tags %}
         <span class="tag">{{ tag }}</span>
@@ -58,8 +64,20 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 
 <a class="github-ribbon" href="https://github.com/{{ demo.owner }}/gist/{{ demo.gist_id }}" title="View original gist">{{ demo.owner }}/{{ demo.gist_id }}</a>
 
+{% if not demo.broken and demo.gist_meta and demo.gist_meta.files %}
+<section class="container">
+  <details class="gist-source">
+    <summary>Source code</summary>
+    {% for file in demo.gist_meta.files %}
+    <pre><code class="language-clojure">{{ file | readFile(slug) }}</code></pre>
+    {% endfor %}
+  </details>
+</section>
+{% endif %}
+
 <section class="container">
   {% if not demo.broken %}
-  <script type="module" src="{{ compiled_js }}"></script>
+  <script src="/js/main.js"></script>
+  <script src="{{ compiled_js }}"></script>
   {% endif %}
 </section>

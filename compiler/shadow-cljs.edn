@@ -1,15 +1,60 @@
-{
-  :deps true
+{:deps true
   :npm-deps true
-  ;; :source-paths configured via deps.edn :paths
 
-  :builds {
-    ;; Phase 3: basic enchilada.core + util.macros sanity build (single module)
-    :app {:target :browser
-          :output-dir "public/js"
-          :asset-path "/js"
-          :modules {:main {:entries [enchilada.core]}}}
-    ;; Test module to verify macro expansion compiles correctly
+  :builds
+  {
+    ;; Phase 4: per-demo modules compiled from fetched gists
+    ;; The :main module (enchilada.core) serves as the shared default
+    ;; Namespace rewritten to demo.<slug> by compiler/rewrite-demos.js
+    :demos {:target :browser
+            :output-dir "public/js"
+            :asset-path "/js"
+            :modules {
+      :main {:entries [enchilada.core]}
+    :mynomoto-8787765 {:entries [demo.mynomoto-8787765.core] :depends-on #{:main}}
+    :nodename-8762403 {:entries [demo.nodename-8762403.core] :depends-on #{:main}}
+    :rm-hull-5201050 {:entries [demo.rm-hull-5201050.core] :depends-on #{:main}}
+    :rm-hull-5229369 {:entries [demo.rm-hull-5229369.core] :depends-on #{:main}}
+    :rm-hull-5233367 {:entries [demo.rm-hull-5233367.core] :depends-on #{:main}}
+    :rm-hull-5257851 {:entries [demo.rm-hull-5257851.core] :depends-on #{:main}}
+    :rm-hull-5259306 {:entries [demo.rm-hull-5259306.core] :depends-on #{:main}}
+    :rm-hull-5272126 {:entries [demo.rm-hull-5272126.core] :depends-on #{:main}}
+    :rm-hull-5278162 {:entries [demo.rm-hull-5278162.core] :depends-on #{:main}}
+    :rm-hull-5285431 {:entries [demo.rm-hull-5285431.core] :depends-on #{:main}}
+    :rm-hull-5491968 {:entries [demo.rm-hull-5491968.core] :depends-on #{:main}}
+    :rm-hull-5514551 {:entries [demo.rm-hull-5514551.core] :depends-on #{:main}}
+    :rm-hull-5522065 {:entries [demo.rm-hull-5522065.core] :depends-on #{:main}}
+    :rm-hull-5537192 {:entries [demo.rm-hull-5537192.core] :depends-on #{:main}}
+    :rm-hull-5694738 {:entries [demo.rm-hull-5694738.core] :depends-on #{:main}}
+    :rm-hull-5732587 {:entries [demo.rm-hull-5732587.core] :depends-on #{:main}}
+    :rm-hull-5736733 {:entries [demo.rm-hull-5736733.core] :depends-on #{:main}}
+    :rm-hull-6816151 {:entries [demo.rm-hull-6816151.core] :depends-on #{:main}}
+    :rm-hull-6816234 {:entries [demo.rm-hull-6816234.core] :depends-on #{:main}}
+    :rm-hull-6857333 {:entries [demo.rm-hull-6857333.core] :depends-on #{:main}}
+    :rm-hull-6859633 {:entries [demo.rm-hull-6859633.core] :depends-on #{:main}}
+    :rm-hull-6952960 {:entries [demo.rm-hull-6952960.core] :depends-on #{:main}}
+    :rm-hull-7098992 {:entries [demo.rm-hull-7098992.core] :depends-on #{:main}}
+    :rm-hull-7145520 {:entries [demo.rm-hull-7145520.core] :depends-on #{:main}}
+    :rm-hull-7758795 {:entries [demo.rm-hull-7758795.core] :depends-on #{:main}}
+    :rm-hull-7778650 {:entries [demo.rm-hull-7778650.core] :depends-on #{:main}}
+    :rm-hull-8262502 {:entries [demo.rm-hull-8262502.core] :depends-on #{:main}}
+    :rm-hull-8617445 {:entries [demo.rm-hull-8617445.core] :depends-on #{:main}}
+    :rm-hull-8617788 {:entries [demo.rm-hull-8617788.core] :depends-on #{:main}}
+    :rm-hull-8723389 {:entries [demo.rm-hull-8723389.core] :depends-on #{:main}}
+    :rm-hull-8776719 {:entries [demo.rm-hull-8776719.core] :depends-on #{:main}}
+    :rm-hull-8906851 {:entries [demo.rm-hull-8906851.core] :depends-on #{:main}}
+    :rm-hull-9261323 {:entries [demo.rm-hull-9261323.core] :depends-on #{:main}}
+    :rm-hull-9842972 {:entries [demo.rm-hull-9842972.core] :depends-on #{:main}}
+    :swannodette-5882703 {:entries [demo.swannodette-5882703.core] :depends-on #{:main}}
+    :swannodette-5903001 {:entries [demo.swannodette-5903001.core] :depends-on #{:main}}
+    :swannodette-6542719 {:entries [demo.swannodette-6542719.core] :depends-on #{:main}}
+            }
+            ;; Foreign libs are no longer needed - jQuery and React are loaded via CDN in base.njk
+            ;; The :foreign-libs are commented out because loading them via shadow-cljs
+            ;; can cause conflicts with the global jQuery/React we load in the page.
+    }
+
+    ;; Phase 3 test module
     :macros-test {:target :browser
                   :output-dir "public/js"
                   :asset-path "/js"

@@ -46,11 +46,11 @@ async function fetchGists() {
         }, null, 2)
       );
 
-      // Save all cljs files with their original filenames
+      // Save all files
       const cljsFiles = [];
       for (const [filename, file] of Object.entries(gist.files)) {
+        await fs.writeFile(path.join(demoDir, filename), file.content);
         if (filename.endsWith(".cljs")) {
-          await fs.writeFile(path.join(demoDir, filename), file.content);
           cljsFiles.push(filename);
         }
       }
