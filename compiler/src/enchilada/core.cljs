@@ -45,14 +45,19 @@
 (defn error-div []
   (find-by-id "error-div"))
 
-(def canvas-size
+(def canvas-size-atom
   "A map of the canvas element's dimensions. Lazily computed so the canvas exists."
   (atom {:width 800 :height 600}))
+
+(def canvas-size
+  "Returns [width height] vector of the current canvas dimensions."
+  (let [s @canvas-size-atom]
+    [(:width s) (:height s)]))
 
 (defn refresh-canvas-size! []
   (let [c (canvas)]
     (when c
-      (reset! canvas-size
+      (reset! canvas-size-atom
               {:width (.-width c)
                :height (.-height c)}))))
 
