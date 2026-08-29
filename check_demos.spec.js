@@ -8,10 +8,12 @@ const files = fs.readdirSync(jsDir).filter(file => file.endsWith('.js') && file 
 
 for (const file of files) {
   test(`Check demo: ${file}`, async ({ page }) => {
-    // Navigate to a mock page that would load the JS
-    // For now, let's just ensure we can load the page without console errors
-    await page.goto('http://localhost:8080/');
-    
+    // Derive the demo page URL from the JS filename
+    // e.g., rm-hull-8776719.js -> /rm-hull/8776719/
+    const slug = file.replace('.js', '');
+    const [owner, gistId] = slug.split('-');
+    const demoUrl = `http://localhost:8080/${owner}/${gistId}/`;
+
     // Listen for console errors
     const errors = [];
     page.on('console', msg => {
@@ -20,7 +22,10 @@ for (const file of files) {
       }
     });
 
-    await page.addScriptTag({ path: path.join(jsDir, file) });
+    await page.goto(demoUrl);
+    
+    // Wait for demo JS to load and initialize
+    await page.waitForTimeout(2000);
     
     // Check if the script produced errors
     expect(errors.length, `Console errors found in ${file}: ${errors.join(', ')}`).toBe(0);

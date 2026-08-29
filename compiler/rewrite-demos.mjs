@@ -416,30 +416,7 @@ function rewriteSource(source, nsMap) {
     }
   }
 
-  // Step 9: Fix jayq pattern - wrap fn vars in calls
-  const jayqFnVars = ['canvas', 'svg', 'webgl', 'console-el', 'error-div',
-    'canvas-area', 'webgl-area', 'svg-area', 'console'];
-  const jayqWrapPattern = new RegExp(
-    `\\((show|hide|add-class!|remove-class!|toggle-class!|show!|hidden\\?)\\s+(${jayqFnVars.join('|')})\\)`,
-    'g'
-  );
-  result = result.replace(jayqWrapPattern, (match, fn, varName) => `(${fn} (${varName}))`);
-
-  // Step 10: Replace unqualified show/hide with enchilada.core versions
-  result = result.replace(/(?<!\.)\(show\s+/g, '(enchilada.core/show ');
-  result = result.replace(/(?<!\.)\(hide\s+/g, '(enchilada.core/hide ');
-
-  // Step 11: Fix monet.canvas calls - wrap ctx in call
-  const monetCanvasFns = ['translate', 'rotate', 'save', 'restore', 'begin-path', 'end-path',
-    'move-to', 'line-to', 'bezier-curve-to', 'stroke', 'fill',
-    'fill-style', 'stroke-style', 'fill-rect', 'composition-operation',
-    'circle'];
-  for (const fn of monetCanvasFns) {
-    result = result.replace(
-      new RegExp(`\\((${fn})\\s+ctx\\b`, 'g'),
-      '($1 (ctx)'
-    );
-  }
+  // --- Step 9-11 removed: ctx and canvas are direct values, not function calls ---
 
   // Step 12: Merge multiple :require forms in ns declaration
   const nsStart = result.search(/^\s*\(ns\s+/m);
