@@ -11,13 +11,7 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 {% set slug = demo.slug or (demo.owner ~ '-' ~ demo.gist_id) %}
 {% set compiled_js = '/js/' ~ slug ~ '.js' %}
 
-<div class="spinner container grey" id="spinner">
-  <div class="spinner">
-    {% for i in range(1, 13) %}
-    <div class="bar{{ i }}"></div>
-    {% endfor %}
-  </div>
-</div>
+{# spinner removed #}
 
 {% if demo.title or demo.tags or demo.gist_meta %}
 <section class="container">
