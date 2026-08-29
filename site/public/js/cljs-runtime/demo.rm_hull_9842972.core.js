@@ -1,5 +1,5 @@
 goog.provide('demo.rm_hull_9842972.core');
-enchilada.core.show(jayq.core.$.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"div#spinner","div#spinner",-1021903695)));
+jayq.core.show(jayq.core.$.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"div#spinner","div#spinner",-1021903695)));
 demo.rm_hull_9842972.core.random_texture = (function (){var locations = new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Brimham Rocks, North Yorkshire, UK","Brimham Rocks 2, North Yorkshire, UK","Happisburgh Lighthouse, Norfolk, UK","Harlow Carr, Harrogate, UK","Knaresborough Castle, North Yorkshire, UK","Prainha - beach, Algarve, Portugal","Prainha - clifftop, Algarve, Portugal","Wells-next-the-Sea, Norfolk, UK"], null);
 return (function (){
 return cljs.core.rand_nth(locations);
@@ -54,9 +54,9 @@ gl.clear((gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT));
 return scene.render();
 });
 demo.rm_hull_9842972.core.on_load = (function demo$rm_hull_9842972$core$on_load(app){
-enchilada.core.show((enchilada.webgl.cljs$core$IFn$_invoke$arity$0 ? enchilada.webgl.cljs$core$IFn$_invoke$arity$0() : enchilada.webgl.call(null)));
+jayq.core.show(enchilada.webgl);
 
-enchilada.core.hide(jayq.core.$.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"div#spinner","div#spinner",-1021903695)));
+jayq.core.hide(jayq.core.$.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"div#spinner","div#spinner",-1021903695)));
 
 var canvas = app.canvas;
 var scene = app.scene;

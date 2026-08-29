@@ -1,8 +1,8 @@
 goog.provide('demo.rm_hull_8617788.core');
-dommy.core.insert_after_BANG_((function (){var dom25789 = document.createElementNS("http://www.w3.org/1999/xhtml","div");
-dom25789.setAttribute("id","app");
+dommy.core.insert_after_BANG_((function (){var dom25661 = document.createElementNS("http://www.w3.org/1999/xhtml","div");
+dom25661.setAttribute("id","app");
 
-return dom25789;
+return dom25661;
 })(),document.getElementById("canvas-area"));
 demo.rm_hull_8617788.core.app = document.getElementById("app");
 demo.rm_hull_8617788.core.update = (function demo$rm_hull_8617788$core$update(event,world_state){

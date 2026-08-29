@@ -5,8 +5,8 @@ goog.scope(function(){
 enchilada.core.find_by_id = (function enchilada$core$find_by_id(id){
 return goog.dom.getElement(id);
 });
-enchilada.core._cached_canvas = (function enchilada$core$_cached_canvas(){
-var or__5162__auto__ = enchilada.core.find_by_id("canvas-area");
+enchilada.core._cached_canvas_el = (function enchilada$core$_cached_canvas_el(){
+var or__5162__auto__ = goog.dom.getElement("canvas-area");
 if(cljs.core.truth_(or__5162__auto__)){
 return or__5162__auto__;
 } else {
@@ -26,31 +26,53 @@ return c.getContext("moz-curve","webkit-2d-context");
 return null;
 }
 });
-enchilada.core.ctx = (function enchilada$core$ctx(){
-return enchilada.core._cached_ctx();
-});
-enchilada.core.canvas = (function enchilada$core$canvas(){
-return enchilada.core._cached_canvas();
-});
-enchilada.core.webgl = (function enchilada$core$webgl(){
-return enchilada.core.find_by_id("webgl-area");
-});
-enchilada.core.webgl_context = (function enchilada$core$webgl_context(){
-var c = enchilada.core.webgl();
-if(cljs.core.truth_(c)){
-var or__5162__auto__ = c.getContext("webgl");
-if(cljs.core.truth_(or__5162__auto__)){
-return or__5162__auto__;
+enchilada.core._jq = (function enchilada$core$_jq(el){
+
+if(cljs.core.truth_((function (){var and__5160__auto__ = el;
+if(cljs.core.truth_(and__5160__auto__)){
+return (typeof jQuery !== 'undefined');
 } else {
-return c.getContext("experimental-webgl");
+return and__5160__auto__;
 }
+})())){
+return (new jQuery(el));
 } else {
 return null;
 }
 });
-enchilada.core.svg = (function enchilada$core$svg(){
+enchilada.core.canvas = (function (){var or__5162__auto__ = enchilada.core._jq(enchilada.core._cached_canvas_el());
+if(cljs.core.truth_(or__5162__auto__)){
+return or__5162__auto__;
+} else {
+return enchilada.core.find_by_id("canvas-area");
+}
+})();
+enchilada.core.svg = (function (){var or__5162__auto__ = enchilada.core._jq(enchilada.core.find_by_id("svg-area"));
+if(cljs.core.truth_(or__5162__auto__)){
+return or__5162__auto__;
+} else {
 return enchilada.core.find_by_id("svg-area");
-});
+}
+})();
+enchilada.core.webgl = (function (){var or__5162__auto__ = enchilada.core._jq(enchilada.core.find_by_id("webgl-area"));
+if(cljs.core.truth_(or__5162__auto__)){
+return or__5162__auto__;
+} else {
+return enchilada.core.find_by_id("webgl-area");
+}
+})();
+enchilada.core.ctx = (function (){var c = goog.dom.getElement("canvas-area");
+if(cljs.core.truth_(c)){
+var or__5162__auto__ = c.getContext("2d");
+if(cljs.core.truth_(or__5162__auto__)){
+return or__5162__auto__;
+} else {
+return c.getContext("moz-curve","webkit-2d-context");
+}
+} else {
+return null;
+}
+})();
 enchilada.core.console_el = (function enchilada$core$console_el(){
 return enchilada.core.find_by_id("console");
 });
@@ -58,20 +80,26 @@ enchilada.core.error_div = (function enchilada$core$error_div(){
 return enchilada.core.find_by_id("error-div");
 });
 /**
- * A map of the canvas element's dimensions. Lazily computed so the canvas exists.
+ * A map of the canvas element's dimensions.
  */
-enchilada.core.canvas_size = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),(800),new cljs.core.Keyword(null,"height","height",1025178622),(600)], null));
+enchilada.core.canvas_size_state = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),(800),new cljs.core.Keyword(null,"height","height",1025178622),(600)], null));
+/**
+ * Returns [width height] vector of the current canvas dimensions.
+ */
+enchilada.core.canvas_size = (function enchilada$core$canvas_size(){
+var s = cljs.core.deref(enchilada.core.canvas_size_state);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"width","width",-384071477).cljs$core$IFn$_invoke$arity$1(s),new cljs.core.Keyword(null,"height","height",1025178622).cljs$core$IFn$_invoke$arity$1(s)], null);
+});
 enchilada.core.refresh_canvas_size_BANG_ = (function enchilada$core$refresh_canvas_size_BANG_(){
-var c = enchilada.core.canvas();
+var c = goog.dom.getElement("canvas-area");
 if(cljs.core.truth_(c)){
-return cljs.core.reset_BANG_(enchilada.core.canvas_size,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),c.width,new cljs.core.Keyword(null,"height","height",1025178622),c.height], null));
+return cljs.core.reset_BANG_(enchilada.core.canvas_size_state,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"width","width",-384071477),c.width,new cljs.core.Keyword(null,"height","height",1025178622),c.height], null));
 } else {
 return null;
 }
 });
 /**
  * Returns the value of a keyword argument from a JS object, or falls back to options.
- * Used by gists like `(value-of :texture (random-texture))`.
  */
 enchilada.core.value_of = (function enchilada$core$value_of(var_args){
 var G__20065 = arguments.length;
@@ -105,15 +133,25 @@ enchilada.core.to_js = (function enchilada$core$to_js(x){
 return cljs.core.clj__GT_js(x);
 });
 enchilada.core.show = (function enchilada$core$show(el){
+
 if(cljs.core.truth_(el)){
+if((((typeof jQuery !== 'undefined')) && (jQuery.is(enchilada.core.jQuery,el)))){
+return el.show();
+} else {
 return enchilada.core.goog$module$goog$object.set(el,"style.display","block");
+}
 } else {
 return null;
 }
 });
 enchilada.core.hide = (function enchilada$core$hide(el){
+
 if(cljs.core.truth_(el)){
+if((((typeof jQuery !== 'undefined')) && (jQuery.is(enchilada.core.jQuery,el)))){
+return el.hide();
+} else {
 return enchilada.core.goog$module$goog$object.set(el,"style.display","none");
+}
 } else {
 return null;
 }

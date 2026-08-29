@@ -9,7 +9,7 @@ return cljs.core.cons(cljs.core.flatten(x),demo$rm_hull_5285431$core$seq0(new cl
 });
 return seq0(cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY);
 })();
-enchilada.core.show((enchilada.canvas.cljs$core$IFn$_invoke$arity$0 ? enchilada.canvas.cljs$core$IFn$_invoke$arity$0() : enchilada.canvas.call(null)));
+jayq.core.show(enchilada.canvas);
 turtle.core.draw_BANG_.cljs$core$IFn$_invoke$arity$variadic(turtle.renderer.canvas.__GT_canvas(enchilada.ctx),cljs.core.nth.cljs$core$IFn$_invoke$arity$2(demo.rm_hull_5285431.core.dragon_seq,(13)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(800),(600)], null)], 0));
 
 //# sourceMappingURL=demo.rm_hull_5285431.core.js.map

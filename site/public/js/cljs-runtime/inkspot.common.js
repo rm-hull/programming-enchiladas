@@ -4,8 +4,8 @@ goog.provide('inkspot.common');
  * across Clojure and ClojureScript
  */
 inkspot.common.parse_int = (function inkspot$common$parse_int(var_args){
-var G__24034 = arguments.length;
-switch (G__24034) {
+var G__22184 = arguments.length;
+switch (G__22184) {
 case 1:
 return inkspot.common.parse_int.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 

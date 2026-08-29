@@ -11,7 +11,7 @@ return cljs.core.cons(new cljs.core.PersistentVector(null, 23, 5, cljs.core.Pers
 });
 return seq0(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.rm_hull_5732587.core.F], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.rm_hull_5732587.core.F], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.rm_hull_5732587.core.F], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.rm_hull_5732587.core.F], null),cljs.core.PersistentVector.EMPTY);
 })();
-enchilada.core.show((enchilada.canvas.cljs$core$IFn$_invoke$arity$0 ? enchilada.canvas.cljs$core$IFn$_invoke$arity$0() : enchilada.canvas.call(null)));
+jayq.core.show(enchilada.canvas);
 turtle.core.draw_BANG_.cljs$core$IFn$_invoke$arity$variadic(turtle.renderer.canvas.__GT_canvas(enchilada.ctx),cljs.core.nth.cljs$core$IFn$_invoke$arity$2(demo.rm_hull_5732587.core.penrose_tiling_seq,(5)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(800),(600)], null)], 0));
 
 //# sourceMappingURL=demo.rm_hull_5732587.core.js.map

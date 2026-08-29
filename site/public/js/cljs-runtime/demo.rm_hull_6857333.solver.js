@@ -11,8 +11,8 @@ return cljs.core.remove.cljs$core$IFn$_invoke$arity$2(cljs.core.partial.cljs$cor
  * than the current length
  */
 demo.rm_hull_6857333.solver.remove_longer_paths = (function demo$rm_hull_6857333$solver$remove_longer_paths(pred,neighbours,curr_len){
-return cljs.core.remove.cljs$core$IFn$_invoke$arity$2((function (p1__36264_SHARP_){
-var temp__5823__auto__ = (pred.cljs$core$IFn$_invoke$arity$1 ? pred.cljs$core$IFn$_invoke$arity$1(p1__36264_SHARP_) : pred.call(null,p1__36264_SHARP_));
+return cljs.core.remove.cljs$core$IFn$_invoke$arity$2((function (p1__26347_SHARP_){
+var temp__5823__auto__ = (pred.cljs$core$IFn$_invoke$arity$1 ? pred.cljs$core$IFn$_invoke$arity$1(p1__26347_SHARP_) : pred.call(null,p1__26347_SHARP_));
 if(cljs.core.truth_(temp__5823__auto__)){
 var old = temp__5823__auto__;
 return (curr_len >= new cljs.core.Keyword(null,"length","length",588987862).cljs$core$IFn$_invoke$arity$1(old));
@@ -56,10 +56,10 @@ var new_length = (demo.rm_hull_6857333.solver.path_length(pred,curr) + (1));
 var neighbours = demo.rm_hull_6857333.solver.remove_longer_paths(pred,demo.rm_hull_6857333.solver.connecting_neighbours(maze,curr),new_length);
 var next_gen = demo.rm_hull_6857333.solver.blend_in(pred,neighbours,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"predecessor","predecessor",-2068521836),new cljs.core.Keyword(null,"length","length",588987862)],[curr,new_length]));
 var next_active = demo.rm_hull_6857333.solver.blend_in(active,neighbours,new_length);
-var G__36276 = next_gen;
-var G__36277 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(next_active,curr);
-pred = G__36276;
-active = G__36277;
+var G__26395 = next_gen;
+var G__26396 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(next_active,curr);
+pred = G__26395;
+active = G__26396;
 continue;
 
 }
@@ -81,20 +81,20 @@ var p = cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(pred,new cljs.core.Persis
 if((p == null)){
 return cljs.core.vec(cljs.core.cons(n,result));
 } else {
-var G__36278 = p;
-var G__36279 = cljs.core.cons(n,result);
-n = G__36278;
-result = G__36279;
+var G__26397 = p;
+var G__26398 = cljs.core.cons(n,result);
+n = G__26397;
+result = G__26398;
 continue;
 }
 break;
 }
 });
 demo.rm_hull_6857333.solver.solve = (function demo$rm_hull_6857333$solver$solve(maze,points){
-var f = (function (p__36271){
-var vec__36272 = p__36271;
-var from = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__36272,(0),null);
-var to = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__36272,(1),null);
+var f = (function (p__26366){
+var vec__26367 = p__26366;
+var from = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26367,(0),null);
+var to = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26367,(1),null);
 return demo.rm_hull_6857333.solver.shortest_path(maze,from,to);
 });
 return cljs.core.vec(cljs.core.map.cljs$core$IFn$_invoke$arity$2(f,points));

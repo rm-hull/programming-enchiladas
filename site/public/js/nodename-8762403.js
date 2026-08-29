@@ -1,2 +1,0 @@
-SHADOW_ENV.evalLoad("demo.nodename_8762403.core.js", true, "goog.provide(\x27demo.nodename_8762403.core\x27);\n");
-SHADOW_ENV.evalLoad("shadow.module.nodename-8762403.append.js", false, ";\nSHADOW_ENV.setLoaded(\x22demo.nodename_8762403.core.js\x22);\nSHADOW_ENV.setLoaded(\x22shadow.module.nodename-8762403.append.js\x22);");

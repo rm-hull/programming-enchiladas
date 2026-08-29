@@ -7,9 +7,9 @@ demo.rm_hull_5259306.core.predef_rules = cljs.core.PersistentHashMap.fromArrays(
  * coverts the key into a keyword
  */
 demo.rm_hull_5259306.core.pair = (function demo$rm_hull_5259306$core$pair(s){
-var vec__25019 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(s,/=/);
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25019,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25019,(1),null);
+var vec__25017 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(s,/=/);
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25017,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25017,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(k),v], null);
 });
 /**
@@ -29,16 +29,16 @@ return cljs.core.vec(cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.vec,c
 /**
  * Fetches the color at the given pixel on the canvas context
  */
-demo.rm_hull_5259306.core.get_color = (function demo$rm_hull_5259306$core$get_color(ctx,p__25027,scale){
-var vec__25033 = p__25027;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25033,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25033,(1),null);
+demo.rm_hull_5259306.core.get_color = (function demo$rm_hull_5259306$core$get_color(ctx,p__25037,scale){
+var vec__25038 = p__25037;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25038,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25038,(1),null);
 return monet.canvas.get_pixel(ctx,(x * scale),(y * scale));
 });
-demo.rm_hull_5259306.core.set_color_BANG_ = (function demo$rm_hull_5259306$core$set_color_BANG_(ctx,p__25040,scale,color){
-var vec__25041 = p__25040;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25041,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25041,(1),null);
+demo.rm_hull_5259306.core.set_color_BANG_ = (function demo$rm_hull_5259306$core$set_color_BANG_(ctx,p__25041,scale,color){
+var vec__25042 = p__25041;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25042,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25042,(1),null);
 return monet.canvas.fill_rect(monet.canvas.fill_style(ctx,color),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"x","x",2099068185),(x * scale),new cljs.core.Keyword(null,"y","y",-1757859776),(y * scale),new cljs.core.Keyword(null,"w","w",354169001),scale,new cljs.core.Keyword(null,"h","h",1109658740),scale], null));
 });
 demo.rm_hull_5259306.core.black_QMARK_ = cljs.core.memoize((function (color){
@@ -59,13 +59,13 @@ return null;
 demo.rm_hull_5259306.core.draw_BANG_ = (function demo$rm_hull_5259306$core$draw_BANG_(turmite,color){
 return monet.canvas.restore(demo.rm_hull_5259306.core.set_color_BANG_(monet.canvas.save((turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"ctx","ctx",-493610118)) : turmite.call(null,new cljs.core.Keyword(null,"ctx","ctx",-493610118)))),demo.rm_hull_5259306.core.current_position(turmite),(turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"cell-size","cell-size",-1745492287)) : turmite.call(null,new cljs.core.Keyword(null,"cell-size","cell-size",-1745492287))),color));
 });
-demo.rm_hull_5259306.core.wrap = (function demo$rm_hull_5259306$core$wrap(p__25096,p__25097){
-var vec__25100 = p__25096;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25100,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25100,(1),null);
-var vec__25103 = p__25097;
-var w = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25103,(0),null);
-var h = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25103,(1),null);
+demo.rm_hull_5259306.core.wrap = (function demo$rm_hull_5259306$core$wrap(p__25046,p__25047){
+var vec__25048 = p__25046;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25048,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25048,(1),null);
+var vec__25051 = p__25047;
+var w = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25051,(0),null);
+var h = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25051,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.mod(x,w),cljs.core.mod(y,h)], null);
 });
 demo.rm_hull_5259306.core.color_mapper = (function demo$rm_hull_5259306$core$color_mapper(color){
@@ -88,10 +88,10 @@ return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(demo.rm_hull_5259306.core.
  * the underlying grid element according to its embedded rule definition.
  */
 demo.rm_hull_5259306.core.next_state = (function demo$rm_hull_5259306$core$next_state(turmite){
-var vec__25118 = demo.rm_hull_5259306.core.next_triple(turmite);
-var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25118,(0),null);
-var dir = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25118,(1),null);
-var state = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25118,(2),null);
+var vec__25058 = demo.rm_hull_5259306.core.next_triple(turmite);
+var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25058,(0),null);
+var dir = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25058,(1),null);
+var state = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__25058,(2),null);
 var new_direction = demo.rm_hull_5259306.core.relative_direction((turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"direction","direction",-633359395)) : turmite.call(null,new cljs.core.Keyword(null,"direction","direction",-633359395))),dir);
 var pos = demo.rm_hull_5259306.core.wrap(cljs.core.map.cljs$core$IFn$_invoke$arity$3(cljs.core._PLUS_,demo.rm_hull_5259306.core.current_position(turmite),(new_direction.cljs$core$IFn$_invoke$arity$1 ? new_direction.cljs$core$IFn$_invoke$arity$1(demo.rm_hull_5259306.core.offsets) : new_direction.call(null,demo.rm_hull_5259306.core.offsets))),(turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"bounds","bounds",1691609455)) : turmite.call(null,new cljs.core.Keyword(null,"bounds","bounds",1691609455))));
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(turmite,new cljs.core.Keyword(null,"generation","generation",-2132542044),((turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"generation","generation",-2132542044)) : turmite.call(null,new cljs.core.Keyword(null,"generation","generation",-2132542044))) + (1)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"direction","direction",-633359395),new_direction,new cljs.core.Keyword(null,"color","color",1011675173),color,new cljs.core.Keyword(null,"previous","previous",-720163404),(turmite.cljs$core$IFn$_invoke$arity$1 ? turmite.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"current","current",-1088038603)) : turmite.call(null,new cljs.core.Keyword(null,"current","current",-1088038603))),new cljs.core.Keyword(null,"current","current",-1088038603),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"position","position",-2011731912),pos,new cljs.core.Keyword(null,"color","color",1011675173),color,new cljs.core.Keyword(null,"state","state",-1988618099),state], null)], 0));
@@ -135,8 +135,8 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
  * value into a rule definition.
  */
 demo.rm_hull_5259306.core.get_rule = (function demo$rm_hull_5259306$core$get_rule(query_string){
-var input = (function (){var fexpr__25154 = demo.rm_hull_5259306.core.get_params(query_string);
-return (fexpr__25154.cljs$core$IFn$_invoke$arity$1 ? fexpr__25154.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"rule","rule",729973257)) : fexpr__25154.call(null,new cljs.core.Keyword(null,"rule","rule",729973257)));
+var input = (function (){var fexpr__25068 = demo.rm_hull_5259306.core.get_params(query_string);
+return (fexpr__25068.cljs$core$IFn$_invoke$arity$1 ? fexpr__25068.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"rule","rule",729973257)) : fexpr__25068.call(null,new cljs.core.Keyword(null,"rule","rule",729973257)));
 })();
 var label = (((input == null))?cljs.core.nth.cljs$core$IFn$_invoke$arity$2(cljs.core.keys(demo.rm_hull_5259306.core.predef_rules),cljs.core.rand_int(cljs.core.count(demo.rm_hull_5259306.core.predef_rules))):input);
 var rule = cljs.core.get.cljs$core$IFn$_invoke$arity$3(demo.rm_hull_5259306.core.predef_rules,cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(label),input);
@@ -150,7 +150,7 @@ var div = cljs.core.first(jayq.core.$.cljs$core$IFn$_invoke$arity$1(new cljs.cor
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [div.offsetWidth,div.offsetHeight], null);
 });
 jayq.core.document_ready((function (){
-enchilada.core.show((enchilada.canvas.cljs$core$IFn$_invoke$arity$0 ? enchilada.canvas.cljs$core$IFn$_invoke$arity$0() : enchilada.canvas.call(null)));
+jayq.core.show(enchilada.canvas);
 
 monet.canvas.fill_rect(monet.canvas.fill_style(enchilada.ctx,new cljs.core.Keyword(null,"black","black",1294279647)),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"x","x",2099068185),(0),new cljs.core.Keyword(null,"y","y",-1757859776),(0),new cljs.core.Keyword(null,"w","w",354169001),(800),new cljs.core.Keyword(null,"h","h",1109658740),(600)], null));
 

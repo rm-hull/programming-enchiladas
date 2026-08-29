@@ -1,6 +1,6 @@
 goog.provide('demo.rm_hull_5522065.core');
-enchilada.core.show((enchilada.canvas.cljs$core$IFn$_invoke$arity$0 ? enchilada.canvas.cljs$core$IFn$_invoke$arity$0() : enchilada.canvas.call(null)));
-enchilada.core.hide((enchilada.svg.cljs$core$IFn$_invoke$arity$0 ? enchilada.svg.cljs$core$IFn$_invoke$arity$0() : enchilada.svg.call(null)));
+jayq.core.show(enchilada.canvas);
+jayq.core.hide(enchilada.svg);
 demo.rm_hull_5522065.core.draw_frame_BANG_ = (function demo$rm_hull_5522065$core$draw_frame_BANG_(img,v,t){
 var w = ((600) + (Math.sin(t) * (100)));
 var r = Math.floor((Math.sin((t * (3))) * (255)));
@@ -11,13 +11,13 @@ return monet.canvas.translate(monet.canvas.rotate(monet.canvas.translate(monet.c
 demo.rm_hull_5522065.core.animate = (function demo$rm_hull_5522065$core$animate(img,v){
 var loop = (function demo$rm_hull_5522065$core$animate_$_loop(t){
 return (function (){
-var G__24927 = demo$rm_hull_5522065$core$animate_$_loop((t + 0.01));
-var G__24928 = demo.rm_hull_5522065.core.draw_frame_BANG_(img,v,t);
-return (monet.core.animation_frame.cljs$core$IFn$_invoke$arity$2 ? monet.core.animation_frame.cljs$core$IFn$_invoke$arity$2(G__24927,G__24928) : monet.core.animation_frame.call(null,G__24927,G__24928));
+var G__25034 = demo$rm_hull_5522065$core$animate_$_loop((t + 0.01));
+var G__25035 = demo.rm_hull_5522065.core.draw_frame_BANG_(img,v,t);
+return (monet.core.animation_frame.cljs$core$IFn$_invoke$arity$2 ? monet.core.animation_frame.cljs$core$IFn$_invoke$arity$2(G__25034,G__25035) : monet.core.animation_frame.call(null,G__25034,G__25035));
 });
 });
-var fexpr__24929 = loop((0));
-return (fexpr__24929.cljs$core$IFn$_invoke$arity$0 ? fexpr__24929.cljs$core$IFn$_invoke$arity$0() : fexpr__24929.call(null));
+var fexpr__25036 = loop((0));
+return (fexpr__25036.cljs$core$IFn$_invoke$arity$0 ? fexpr__25036.cljs$core$IFn$_invoke$arity$0() : fexpr__25036.call(null));
 });
 demo.rm_hull_5522065.core.animate(enchilada.canvas.get((0)),(450));
 

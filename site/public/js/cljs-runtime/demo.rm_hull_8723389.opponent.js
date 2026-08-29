@@ -31,11 +31,11 @@ var chosen_weapon = cljs.core.first(rnd);
 return big_bang.package$.make_package(cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(world_state,new cljs.core.Keyword(null,"weapon","weapon",-504830232),chosen_weapon,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"rnd-seq","rnd-seq",-917763914),cljs.core.rest(rnd)], 0)),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"from","from",1815293044),new cljs.core.Keyword(null,"opponent","opponent",-373061632),new cljs.core.Keyword(null,"weapon","weapon",-504830232),chosen_weapon], null));
 });
 demo.rm_hull_8723389.opponent.incoming = (function demo$rm_hull_8723389$opponent$incoming(event,world_state){
-var pred__36525 = cljs.core._EQ_;
-var expr__36526 = event;
-if(cljs.core.truth_((function (){var G__36528 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"to","to",192099007),new cljs.core.Keyword(null,"opponent","opponent",-373061632),new cljs.core.Keyword(null,"choose","choose",1680203305),true], null);
-var G__36529 = expr__36526;
-return (pred__36525.cljs$core$IFn$_invoke$arity$2 ? pred__36525.cljs$core$IFn$_invoke$arity$2(G__36528,G__36529) : pred__36525.call(null,G__36528,G__36529));
+var pred__26166 = cljs.core._EQ_;
+var expr__26167 = event;
+if(cljs.core.truth_((function (){var G__26169 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"to","to",192099007),new cljs.core.Keyword(null,"opponent","opponent",-373061632),new cljs.core.Keyword(null,"choose","choose",1680203305),true], null);
+var G__26170 = expr__26167;
+return (pred__26166.cljs$core$IFn$_invoke$arity$2 ? pred__26166.cljs$core$IFn$_invoke$arity$2(G__26169,G__26170) : pred__26166.call(null,G__26169,G__26170));
 })())){
 return demo.rm_hull_8723389.opponent.choose(world_state);
 } else {

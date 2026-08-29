@@ -1,2 +1,0 @@
-SHADOW_ENV.evalLoad("demo.rm_hull_5272126.core.js", true, "goog.provide(\x27demo.rm_hull_5272126.core\x27);\n((3) + (6));\n");
-SHADOW_ENV.evalLoad("shadow.module.rm-hull-5272126.append.js", false, ";\nSHADOW_ENV.setLoaded(\x22demo.rm_hull_5272126.core.js\x22);\nSHADOW_ENV.setLoaded(\x22shadow.module.rm-hull-5272126.append.js\x22);");

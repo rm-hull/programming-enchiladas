@@ -36,12 +36,12 @@ var this__5469__auto____$1 = this;
 return this__5469__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__5470__auto__,null);
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__5471__auto__,k24038,else__5472__auto__){
+(c2.geo.projection._albers.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__5471__auto__,k22199,else__5472__auto__){
 var self__ = this;
 var this__5471__auto____$1 = this;
-var G__24056 = k24038;
-var G__24056__$1 = (((G__24056 instanceof cljs.core.Keyword))?G__24056.fqn:null);
-switch (G__24056__$1) {
+var G__22266 = k22199;
+var G__22266__$1 = (((G__22266 instanceof cljs.core.Keyword))?G__22266.fqn:null);
+switch (G__22266__$1) {
 case "origin":
 return self__.origin;
 
@@ -59,7 +59,7 @@ return self__.translate;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k24038,else__5472__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k22199,else__5472__auto__);
 
 }
 }));
@@ -67,10 +67,10 @@ return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k24038,else__
 (c2.geo.projection._albers.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (function (this__5489__auto__,f__5490__auto__,init__5491__auto__){
 var self__ = this;
 var this__5489__auto____$1 = this;
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__5492__auto__,p__24057){
-var vec__24059 = p__24057;
-var k__5493__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24059,(0),null);
-var v__5494__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24059,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__5492__auto__,p__22292){
+var vec__22294 = p__22292;
+var k__5493__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22294,(0),null);
+var v__5494__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22294,(1),null);
 return (f__5490__auto__.cljs$core$IFn$_invoke$arity$3 ? f__5490__auto__.cljs$core$IFn$_invoke$arity$3(ret__5492__auto__,k__5493__auto__,v__5494__auto__) : f__5490__auto__.call(null,ret__5492__auto__,k__5493__auto__,v__5494__auto__));
 }),init__5491__auto__,this__5489__auto____$1);
 }));
@@ -84,10 +84,10 @@ return cljs.core.pr_sequential_writer(writer__5485__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__5485__auto__,pr_pair__5487__auto__,"#c2.geo.projection._albers{",", ","}",opts__5486__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"origin","origin",1037372088),self__.origin],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"parallels","parallels",1548322555),self__.parallels],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"scale","scale",-230427353),self__.scale],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"translate","translate",1336199447),self__.translate],null))], null),self__.__extmap));
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__24037){
+(c2.geo.projection._albers.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__22198){
 var self__ = this;
-var G__24037__$1 = this;
-return (new cljs.core.RecordIter((0),G__24037__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__22198__$1 = this;
+return (new cljs.core.RecordIter((0),G__22198__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 }));
 
 (c2.geo.projection._albers.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__5467__auto__){
@@ -124,10 +124,10 @@ return h__5272__auto____$1;
 }
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this24039,other24040){
+(c2.geo.projection._albers.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this22200,other22201){
 var self__ = this;
-var this24039__$1 = this;
-return (((!((other24040 == null)))) && ((((this24039__$1.constructor === other24040.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24039__$1.origin,other24040.origin)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24039__$1.parallels,other24040.parallels)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24039__$1.scale,other24040.scale)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24039__$1.translate,other24040.translate)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24039__$1.__extmap,other24040.__extmap)))))))))))));
+var this22200__$1 = this;
+return (((!((other22201 == null)))) && ((((this22200__$1.constructor === other22201.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22200__$1.origin,other22201.origin)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22200__$1.parallels,other22201.parallels)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22200__$1.scale,other22201.scale)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22200__$1.translate,other22201.translate)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22200__$1.__extmap,other22201.__extmap)))))))))))));
 }));
 
 (c2.geo.projection._albers.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__5479__auto__,k__5480__auto__){
@@ -140,12 +140,12 @@ return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scal
 }
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__5476__auto__,k24038){
+(c2.geo.projection._albers.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__5476__auto__,k22199){
 var self__ = this;
 var this__5476__auto____$1 = this;
-var G__24070 = k24038;
-var G__24070__$1 = (((G__24070 instanceof cljs.core.Keyword))?G__24070.fqn:null);
-switch (G__24070__$1) {
+var G__22398 = k22199;
+var G__22398__$1 = (((G__22398 instanceof cljs.core.Keyword))?G__22398.fqn:null);
+switch (G__22398__$1) {
 case "origin":
 case "parallels":
 case "scale":
@@ -154,29 +154,29 @@ return true;
 
 break;
 default:
-return cljs.core.contains_QMARK_(self__.__extmap,k24038);
+return cljs.core.contains_QMARK_(self__.__extmap,k22199);
 
 }
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__5477__auto__,k__5478__auto__,G__24037){
+(c2.geo.projection._albers.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__5477__auto__,k__5478__auto__,G__22198){
 var self__ = this;
 var this__5477__auto____$1 = this;
-var pred__24072 = cljs.core.keyword_identical_QMARK_;
-var expr__24073 = k__5478__auto__;
-if(cljs.core.truth_((pred__24072.cljs$core$IFn$_invoke$arity$2 ? pred__24072.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"origin","origin",1037372088),expr__24073) : pred__24072.call(null,new cljs.core.Keyword(null,"origin","origin",1037372088),expr__24073)))){
-return (new c2.geo.projection._albers(G__24037,self__.parallels,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
+var pred__22421 = cljs.core.keyword_identical_QMARK_;
+var expr__22422 = k__5478__auto__;
+if(cljs.core.truth_((pred__22421.cljs$core$IFn$_invoke$arity$2 ? pred__22421.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"origin","origin",1037372088),expr__22422) : pred__22421.call(null,new cljs.core.Keyword(null,"origin","origin",1037372088),expr__22422)))){
+return (new c2.geo.projection._albers(G__22198,self__.parallels,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24072.cljs$core$IFn$_invoke$arity$2 ? pred__24072.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__24073) : pred__24072.call(null,new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__24073)))){
-return (new c2.geo.projection._albers(self__.origin,G__24037,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22421.cljs$core$IFn$_invoke$arity$2 ? pred__22421.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__22422) : pred__22421.call(null,new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__22422)))){
+return (new c2.geo.projection._albers(self__.origin,G__22198,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24072.cljs$core$IFn$_invoke$arity$2 ? pred__24072.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"scale","scale",-230427353),expr__24073) : pred__24072.call(null,new cljs.core.Keyword(null,"scale","scale",-230427353),expr__24073)))){
-return (new c2.geo.projection._albers(self__.origin,self__.parallels,G__24037,self__.translate,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22421.cljs$core$IFn$_invoke$arity$2 ? pred__22421.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"scale","scale",-230427353),expr__22422) : pred__22421.call(null,new cljs.core.Keyword(null,"scale","scale",-230427353),expr__22422)))){
+return (new c2.geo.projection._albers(self__.origin,self__.parallels,G__22198,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24072.cljs$core$IFn$_invoke$arity$2 ? pred__24072.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"translate","translate",1336199447),expr__24073) : pred__24072.call(null,new cljs.core.Keyword(null,"translate","translate",1336199447),expr__24073)))){
-return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,G__24037,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22421.cljs$core$IFn$_invoke$arity$2 ? pred__22421.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"translate","translate",1336199447),expr__22422) : pred__22421.call(null,new cljs.core.Keyword(null,"translate","translate",1336199447),expr__22422)))){
+return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,G__22198,self__.__meta,self__.__extmap,null));
 } else {
-return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,self__.translate,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__5478__auto__,G__24037),null));
+return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,self__.translate,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__5478__auto__,G__22198),null));
 }
 }
 }
@@ -189,10 +189,10 @@ var this__5482__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"origin","origin",1037372088),self__.origin,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"parallels","parallels",1548322555),self__.parallels,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"scale","scale",-230427353),self__.scale,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"translate","translate",1336199447),self__.translate,null))], null),self__.__extmap));
 }));
 
-(c2.geo.projection._albers.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__5468__auto__,G__24037){
+(c2.geo.projection._albers.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__5468__auto__,G__22198){
 var self__ = this;
 var this__5468__auto____$1 = this;
-return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,self__.translate,G__24037,self__.__extmap,self__.__hash));
+return (new c2.geo.projection._albers(self__.origin,self__.parallels,self__.scale,self__.translate,G__22198,self__.__extmap,self__.__hash));
 }));
 
 (c2.geo.projection._albers.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__5474__auto__,entry__5475__auto__){
@@ -208,8 +208,8 @@ return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(cljs.core._conj,this__5474
 (c2.geo.projection._albers.prototype.call = (function (unused__2830__auto__){
 var self__ = this;
 var self__ = this;
-var G__24085 = (arguments.length - (1));
-switch (G__24085) {
+var G__22482 = (arguments.length - (1));
+switch (G__22482) {
 case (1):
 return self__.cljs$core$IFn$_invoke$arity$1((arguments[(1)]));
 
@@ -220,22 +220,22 @@ throw (new Error((""+"Invalid arity: "+cljs.core.str.cljs$core$IFn$_invoke$arity
 }
 }));
 
-(c2.geo.projection._albers.prototype.apply = (function (self__,args24052){
+(c2.geo.projection._albers.prototype.apply = (function (self__,args22250){
 var self__ = this;
 var self____$1 = this;
-return self____$1.call.apply(self____$1,[self____$1].concat((((args24052.length > (20)))?(function (){var G__24089 = args24052.slice((0),(20));
-G__24089.push(args24052.slice((20)));
+return self____$1.call.apply(self____$1,[self____$1].concat((((args22250.length > (20)))?(function (){var G__22487 = args22250.slice((0),(20));
+G__22487.push(args22250.slice((20)));
 
-return G__24089;
-})():args24052)));
+return G__22487;
+})():args22250)));
 }));
 
 (c2.geo.projection._albers.prototype.cljs$core$IFn$_invoke$arity$1 = (function (coordinates){
 var self__ = this;
 var this$ = this;
-var vec__24090 = coordinates;
-var lon = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24090,(0),null);
-var lat = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24090,(1),null);
+var vec__22495 = coordinates;
+var lon = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22495,(0),null);
+var lat = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22495,(1),null);
 var phi1 = (c2.maths.radians_per_degree * cljs.core.first(self__.parallels));
 var phi2 = (c2.maths.radians_per_degree * cljs.core.second(self__.parallels));
 var lng0 = (c2.maths.radians_per_degree * cljs.core.first(self__.origin));
@@ -274,28 +274,28 @@ return (new c2.geo.projection._albers(origin,parallels,scale,translate,null,null
 /**
  * Factory function for c2.geo.projection/_albers, taking a map of keywords to field values.
  */
-c2.geo.projection.map__GT__albers = (function c2$geo$projection$map__GT__albers(G__24043){
-var extmap__5511__auto__ = (function (){var G__24110 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__24043,new cljs.core.Keyword(null,"origin","origin",1037372088),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], 0));
-if(cljs.core.record_QMARK_(G__24043)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__24110);
+c2.geo.projection.map__GT__albers = (function c2$geo$projection$map__GT__albers(G__22219){
+var extmap__5511__auto__ = (function (){var G__22522 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__22219,new cljs.core.Keyword(null,"origin","origin",1037372088),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], 0));
+if(cljs.core.record_QMARK_(G__22219)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__22522);
 } else {
-return G__24110;
+return G__22522;
 }
 })();
-return (new c2.geo.projection._albers(new cljs.core.Keyword(null,"origin","origin",1037372088).cljs$core$IFn$_invoke$arity$1(G__24043),new cljs.core.Keyword(null,"parallels","parallels",1548322555).cljs$core$IFn$_invoke$arity$1(G__24043),new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_invoke$arity$1(G__24043),new cljs.core.Keyword(null,"translate","translate",1336199447).cljs$core$IFn$_invoke$arity$1(G__24043),null,cljs.core.not_empty(extmap__5511__auto__),null));
+return (new c2.geo.projection._albers(new cljs.core.Keyword(null,"origin","origin",1037372088).cljs$core$IFn$_invoke$arity$1(G__22219),new cljs.core.Keyword(null,"parallels","parallels",1548322555).cljs$core$IFn$_invoke$arity$1(G__22219),new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_invoke$arity$1(G__22219),new cljs.core.Keyword(null,"translate","translate",1336199447).cljs$core$IFn$_invoke$arity$1(G__22219),null,cljs.core.not_empty(extmap__5511__auto__),null));
 });
 
 
 c2.geo.projection.albers = (function c2$geo$projection$albers(var_args){
 var args__5903__auto__ = [];
-var len__5897__auto___24401 = arguments.length;
-var i__5898__auto___24402 = (0);
+var len__5897__auto___23091 = arguments.length;
+var i__5898__auto___23092 = (0);
 while(true){
-if((i__5898__auto___24402 < len__5897__auto___24401)){
-args__5903__auto__.push((arguments[i__5898__auto___24402]));
+if((i__5898__auto___23092 < len__5897__auto___23091)){
+args__5903__auto__.push((arguments[i__5898__auto___23092]));
 
-var G__24403 = (i__5898__auto___24402 + (1));
-i__5898__auto___24402 = G__24403;
+var G__23093 = (i__5898__auto___23092 + (1));
+i__5898__auto___23092 = G__23093;
 continue;
 } else {
 }
@@ -313,9 +313,9 @@ return c2.geo.projection.map__GT__albers(cljs.core.merge.cljs$core$IFn$_invoke$a
 (c2.geo.projection.albers.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(c2.geo.projection.albers.cljs$lang$applyTo = (function (seq24114){
+(c2.geo.projection.albers.cljs$lang$applyTo = (function (seq22527){
 var self__5883__auto__ = this;
-return self__5883__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq24114));
+return self__5883__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq22527));
 }));
 
 
@@ -355,12 +355,12 @@ var this__5469__auto____$1 = this;
 return this__5469__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__5470__auto__,null);
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__5471__auto__,k24133,else__5472__auto__){
+(c2.geo.projection._albers_usa.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__5471__auto__,k22539,else__5472__auto__){
 var self__ = this;
 var this__5471__auto____$1 = this;
-var G__24148 = k24133;
-var G__24148__$1 = (((G__24148 instanceof cljs.core.Keyword))?G__24148.fqn:null);
-switch (G__24148__$1) {
+var G__22560 = k22539;
+var G__22560__$1 = (((G__22560 instanceof cljs.core.Keyword))?G__22560.fqn:null);
+switch (G__22560__$1) {
 case "origin":
 return self__.origin;
 
@@ -378,7 +378,7 @@ return self__.translate;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k24133,else__5472__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k22539,else__5472__auto__);
 
 }
 }));
@@ -386,10 +386,10 @@ return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k24133,else__
 (c2.geo.projection._albers_usa.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (function (this__5489__auto__,f__5490__auto__,init__5491__auto__){
 var self__ = this;
 var this__5489__auto____$1 = this;
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__5492__auto__,p__24154){
-var vec__24155 = p__24154;
-var k__5493__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24155,(0),null);
-var v__5494__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24155,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__5492__auto__,p__22563){
+var vec__22564 = p__22563;
+var k__5493__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22564,(0),null);
+var v__5494__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22564,(1),null);
 return (f__5490__auto__.cljs$core$IFn$_invoke$arity$3 ? f__5490__auto__.cljs$core$IFn$_invoke$arity$3(ret__5492__auto__,k__5493__auto__,v__5494__auto__) : f__5490__auto__.call(null,ret__5492__auto__,k__5493__auto__,v__5494__auto__));
 }),init__5491__auto__,this__5489__auto____$1);
 }));
@@ -403,10 +403,10 @@ return cljs.core.pr_sequential_writer(writer__5485__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__5485__auto__,pr_pair__5487__auto__,"#c2.geo.projection._albers-usa{",", ","}",opts__5486__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"origin","origin",1037372088),self__.origin],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"parallels","parallels",1548322555),self__.parallels],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"scale","scale",-230427353),self__.scale],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"translate","translate",1336199447),self__.translate],null))], null),self__.__extmap));
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__24132){
+(c2.geo.projection._albers_usa.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__22538){
 var self__ = this;
-var G__24132__$1 = this;
-return (new cljs.core.RecordIter((0),G__24132__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__22538__$1 = this;
+return (new cljs.core.RecordIter((0),G__22538__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 }));
 
 (c2.geo.projection._albers_usa.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__5467__auto__){
@@ -443,10 +443,10 @@ return h__5272__auto____$1;
 }
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this24134,other24135){
+(c2.geo.projection._albers_usa.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this22540,other22541){
 var self__ = this;
-var this24134__$1 = this;
-return (((!((other24135 == null)))) && ((((this24134__$1.constructor === other24135.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24134__$1.origin,other24135.origin)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24134__$1.parallels,other24135.parallels)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24134__$1.scale,other24135.scale)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24134__$1.translate,other24135.translate)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this24134__$1.__extmap,other24135.__extmap)))))))))))));
+var this22540__$1 = this;
+return (((!((other22541 == null)))) && ((((this22540__$1.constructor === other22541.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22540__$1.origin,other22541.origin)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22540__$1.parallels,other22541.parallels)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22540__$1.scale,other22541.scale)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22540__$1.translate,other22541.translate)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this22540__$1.__extmap,other22541.__extmap)))))))))))));
 }));
 
 (c2.geo.projection._albers_usa.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__5479__auto__,k__5480__auto__){
@@ -459,12 +459,12 @@ return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.
 }
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__5476__auto__,k24133){
+(c2.geo.projection._albers_usa.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__5476__auto__,k22539){
 var self__ = this;
 var this__5476__auto____$1 = this;
-var G__24190 = k24133;
-var G__24190__$1 = (((G__24190 instanceof cljs.core.Keyword))?G__24190.fqn:null);
-switch (G__24190__$1) {
+var G__22609 = k22539;
+var G__22609__$1 = (((G__22609 instanceof cljs.core.Keyword))?G__22609.fqn:null);
+switch (G__22609__$1) {
 case "origin":
 case "parallels":
 case "scale":
@@ -473,29 +473,29 @@ return true;
 
 break;
 default:
-return cljs.core.contains_QMARK_(self__.__extmap,k24133);
+return cljs.core.contains_QMARK_(self__.__extmap,k22539);
 
 }
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__5477__auto__,k__5478__auto__,G__24132){
+(c2.geo.projection._albers_usa.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__5477__auto__,k__5478__auto__,G__22538){
 var self__ = this;
 var this__5477__auto____$1 = this;
-var pred__24200 = cljs.core.keyword_identical_QMARK_;
-var expr__24201 = k__5478__auto__;
-if(cljs.core.truth_((pred__24200.cljs$core$IFn$_invoke$arity$2 ? pred__24200.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"origin","origin",1037372088),expr__24201) : pred__24200.call(null,new cljs.core.Keyword(null,"origin","origin",1037372088),expr__24201)))){
-return (new c2.geo.projection._albers_usa(G__24132,self__.parallels,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
+var pred__22614 = cljs.core.keyword_identical_QMARK_;
+var expr__22615 = k__5478__auto__;
+if(cljs.core.truth_((pred__22614.cljs$core$IFn$_invoke$arity$2 ? pred__22614.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"origin","origin",1037372088),expr__22615) : pred__22614.call(null,new cljs.core.Keyword(null,"origin","origin",1037372088),expr__22615)))){
+return (new c2.geo.projection._albers_usa(G__22538,self__.parallels,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24200.cljs$core$IFn$_invoke$arity$2 ? pred__24200.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__24201) : pred__24200.call(null,new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__24201)))){
-return (new c2.geo.projection._albers_usa(self__.origin,G__24132,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22614.cljs$core$IFn$_invoke$arity$2 ? pred__22614.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__22615) : pred__22614.call(null,new cljs.core.Keyword(null,"parallels","parallels",1548322555),expr__22615)))){
+return (new c2.geo.projection._albers_usa(self__.origin,G__22538,self__.scale,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24200.cljs$core$IFn$_invoke$arity$2 ? pred__24200.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"scale","scale",-230427353),expr__24201) : pred__24200.call(null,new cljs.core.Keyword(null,"scale","scale",-230427353),expr__24201)))){
-return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,G__24132,self__.translate,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22614.cljs$core$IFn$_invoke$arity$2 ? pred__22614.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"scale","scale",-230427353),expr__22615) : pred__22614.call(null,new cljs.core.Keyword(null,"scale","scale",-230427353),expr__22615)))){
+return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,G__22538,self__.translate,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__24200.cljs$core$IFn$_invoke$arity$2 ? pred__24200.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"translate","translate",1336199447),expr__24201) : pred__24200.call(null,new cljs.core.Keyword(null,"translate","translate",1336199447),expr__24201)))){
-return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,G__24132,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__22614.cljs$core$IFn$_invoke$arity$2 ? pred__22614.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"translate","translate",1336199447),expr__22615) : pred__22614.call(null,new cljs.core.Keyword(null,"translate","translate",1336199447),expr__22615)))){
+return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,G__22538,self__.__meta,self__.__extmap,null));
 } else {
-return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,self__.translate,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__5478__auto__,G__24132),null));
+return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,self__.translate,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__5478__auto__,G__22538),null));
 }
 }
 }
@@ -508,10 +508,10 @@ var this__5482__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"origin","origin",1037372088),self__.origin,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"parallels","parallels",1548322555),self__.parallels,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"scale","scale",-230427353),self__.scale,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"translate","translate",1336199447),self__.translate,null))], null),self__.__extmap));
 }));
 
-(c2.geo.projection._albers_usa.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__5468__auto__,G__24132){
+(c2.geo.projection._albers_usa.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__5468__auto__,G__22538){
 var self__ = this;
 var this__5468__auto____$1 = this;
-return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,self__.translate,G__24132,self__.__extmap,self__.__hash));
+return (new c2.geo.projection._albers_usa(self__.origin,self__.parallels,self__.scale,self__.translate,G__22538,self__.__extmap,self__.__hash));
 }));
 
 (c2.geo.projection._albers_usa.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__5474__auto__,entry__5475__auto__){
@@ -527,8 +527,8 @@ return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(cljs.core._conj,this__5474
 (c2.geo.projection._albers_usa.prototype.call = (function (unused__2830__auto__){
 var self__ = this;
 var self__ = this;
-var G__24221 = (arguments.length - (1));
-switch (G__24221) {
+var G__22656 = (arguments.length - (1));
+switch (G__22656) {
 case (1):
 return self__.cljs$core$IFn$_invoke$arity$1((arguments[(1)]));
 
@@ -539,34 +539,34 @@ throw (new Error((""+"Invalid arity: "+cljs.core.str.cljs$core$IFn$_invoke$arity
 }
 }));
 
-(c2.geo.projection._albers_usa.prototype.apply = (function (self__,args24141){
+(c2.geo.projection._albers_usa.prototype.apply = (function (self__,args22552){
 var self__ = this;
 var self____$1 = this;
-return self____$1.call.apply(self____$1,[self____$1].concat((((args24141.length > (20)))?(function (){var G__24231 = args24141.slice((0),(20));
-G__24231.push(args24141.slice((20)));
+return self____$1.call.apply(self____$1,[self____$1].concat((((args22552.length > (20)))?(function (){var G__22663 = args22552.slice((0),(20));
+G__22663.push(args22552.slice((20)));
 
-return G__24231;
-})():args24141)));
+return G__22663;
+})():args22552)));
 }));
 
 (c2.geo.projection._albers_usa.prototype.cljs$core$IFn$_invoke$arity$1 = (function (coordinates){
 var self__ = this;
 var _ = this;
-var vec__24241 = coordinates;
-var lon = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24241,(0),null);
-var lat = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24241,(1),null);
+var vec__22676 = coordinates;
+var lon = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22676,(0),null);
+var lat = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22676,(1),null);
 var lower48 = c2.geo.projection.albers.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"origin","origin",1037372088),self__.origin,new cljs.core.Keyword(null,"parallels","parallels",1548322555),self__.parallels,new cljs.core.Keyword(null,"scale","scale",-230427353),self__.scale,new cljs.core.Keyword(null,"translate","translate",1336199447),self__.translate], 0));
-var vec__24244 = self__.translate;
-var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24244,(0),null);
-var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24244,(1),null);
+var vec__22679 = self__.translate;
+var dx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22679,(0),null);
+var dy = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__22679,(1),null);
 var dz = (lower48.scale / (1000));
 var alaska = cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(lower48,new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(-160),(60)], null),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(55),(65)], null),new cljs.core.Keyword(null,"scale","scale",-230427353),(0.6 * lower48.scale),new cljs.core.Keyword(null,"translate","translate",1336199447),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(dx - (dz * (400))),(dy + (dz * (170)))], null)], 0));
 var hawaii = cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(lower48,new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(-160),(20)], null),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(8),(18)], null),new cljs.core.Keyword(null,"translate","translate",1336199447),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(dx - (dz * (190))),(dy + (dz * (200)))], null)], 0));
 var puerto_rico = cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(lower48,new cljs.core.Keyword(null,"origin","origin",1037372088),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(-60),(10)], null),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(8),(18)], null),new cljs.core.Keyword(null,"scale","scale",-230427353),(1.5 * lower48.scale),new cljs.core.Keyword(null,"translate","translate",1336199447),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(dx + (dz * (580))),(dy + (dz * (430)))], null)], 0));
-var G__24292 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [lon,lat], null);
-var fexpr__24291 = (((((lat > (50))) && ((lon < (-127)))))?alaska:(((lon < (-140)))?hawaii:(((lat < (21)))?puerto_rico:lower48
+var G__22731 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [lon,lat], null);
+var fexpr__22730 = (((((lat > (50))) && ((lon < (-127)))))?alaska:(((lon < (-140)))?hawaii:(((lat < (21)))?puerto_rico:lower48
 )));
-return (fexpr__24291.cljs$core$IFn$_invoke$arity$1 ? fexpr__24291.cljs$core$IFn$_invoke$arity$1(G__24292) : fexpr__24291.call(null,G__24292));
+return (fexpr__22730.cljs$core$IFn$_invoke$arity$1 ? fexpr__22730.cljs$core$IFn$_invoke$arity$1(G__22731) : fexpr__22730.call(null,G__22731));
 }));
 
 (c2.geo.projection._albers_usa.getBasis = (function (){
@@ -593,28 +593,28 @@ return (new c2.geo.projection._albers_usa(origin,parallels,scale,translate,null,
 /**
  * Factory function for c2.geo.projection/_albers-usa, taking a map of keywords to field values.
  */
-c2.geo.projection.map__GT__albers_usa = (function c2$geo$projection$map__GT__albers_usa(G__24138){
-var extmap__5511__auto__ = (function (){var G__24317 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__24138,new cljs.core.Keyword(null,"origin","origin",1037372088),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], 0));
-if(cljs.core.record_QMARK_(G__24138)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__24317);
+c2.geo.projection.map__GT__albers_usa = (function c2$geo$projection$map__GT__albers_usa(G__22546){
+var extmap__5511__auto__ = (function (){var G__22813 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__22546,new cljs.core.Keyword(null,"origin","origin",1037372088),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"parallels","parallels",1548322555),new cljs.core.Keyword(null,"scale","scale",-230427353),new cljs.core.Keyword(null,"translate","translate",1336199447)], 0));
+if(cljs.core.record_QMARK_(G__22546)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__22813);
 } else {
-return G__24317;
+return G__22813;
 }
 })();
-return (new c2.geo.projection._albers_usa(new cljs.core.Keyword(null,"origin","origin",1037372088).cljs$core$IFn$_invoke$arity$1(G__24138),new cljs.core.Keyword(null,"parallels","parallels",1548322555).cljs$core$IFn$_invoke$arity$1(G__24138),new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_invoke$arity$1(G__24138),new cljs.core.Keyword(null,"translate","translate",1336199447).cljs$core$IFn$_invoke$arity$1(G__24138),null,cljs.core.not_empty(extmap__5511__auto__),null));
+return (new c2.geo.projection._albers_usa(new cljs.core.Keyword(null,"origin","origin",1037372088).cljs$core$IFn$_invoke$arity$1(G__22546),new cljs.core.Keyword(null,"parallels","parallels",1548322555).cljs$core$IFn$_invoke$arity$1(G__22546),new cljs.core.Keyword(null,"scale","scale",-230427353).cljs$core$IFn$_invoke$arity$1(G__22546),new cljs.core.Keyword(null,"translate","translate",1336199447).cljs$core$IFn$_invoke$arity$1(G__22546),null,cljs.core.not_empty(extmap__5511__auto__),null));
 });
 
 
 c2.geo.projection.albers_usa = (function c2$geo$projection$albers_usa(var_args){
 var args__5903__auto__ = [];
-var len__5897__auto___24487 = arguments.length;
-var i__5898__auto___24488 = (0);
+var len__5897__auto___23145 = arguments.length;
+var i__5898__auto___23146 = (0);
 while(true){
-if((i__5898__auto___24488 < len__5897__auto___24487)){
-args__5903__auto__.push((arguments[i__5898__auto___24488]));
+if((i__5898__auto___23146 < len__5897__auto___23145)){
+args__5903__auto__.push((arguments[i__5898__auto___23146]));
 
-var G__24489 = (i__5898__auto___24488 + (1));
-i__5898__auto___24488 = G__24489;
+var G__23147 = (i__5898__auto___23146 + (1));
+i__5898__auto___23146 = G__23147;
 continue;
 } else {
 }
@@ -632,9 +632,9 @@ return c2.geo.projection.map__GT__albers_usa(cljs.core.merge.cljs$core$IFn$_invo
 (c2.geo.projection.albers_usa.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(c2.geo.projection.albers_usa.cljs$lang$applyTo = (function (seq24326){
+(c2.geo.projection.albers_usa.cljs$lang$applyTo = (function (seq22823){
 var self__5883__auto__ = this;
-return self__5883__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq24326));
+return self__5883__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq22823));
 }));
 
 

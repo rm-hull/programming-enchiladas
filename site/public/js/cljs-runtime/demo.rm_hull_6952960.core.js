@@ -1,8 +1,8 @@
 goog.provide('demo.rm_hull_6952960.core');
 demo.rm_hull_6952960.core.righto = (function demo$rm_hull_6952960$core$righto(x,y,l){
-return (function (a25292){
+return (function (a25162){
 return (new cljs.core.logic.Inc((function (){
-return cljs.core.logic.mplus(cljs.core.logic._bind(a25292,(function (a__20116__auto__){
+return cljs.core.logic.mplus(cljs.core.logic._bind(a25162,(function (a__20116__auto__){
 return (new cljs.core.logic.Inc((function (){
 var r = cljs.core.logic.lvar.cljs$core$IFn$_invoke$arity$1(new cljs.core.Symbol(null,"r","r",1169147337,null));
 return cljs.core.logic._bind(a__20116__auto__,(function (a__20104__auto__){
@@ -16,7 +16,7 @@ return cljs.core.logic.fail(a__20104__auto__);
 }));
 })));
 })),(new cljs.core.logic.Inc((function (){
-return cljs.core.logic._bind(a25292,(function (a__20116__auto__){
+return cljs.core.logic._bind(a25162,(function (a__20116__auto__){
 return (new cljs.core.logic.Inc((function (){
 var r = cljs.core.logic.lvar.cljs$core$IFn$_invoke$arity$1(new cljs.core.Symbol(null,"r","r",1169147337,null));
 return cljs.core.logic._bind(cljs.core.logic._bind(a__20116__auto__,(function (a__20104__auto__){
@@ -35,10 +35,10 @@ return cljs.core.logic.fail(a__20104__auto__);
 });
 });
 demo.rm_hull_6952960.core.nexto = (function demo$rm_hull_6952960$core$nexto(x,y,l){
-return (function (a25306){
+return (function (a25163){
 return (new cljs.core.logic.Inc((function (){
-return cljs.core.logic.mplus(cljs.core.logic._bind(a25306,demo.rm_hull_6952960.core.righto(x,y,l)),(new cljs.core.logic.Inc((function (){
-return cljs.core.logic._bind(a25306,demo.rm_hull_6952960.core.righto(y,x,l));
+return cljs.core.logic.mplus(cljs.core.logic._bind(a25163,demo.rm_hull_6952960.core.righto(x,y,l)),(new cljs.core.logic.Inc((function (){
+return cljs.core.logic._bind(a25163,demo.rm_hull_6952960.core.righto(y,x,l));
 }))));
 })));
 });
@@ -57,33 +57,33 @@ return cljs.core.logic.fail(a__20104__auto__);
 });
 });
 demo.rm_hull_6952960.core.zebra = (function demo$rm_hull_6952960$core$zebra(){
-var _STAR_occurs_check_STAR__orig_val__25366 = demo.rm_hull_6952960.core._STAR_occurs_check_STAR_;
-var _STAR_occurs_check_STAR__temp_val__25367 = false;
-(demo.rm_hull_6952960.core._STAR_occurs_check_STAR_ = _STAR_occurs_check_STAR__temp_val__25367);
+var _STAR_occurs_check_STAR__orig_val__25185 = demo.rm_hull_6952960.core._STAR_occurs_check_STAR_;
+var _STAR_occurs_check_STAR__temp_val__25186 = false;
+(demo.rm_hull_6952960.core._STAR_occurs_check_STAR_ = _STAR_occurs_check_STAR__temp_val__25186);
 
-try{var opts__20128__auto__ = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"db","db",993250759),cljs.core.logic._STAR_logic_dbs_STAR_,new cljs.core.Keyword(null,"n","n",562130025),(1),new cljs.core.Keyword(null,"occurs-check","occurs-check",837479695),true], null);
-var xs__20129__auto__ = (new cljs.core.logic.Inc((function (){
+try{var opts__20127__auto__ = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"db","db",993250759),cljs.core.logic._STAR_logic_dbs_STAR_,new cljs.core.Keyword(null,"n","n",562130025),(1),new cljs.core.Keyword(null,"occurs-check","occurs-check",837479695),true], null);
+var xs__20128__auto__ = (new cljs.core.logic.Inc((function (){
 return (function (a__20116__auto__){
 return (new cljs.core.logic.Inc((function (){
 var q = cljs.core.logic.lvar.cljs$core$IFn$_invoke$arity$1(new cljs.core.Symbol(null,"q","q",-1965434072,null));
-return cljs.core.logic._bind(cljs.core.logic._bind(a__20116__auto__,demo.rm_hull_6952960.core.zebrao(q)),(function (a__20130__auto__){
-return cljs.core.logic._reify(a__20130__auto__,q);
+return cljs.core.logic._bind(cljs.core.logic._bind(a__20116__auto__,demo.rm_hull_6952960.core.zebrao(q)),(function (a__20129__auto__){
+return cljs.core.logic._reify(a__20129__auto__,q);
 }));
 })));
-})(cljs.core.with_meta(cljs.core.logic.empty_s,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"reify-vars","reify-vars",-83752000),true], null),opts__20128__auto__], 0))));
+})(cljs.core.with_meta(cljs.core.logic.empty_s,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"reify-vars","reify-vars",-83752000),true], null),opts__20127__auto__], 0))));
 }))).cljs$core$logic$ITake$_take_STAR_$arity$1(null);
-var temp__5823__auto__ = new cljs.core.Keyword(null,"n","n",562130025).cljs$core$IFn$_invoke$arity$1(opts__20128__auto__);
+var temp__5823__auto__ = new cljs.core.Keyword(null,"n","n",562130025).cljs$core$IFn$_invoke$arity$1(opts__20127__auto__);
 if(cljs.core.truth_(temp__5823__auto__)){
-var n__20131__auto__ = temp__5823__auto__;
-return cljs.core.take.cljs$core$IFn$_invoke$arity$2(n__20131__auto__,xs__20129__auto__);
+var n__20130__auto__ = temp__5823__auto__;
+return cljs.core.take.cljs$core$IFn$_invoke$arity$2(n__20130__auto__,xs__20128__auto__);
 } else {
-return xs__20129__auto__;
+return xs__20128__auto__;
 }
-}finally {(demo.rm_hull_6952960.core._STAR_occurs_check_STAR_ = _STAR_occurs_check_STAR__orig_val__25366);
+}finally {(demo.rm_hull_6952960.core._STAR_occurs_check_STAR_ = _STAR_occurs_check_STAR__orig_val__25185);
 }});
-var start__5775__auto___25452 = cljs.core.system_time();
-var ret__5776__auto___25453 = cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([demo.rm_hull_6952960.core.zebra()], 0));
-cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(""+"Elapsed time: "+cljs.core.str.cljs$core$IFn$_invoke$arity$1((cljs.core.system_time() - start__5775__auto___25452).toFixed((6)))+" msecs")], 0));
+var start__5775__auto___25271 = cljs.core.system_time();
+var ret__5776__auto___25272 = cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([demo.rm_hull_6952960.core.zebra()], 0));
+cljs.core.prn.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(""+"Elapsed time: "+cljs.core.str.cljs$core$IFn$_invoke$arity$1((cljs.core.system_time() - start__5775__auto___25271).toFixed((6)))+" msecs")], 0));
 
 demo.rm_hull_6952960.core._STAR_occurs_check_STAR_ = true;
 

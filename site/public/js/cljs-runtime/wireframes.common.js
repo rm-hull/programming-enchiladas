@@ -1,7 +1,7 @@
 goog.provide('wireframes.common');
 wireframes.common.parse_int = (function wireframes$common$parse_int(var_args){
-var G__22163 = arguments.length;
-switch (G__22163) {
+var G__22161 = arguments.length;
+switch (G__22161) {
 case 1:
 return wireframes.common.parse_int.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -55,9 +55,9 @@ wireframes.common.parse_csv = cljs.core.partial.cljs$core$IFn$_invoke$arity$2(wi
  */
 wireframes.common.simple_concat = (function wireframes$common$simple_concat(xs,ys){
 if(cljs.core.seq(xs)){
-return cljs.core.cons(cljs.core.first(xs),(function (){var G__22172 = cljs.core.next(xs);
-var G__22173 = ys;
-return (wireframes.common.simple_concat.cljs$core$IFn$_invoke$arity$2 ? wireframes.common.simple_concat.cljs$core$IFn$_invoke$arity$2(G__22172,G__22173) : wireframes.common.simple_concat.call(null,G__22172,G__22173));
+return cljs.core.cons(cljs.core.first(xs),(function (){var G__22168 = cljs.core.next(xs);
+var G__22169 = ys;
+return (wireframes.common.simple_concat.cljs$core$IFn$_invoke$arity$2 ? wireframes.common.simple_concat.cljs$core$IFn$_invoke$arity$2(G__22168,G__22169) : wireframes.common.simple_concat.call(null,G__22168,G__22169));
 })());
 } else {
 return ys;
