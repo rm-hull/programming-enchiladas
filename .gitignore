@@ -17,3 +17,5 @@ site/pagefind/
 .DS_Store
 node_modules/
 .env
+site/public/js/
+test-results/
