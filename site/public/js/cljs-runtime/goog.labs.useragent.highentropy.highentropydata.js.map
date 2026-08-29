@@ -1,9 +1,0 @@
-{
-"version":3,
-"file":"goog.labs.useragent.highentropy.highentropydata.js",
-"lineCount":11,
-"mappings":"AAAA,IAAA,CAAA,UAAA,CAAA,QAAA,CAAA,OAAA,CAAA;AAAA,cAAA;AAUAA,MAAKC,CAAAA,MAAL,CAAY,iDAAZ,CAAA;AAEA,QAAM,CAACC,gBAAD,CAAA,GAAqBF,IAAKG,CAAAA,OAAL,CAAa,kDAAb,CAA3B;AAKA,QAAMC,kBAAkB,IAAIF,gBAAJ,CAAqB,iBAArB,CAAxB;AACAG,SAAQD,CAAAA,eAAR,GAA0BA,eAA1B;AAKA,QAAME,kBAAkB,IAAIJ,gBAAJ,CAAqB,iBAArB,CAAxB;AACAG,SAAQC,CAAAA,eAAR,GAA0BA,eAA1B;AAxBA,SAAA,OAAA;AAAA,CAAA,CAAA;;",
-"sources":["goog/labs/useragent/highentropy/highentropydata.js"],
-"sourcesContent":["/**\n * @license\n * Copyright The Closure Library Authors.\n * SPDX-License-Identifier: Apache-2.0\n */\n\n/**\n * @fileoverview Provides access to high-entropy user agent values.\n */\n\ngoog.module('goog.labs.userAgent.highEntropy.highEntropyData');\n\nconst {HighEntropyValue} = goog.require('goog.labs.userAgent.highEntropy.highEntropyValue');\n\n/**\n * @type {!HighEntropyValue<!Array<!NavigatorUABrandVersion>|undefined>}\n */\nconst fullVersionList = new HighEntropyValue('fullVersionList');\nexports.fullVersionList = fullVersionList;\n\n/**\n * @type {!HighEntropyValue<string>}\n */\nconst platformVersion = new HighEntropyValue('platformVersion');\nexports.platformVersion = platformVersion;"],
-"names":["goog","module","HighEntropyValue","require","fullVersionList","exports","platformVersion"]
-}

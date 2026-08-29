@@ -1,9 +1,0 @@
-{
-"version":3,
-"file":"goog.flags.flags.js",
-"lineCount":9,
-"mappings":"AAAA,IAAA,CAAA,UAAA,CAAA,QAAA,CAAA,OAAA,CAAA;AAAA,cAAA;AAMAA,MAAKC,CAAAA,MAAL,CAAY,YAAZ,CAAA;AACAD,MAAKC,CAAAA,MAAOC,CAAAA,sBAAZ,EAAA;AAEAC,SAAQC,CAAAA,2BAAR,GAAsC,KAAtC;AACAD,SAAQE,CAAAA,8BAAR,GAAyC,KAAzC;AAVA,SAAA,OAAA;AAAA,CAAA,CAAA;;",
-"sources":["goog/flags/flags.js"],
-"sourcesContent":["/**\n * @license\n * Copyright The Closure Library Authors.\n * SPDX-License-Identifier: Apache-2.0\n */\n\ngoog.module('goog.flags');\ngoog.module.declareLegacyNamespace();\n\nexports.USE_USER_AGENT_CLIENT_HINTS = false;\nexports.ASYNC_THROW_ON_UNICODE_TO_BYTE = false;\n"],
-"names":["goog","module","declareLegacyNamespace","exports","USE_USER_AGENT_CLIENT_HINTS","ASYNC_THROW_ON_UNICODE_TO_BYTE"]
-}

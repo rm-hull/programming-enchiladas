@@ -1,9 +1,0 @@
-{
-"version":3,
-"file":"goog.labs.useragent.chromium_rebrands.js",
-"lineCount":9,
-"mappings":"AAAA,IAAA,CAAA,UAAA,CAAA,QAAA,CAAA,OAAA,CAAA;AAAA,cAAA;AAWAA,MAAKC,CAAAA,MAAL,CAAY,sCAAZ,CAAA;AACAD,MAAKC,CAAAA,MAAOC,CAAAA,sBAAZ,EAAA;AAWA,QAAMC,kBAAkB,CACtBC,cAAe,eADO,EAEtBC,MAAO,OAFe,EAGtBC,MAAO,OAHe,EAItBC,KAAM,gBAJgB,EAAxB;AAOAC,SAAQL,CAAAA,eAAR,GAA0BA,eAA1B;AA9BA,SAAA,OAAA;AAAA,CAAA,CAAA;;",
-"sources":["goog/labs/useragent/chromium_rebrands.js"],
-"sourcesContent":["/**\n * @license\n * Copyright The Closure Library Authors.\n * SPDX-License-Identifier: Apache-2.0\n */\n\n/**\n * @fileoverview This file contains definitions for browser Brands that are for\n * Chromium-based browsers.\n */\n\ngoog.module('goog.labs.userAgent.chromiumRebrands');\ngoog.module.declareLegacyNamespace();\n\n/**\n * The set of browsers that are based on Chromium, but also identify themselves\n * in UACH API surfaces with their user-recognizable brand (e.g. Chrome, Brave,\n * Opera etc). In most cases, it is better to check against the Chromium brand\n * (defined in goog.labs.userAgent.Brand) to check the underlying JS engine\n * version, or do feature detection for the specific API surface, instead\n * checking for these brands.\n * @enum {string}\n */\nconst ChromiumRebrand = {\n  GOOGLE_CHROME: 'Google Chrome',\n  BRAVE: 'Brave',\n  OPERA: 'Opera',\n  EDGE: 'Microsoft Edge',\n};\n\nexports.ChromiumRebrand = ChromiumRebrand;"],
-"names":["goog","module","declareLegacyNamespace","ChromiumRebrand","GOOGLE_CHROME","BRAVE","OPERA","EDGE","exports"]
-}
