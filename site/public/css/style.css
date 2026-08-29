@@ -383,6 +383,25 @@ h1 {
     color: #4183c4;
 }
 
+.header-logo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #495961;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.header-logo i {
+    color: #e74c3c;
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+.command-bar {
+    display: inline-block;
+    float: right;
+}
+
 .command-bar form,
 .command-bar ul {
     padding-left: 40px;
