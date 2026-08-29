@@ -475,7 +475,8 @@ div.spinner {
   position: relative;
   width: 100px;
   height: 100px;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
 div.spinner div {
@@ -570,15 +571,15 @@ div.spinner div.bar12 {
 
 div.container {
   position: absolute;
-  top: 40%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
   padding: 1.5em 1.5em 1.25em;
   background: rgba(0,0,0,0.8);
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
-  margin: 1em;
 }
 
 div.container.grey {background: rgba(0,0,0,0.6);}  
@@ -586,6 +587,7 @@ div.container.grey {background: rgba(0,0,0,0.6);}
 div.container.grey div.spinner {
   width: 60px;
   height: 60px;
+  margin: 0 auto;
 }
 
 div.container div.spinner div {background: #fff;}
