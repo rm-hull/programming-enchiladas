@@ -113,6 +113,4 @@ GitHub's unauthenticated API rate limit (60 req/hour).
 
 ## License
 
-Copyright © 2013 Richard Hull
-
-Use/copy/fork as per: [Creative Commons](http://creativecommons.org/licenses/by/3.0/legalcode).
+MIT License — see [LICENSE.md](LICENSE.md).
