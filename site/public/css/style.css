@@ -621,6 +621,9 @@ span.num-items {
 
 .source-content {
     padding: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .source-content pre {
@@ -631,7 +634,7 @@ span.num-items {
     overflow-x: auto;
     font-size: 12px;
     line-height: 1.45;
-    margin: 0;
+    margin: 12px 0;
 }
 
 .source-content pre code {
@@ -648,16 +651,22 @@ span.num-items {
     margin-top: 16px;
     margin-bottom: 8px;
     font-weight: bold;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
+.source-content h1 { font-size: 1.75em; }
+.source-content h2 { font-size: 1.5em; }
+.source-content h3 { font-size: 1.25em; }
+.source-content h4 { font-size: 1.1em; }
+
 .source-content p {
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
 .source-content ul,
 .source-content ol {
-    margin: 8px 0;
-    padding-left: 24px;
+    margin: 12px 0;
+    padding-left: 28px;
 }
 
 .source-content li {
@@ -680,6 +689,7 @@ span.num-items {
 .source-content img {
     max-width: 100%;
     height: auto;
+    margin: 8px 0;
 }
 
 .source-content a {
