@@ -11,12 +11,18 @@
         ;; Monet 0.3.0 — depends on CLJS (provided)
         rm-hull/monet {:mvn/version "0.3.0"}
 
-        ;; Turtle — depends on monet 0.3.0 + hiccup (JVM-only, excluded)
-        rm-hull/turtle {:mvn/version "0.1.11"
-                        :exclusions [hiccup/hiccup]}
+        ;; Turtle — vendor-ported to CLJS (core.clj had no cljs equivalent)
+        ;; (using compiler/vendor/turtle/ instead of rm-hull/turtle maven dep)
 
-        ;; c2 — depends on singult, reflex, core.match
-        com.keminglabs/c2 {:mvn/version "0.2.3"}
+        ;; c2 — vendor source (patched: reflex dep fixed)
+        ;; com.keminglabs/c2 {:mvn/version "0.2.3"}
+        ;; (using compiler/vendor/c2/ instead)
+
+        ;; core.match — transitive from c2
+        org.clojure/core.match {:mvn/version "0.2.0-alpha12"}
+
+        ;; singult — needed by c2
+        com.keminglabs/singult {:mvn/version "0.1.6"}
 
         ;; vomnibus — wraps c2
         com.keminglabs/vomnibus {:mvn/version "0.3.2"}
@@ -61,7 +67,7 @@
                                         org.clojure/clojure
                                         rm-hull/cljs-test]}
         }
- :paths ["src" "demo-src"]
+ :paths ["src" "demo-src" "vendor/turtle" "vendor/c2" "vendor/reflex"]
  :npm-deps {"jquery" "3.7.1"
             "three" "0.166.1"}
  }
