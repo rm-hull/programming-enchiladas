@@ -61,7 +61,7 @@ jobs:
       - name: Fetch gists
         run: |
           cd fetcher
-          GH_TOKEN=${{ secrets.GH_TOKEN }} node fetch-gists.mjs
+          GH_TOKEN=${{ secrets.GIST_TOKEN }} node fetch-gists.mjs
 
       - name: Compile demos (per-demo isolation)
         run: |
@@ -91,9 +91,9 @@ jobs:
           npx pagefind --site _site
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site/_site
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
