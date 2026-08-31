@@ -32,6 +32,11 @@ jobs:
           distribution: 'temurin'
           java-version: '25'
 
+      - name: Setup Clojure
+        uses: DeLaGuardo/setup-clojure@13
+        with:
+          cli: '1.12.0.1488'
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
@@ -83,7 +88,7 @@ jobs:
       - name: Run Pagefind index
         run: |
           cd site
-          npx pagefind index _site
+          npx pagefind --site _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
