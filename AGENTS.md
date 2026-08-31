@@ -54,10 +54,7 @@ docs/dependency-spike.md   ← Phase 0 findings; check this before assuming a le
   demo that fails to compile should degrade to a stub/error page for that one demo, with a
   logged warning — not a failed CI run. This is tested by design: `rm-hull/5272126`
   ("Compilation error") is deliberately included in `gists.yaml` to exercise this path.
-- **Namespace rewriting is mandatory, not optional.** Gists frequently declare generic namespaces
-  like `(ns example)`. Before compiling, rewrite each fetched gist's `ns` form to a repo-unique
-  namespace (`demo.<slug>`) and place it at the matching classpath path. Skipping this will cause
-  silent collisions across demos sharing a single shadow-cljs build.
+- **Namespace isolation is achieved by per-demo build isolation, but macro compatibility transformations still apply.** Each demo is compiled as its own independent `shadow-cljs` build (see `compiler/build-demos.mjs`), which removes the need for namespace collision resolution. Gists keep their original namespaces; if a gist uses `(ns example)`, that namespace only exists within that demo's isolated compilation context. However, macro import transformations (`.cljs.core.async.macros` → `:require-macros`, `dommy.macros` → `:require-macros`, `:only` → `:refer`) are still applied as a preprocessing step, as documented in `docs/dependency-spike.md`.
 - **Legacy library parity was an explicit choice**, not a default — full parity for jayq, c2,
   vomnibus, core.logic, core.async, turtle, dommy/hiccup, and monet was requested. If Phase 0's
   spike shows one of these doesn't compile cleanly under the current toolchain, the correct

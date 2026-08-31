@@ -72,10 +72,10 @@ fetcher/
   fetch-gists.mjs           ← Node script: GitHub Gists API → demos/<slug>/
 demos/                      ← Generated at build time (gitignored), one dir per gist
   <slug>/
-    source.cljs             ← fetched file(s), ns-rewritten (see Phase 4)
+    Original gist files are fetched as-is into `demos/<slug>/` (no namespace rewriting).
     meta.json                ← owner, gist id, description, url, files, fetched_at
 compiler/                   ← shadow-cljs project
-  shadow-cljs.edn            ← :modules generated/updated from gists.yaml at build time
+  build-demos.mjs         ← orchestrator: per-demo shadow-cljs configs + compilation
   src/enchilada/
     core.cljs                ← canvas / ctx / svg bindings (replaces old server-injected stack)
     ...                       ← anything else the old "stack" needs re-homing (big-bang, etc.)
@@ -89,7 +89,7 @@ site/                        ← 11ty site
   search.njk                  ← Pagefind search
   public/
     css/style.css             ← ported original enchiladas look & feel
-    js/<slug>.js               ← compiled demo bundles, copied in from compiler/ output
+    js/demos/<slug>/main.js   ← compiled demo bundles, copied in from compiler/ output
 .github/workflows/
   build.yml                   ← fetch → compile → 11ty build → pagefind → deploy to Pages
 AGENTS.md
@@ -150,7 +150,7 @@ Fields:
 - `fetcher/fetch-gists.mjs`: reads `gists.yaml`, hits `GET https://api.github.com/gists/:id` for
   each entry (unauthenticated is fine for a handful of gists, but use a `GH_TOKEN` repo secret —
   same as the original's `GITHUB_OAUTH_TOKEN` advice — to avoid the 60 req/hr anonymous ceiling).
-- Writes `demos/<slug>/source.cljs` + `meta.json`. A "slug" should be a stable, URL-safe id derived
+- Writes `demos/<slug>/meta.json` containing metadata and the determined `entry_file`. A "slug" should be a stable, URL-safe id derived
   from `owner + gist_id` (not from title, since titles can change).
 - **Must not fail the whole build** if a gist was deleted or made private — log a warning, mark
   that demo `broken: true` in its `meta.json`, and let later phases render a "this gist is no
@@ -169,21 +169,21 @@ Re-home what the old server used to inject per-request as the shared "stack":
 - This is real ClojureScript source that lives in *this* repo (not fetched), since gists assume
   it's available to `:require`.
 
-### Phase 4 — shadow-cljs multi-module compiler
-- One shadow-cljs project, **not** one build per demo. Use `:modules` with one entry per demo so
-  Closure/shadow-cljs can share the common chunk (cljs.core, enchilada.core, any shared libs)
-  across all demos instead of duplicating it N times.
-- Before compiling, each fetched `demos/<slug>/source.cljs` needs its `(ns ...)` form rewritten to
-  a repo-unique namespace (e.g. `demo.<slug>`) and placed at the matching classpath-relative path
-  (`compiler/src/demo/<slug>.cljs`) — CLJS requires namespace and file path to match, and gists
-  very often reuse generic namespace names like `(ns example)`, which will collide across demos if
-  left as-is. Preserve the rest of the `ns` form (`:require`s etc.) untouched.
-- Handle multi-file gists similarly, one file per matching namespace.
-- Wrap the whole-project compile so a single demo's compile error doesn't kill the build — shadow-
-  cljs supports per-module builds; a failing module should produce a stub error bundle for that
-  slug (again: an isolated "compilation error" placeholder is on-brand here) rather than aborting.
+### Phase 4 — per-demo shadow-cljs compiler
+- Each demo is compiled as its own **isolated** `shadow-cljs.edn` build, executed as a separate
+  `npx shadow-cljs` process. This eliminates namespace collisions entirely — gists keep their
+  original namespaces (e.g. `(ns example)`) and each lives in its own compilation context.
+- Macro compatibility transformations are applied as a preprocessing step (e.g.
+  `:require [cljs.core.async.macros ...]` → `:require-macros [cljs.core.async.macros ...]`,
+  `:require [dommy.macros ...]` → `:require-macros [dommy.macros ...]`, `:only` → `:refer`)
+  as documented in `docs/dependency-spike.md`.
+- A shared `enchilada.core` runtime is compiled once and loaded by all demos.
+- Handle multi-file gists similarly, preserving each file's namespace.
+- Wrap the whole-project compile so a single demo's compile error doesn't kill the build —
+  `compiler/build-demos.mjs` compiles demos sequentially and writes a stub error bundle for
+  any demo that fails, rather than aborting the entire run.
 - This phase depends directly on Phase 0's findings — vendored/patched libraries go in
-  `compiler/vendor/` and get wired into `shadow-cljs.edn` `:source-paths`.
+  `compiler/vendor/` and get wired into each demo's `:source-paths`.
 
 ### Phase 5 — Eleventy site
 - `demo.11ty.js`: paginate over a "demos" collection (sourced from `gists.yaml` + fetch/compile

@@ -2,15 +2,24 @@ const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
-// Dynamically list files in site/public/js
-const jsDir = path.join(__dirname, 'site/public/js/generated');
-const files = fs.readdirSync(jsDir).filter(file => file.endsWith('.js') && file !== 'main.js');
+// Dynamically list per-demo directories in site/public/js/demos/
+const demosDir = path.join(__dirname, 'site/public/js/demos');
+const demoEntries = fs.readdirSync(demosDir, { withFileTypes: true });
+const slugs = [];
 
-for (const file of files) {
-  test(`Check demo: ${file}`, async ({ page }) => {
-    // Derive the demo page URL from the JS filename
-    // e.g., rm-hull-8776719.js -> /rm-hull/8776719/
-    const slug = file.replace('.js', '');
+for (const entry of demoEntries) {
+  if (entry.isDirectory()) {
+    const mainJs = path.join(demosDir, entry.name, 'main.js');
+    if (fs.existsSync(mainJs)) {
+      slugs.push(entry.name);
+    }
+  }
+}
+
+for (const slug of slugs) {
+  test(`Check demo: ${slug}`, async ({ page }) => {
+    // Derive the demo page URL from the slug
+    // e.g., rm-hull-8776719 -> /rm-hull/8776719/
     const [owner, gistId] = slug.split('-');
     const demoUrl = `http://localhost:8080/${owner}/${gistId}/`;
 
@@ -28,6 +37,6 @@ for (const file of files) {
     await page.waitForTimeout(2000);
     
     // Check if the script produced errors
-    expect(errors.length, `Console errors found in ${file}: ${errors.join(', ')}`).toBe(0);
+    expect(errors.length, `Console errors found in ${slug}: ${errors.join(', ')}`).toBe(0);
   });
 }

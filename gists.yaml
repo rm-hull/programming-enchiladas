@@ -217,3 +217,143 @@ demos:
     gist_id: "9842972"
     title: "WebGL Photospheres"
     tags: [webgl, 3d]
+
+  - owner: rm-hull
+    gist_id: "3282809b5c10d0497129"
+    title: "Palmiters Protozoa"
+    tags: [canvas, simulation]
+
+  - owner: rm-hull
+    gist_id: "178513f8d2b6ecf501e4"
+    title: "Wireframe Extrusion"
+    tags: [webgl, 3d, wireframe]
+
+  - owner: rm-hull
+    gist_id: "ee53479fc12758a01d1b"
+    title: "Aspirational Vanity Product"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "a7f33553c4aaf97a8162"
+    title: "Color Vortex"
+    tags: [canvas, webgl, 3d, animation]
+
+  - owner: rm-hull
+    gist_id: "7b014de283e2c2457234"
+    title: "Slinky"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "07d0706f21551e4249ce"
+    title: "Reaction-Diffusion Morphogenesis"
+    tags: [canvas, math, simulation]
+
+  - owner: rm-hull
+    gist_id: "8891df532d502844ab3e"
+    title: "Boy's Surface"
+    tags: [webgl, 3d, geometry]
+
+  - owner: rm-hull
+    gist_id: "ca9c75284f121c8e8301"
+    title: "Image Dither"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "2058361259a6bd764be8"
+    title: "Rotating Spiral"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "7a7b0656a7a8c95ff853"
+    title: "Corewar"
+    tags: [simulation, algorithms]
+    # In-progress implementation of Dewdney's Corewar in ClojureScript.
+    # Multiple files; tracks virtual machine, redcode assembler, instruction set.
+    # Most active development has moved to https://github.com/rm-hull/corewar
+    # but the gist is the canonical historical entry point for this demo.
+
+  - owner: rm-hull
+    gist_id: "0c6393d5092cd656f801"
+    title: "Four Bugs"
+    tags: [canvas, math, animation]
+
+  - owner: rm-hull
+    gist_id: "106becfb921c78dea949"
+    title: "Travelling Salesman"
+    tags: [canvas, math, algorithms]
+
+  - owner: rm-hull
+    gist_id: "8347c8fd72570d7a8b32"
+    title: "Cumulative Selection"
+    tags: [simulation]
+    # Dawkins' 'weasel' program — cumulative selection vs infinite monkeys.
+
+  - owner: rm-hull
+    gist_id: "4bf4ce47c4f615e9cfe6"
+    title: "10 PRINT"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "896d4599eff07b7493e0"
+    title: "Radiant and Simple"
+    tags: [canvas, animation]
+    # Port of Ramiz Midani's openprocessing.org sketch; used to test missing arc
+    # and ellipse methods from monet.js.
+
+  - owner: rm-hull
+    gist_id: "05e64fa45aea27755240"
+    title: "Lorenz Attractor"
+    tags: [canvas, math, 3d, simulation]
+
+  - owner: rm-hull
+    gist_id: "c91e2ce2e68ea4969c76"
+    title: "Glass Box"
+    tags: [webgl, 3d, animation]
+    # cljs-webgl example — a textured spinning glass box with keyboard controls.
+    # Multiple files: glass-box, helpers, html, webgl. No gist description text.
+
+  - owner: rm-hull
+    gist_id: "1be4335002213cce2999"
+    title: "Plasma"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "efee7bef4dcc615728a7"
+    title: "Illusory Cones"
+    tags: [canvas, animation]
+
+  - owner: rm-hull
+    gist_id: "89f92e408c66179914a2"
+    title: "Newton's Method"
+    tags: [math, algorithms]
+    # Newton-Raphson implemented with a Y-combinator; helper functions from SICP §1.1.7.
+
+  - owner: rm-hull
+    gist_id: "4a74ef32e6956801b289"
+    title: "Recursive Trees"
+    tags: [canvas, fractals]
+
+  - owner: rm-hull
+    gist_id: "2e6bb141d9361fb1af03"
+    title: "Cellular Automata"
+    tags: [canvas, cellular-automata, simulation]
+    # Randomly picks Conway's Life / Semi-vote / Vichniac / Fredkin.
+
+  - owner: rm-hull
+    gist_id: "b971d77087ff873ed7c2"
+    title: "Barnsley Fern"
+    tags: [canvas, fractals, math]
+
+  - owner: rm-hull
+    gist_id: "b30f4c0e7d499810e669"
+    title: "Mandelbrot"
+    tags: [canvas, fractals, math]
+    # Mandelbrot & Julia fractal generator; mouse to zoom; progressive render.
+    # TODO: web-workers for render performance.
+
+  - owner: rm-hull
+    gist_id: "bac724292cc7578dc182"
+    title: "Yamatarajabhanasalagam"
+    tags: [canvas, math, animation]
+    # Ouroboros-de Bruijn sequence demo (Stein/Perle). Short/long syllable
+    # rhythms wrapped into a cyclic binary necklace.

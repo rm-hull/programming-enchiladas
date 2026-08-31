@@ -3,7 +3,7 @@ layout: base.njk
 title: Latest
 pagination:
   data: collections.demosLatest
-  size: 50
+  size: 500
   alias: demos
   addAllPagesToCollections: true
 permalink: "{% if pagination.pageNumber == 0 %}/latest/{% else %}/latest/page/{{ pagination.pageNumber + 1 }}/{% endif %}"

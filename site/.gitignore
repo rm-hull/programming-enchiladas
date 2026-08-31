@@ -5,5 +5,5 @@ pagefind/
 # Phase 2: fetched demo content (gitignored — generated at build time)
 # demos/
 
-# compiled JS (Phase 4)
-js/generated/
+# compiled JS (Phase 4) — per-demo bundles
+js/demos/

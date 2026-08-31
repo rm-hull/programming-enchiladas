@@ -55,16 +55,26 @@ async function fetchGists() {
         }
       }
 
-      if (cljsFiles.length > 0) {
-        const entryFile = demo.entry_file && cljsFiles.includes(demo.entry_file) 
-          ? demo.entry_file 
-          : cljsFiles[0];
-        const content = await fs.readFile(path.join(demoDir, entryFile), "utf8");
-        await fs.writeFile(path.join(demoDir, "source.cljs"), content);
-      }
+      const entry_file = (demo.entry_file && cljsFiles.includes(demo.entry_file)) 
+        ? demo.entry_file 
+        : cljsFiles[0];
+
+      // Save meta
+      await fs.writeFile(
+        path.join(demoDir, "meta.json"),
+        JSON.stringify({
+          ...demo,
+          entry_file,
+          gist_meta: {
+            description: gist.description,
+            files: Object.keys(gist.files),
+            created_at: gist.created_at,
+          },
+        }, null, 2)
+      );
       
       successCount++;
-      console.log(chalk.green(`✔ OK`) + chalk.gray(` [files: meta.json, ${cljsFiles.join(", ")}` + (cljsFiles.includes("source.cljs") ? "" : ", source.cljs") + `]`));
+      console.log(chalk.green(`✔ OK`) + chalk.gray(` [files: meta.json, ${Object.keys(gist.files).join(", ")}]`));
     } catch (error) {
       failCount++;
       console.log(chalk.red(`✘ FAILED`));

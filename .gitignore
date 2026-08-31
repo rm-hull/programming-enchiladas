@@ -1,14 +1,17 @@
 # Phase 2: fetched gist content (gitignored — regenerated each build)
 demos/
 
-# Phase 3/Phase 4: compiled shadow-cljs output
+# Phase 3/Phase 4: compiled shadow-cljs output and intermediate source
 compiler/public/js/
 compiler/out/
+compiler/src/demos/
+compiler/shadow-cljs.edn
 
 # Dependencies
 compiler/node_modules/
 compiler/.cpcache/
 compiler/.shadow-cljs/
+compiler/target/
 site/node_modules/
 site/_site/
 site/pagefind/

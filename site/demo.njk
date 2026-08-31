@@ -9,7 +9,7 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 ---
 
 {% set slug = demo.slug or (demo.owner ~ '-' ~ demo.gist_id) %}
-{% set compiled_js = '/js/generated/' ~ slug ~ '.js' %}
+{% set compiled_js = '/js/generated/demos/' ~ slug ~ '/main.js' %}
 
 {# spinner removed #}
 
@@ -67,7 +67,7 @@ permalink: "/{{ demo.owner }}/{{ demo.gist_id }}/"
 
 <section class="container">
   {% if not demo.broken %}
-  <script src="/js/generated/main.js"></script>
+  <script src="/js/generated/enchilada-runtime.js"></script>
   <script src="{{ compiled_js }}"></script>
   {% endif %}
 </section>

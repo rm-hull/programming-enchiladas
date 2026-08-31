@@ -1,18 +1,17 @@
 {
   "name": "compiler",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "shadow-cljs compile app",
-    "release": "shadow-cljs release app"
-  },
+  "description": "Per-demo shadow-cljs compilation orchestrator for Programming Enchiladas",
   "type": "module",
+  "scripts": {
+    "compile": "node build-demos.mjs",
+    "compile:clean": "node build-demos.mjs --clean",
+    "compile:demo": "node build-demos.mjs --demo"
+  },
   "dependencies": {
     "shadow-cljs": "^3.5.0"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "author": "Programming Enchiladas",
+  "license": "MIT"
 }

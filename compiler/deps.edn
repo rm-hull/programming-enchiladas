@@ -73,7 +73,7 @@
         ;; hipo — CLJS hiccup replacement used by turtle vendor port
         hipo/hipo {:mvn/version "0.5.2"}
         }
- :paths ["src" "demo-src" "vendor"]
+ :paths ["src" "src/demos/rm-hull-0c6393d5092cd656f801" "vendor"]
  :npm-deps {"jquery" "3.7.1"
             "three" "0.166.1"}
  }

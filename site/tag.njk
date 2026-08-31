@@ -14,7 +14,7 @@ renderKeys: ["title", "entry"]
   <ul class="demo-list">
     {% for demo in entry.demos %}
     <li class="demo-item">
-      <a href="{{ demo.owner }}/{{ demo.gist_id }}/">{{ demo.title }}</a>
+      <a href="/{{ demo.owner }}/{{ demo.gist_id }}/">{{ demo.title }}</a>
     </li>
     {% endfor %}
   </ul>

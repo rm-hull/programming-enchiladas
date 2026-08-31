@@ -17,13 +17,14 @@ No JVM, no server, no database at runtime — the JVM is only invoked during CI.
 
 1. **Fetch** — `fetcher/fetch-gists.mjs` reads `gists.yaml`, fetches each
    gist's content from the GitHub Gists API, and writes them to `demos/`.
-2. **Rewrite** — `compiler/rewrite-demos.mjs` rewrites each gist's namespace
-   to a repo-unique `demo.<slug>` form and applies compatibility fixes (e.g.,
-   merging `cljs.core.async.macros` into `cljs.core.async`).
-3. **Compile** — shadow-cljs compiles each demo as its own module under
-   `compiler/shadow-cljs.edn`, sharing a common chunk for cljs.core and
-   `enchilada.core`.
-4. **Build** — Eleventy generates static HTML pages, Pagefind provides client-
+2. **Compile** — `compiler/build-demos.mjs` copies each demo's source to
+   `compiler/src/demos/<slug>/` (preserving original namespaces, applying
+   compatibility transformations for macro imports), generates a minimal
+   `shadow-cljs.edn` for that single demo, and compiles it with shadow-cljs.
+   Each demo is compiled as a fully isolated build, so failures in one demo
+   cannot affect others. A shared `enchilada.core` runtime is compiled once
+   and loaded by all demos.
+3. **Build** — Eleventy generates static HTML pages, Pagefind provides client-
    side search, and compiled JS bundles are copied to `site/public/js/`.
 
 ### Available client-side bindings
@@ -95,14 +96,17 @@ You will need:
 ### Local development
 
 ```bash
-# Fetch and compile all gists
-cd compiler && npx shadow-cljs release demos
+# Fetch gist content
+cd fetcher && npm install && node fetch-gists.mjs
+
+# Compile ClojureScript demos (requires a JVM — Temurin 21 or similar)
+cd ../compiler && npm install && node build-demos.mjs --clean
 
 # Copy compiled JS to site
-cp -r public/js/* site/public/js/
+cp -r public/js/* ../site/public/js/generated
 
 # Build and preview the site
-cd site && npm install && npm start   # http://localhost:8080
+cd ../site && npm install && npm start   # http://localhost:8080
 ```
 
 ### CI

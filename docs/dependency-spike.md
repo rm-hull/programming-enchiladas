@@ -45,6 +45,8 @@ loaded via `:require-macros`. The namespace rewriting pass needs to:
 - Replace `:require [cljs.core.async.macros :as ...]` → `:require-macros [cljs.core.async.macros :as ...]`
 - OR change to `(:require [cljs.core.async :refer [go go-loop]])`
 
+These transformations are applied automatically by `compiler/build-demos.mjs` as a preprocessing step.
+
 **core.logic**: The gists use `:require-macros [cljs.core.logic.macros :refer [...]]`
 which still works (the macro namespace still exists, just re-exports from `cljs.core.logic`).
 But `(:require [cljs.core.logic :refer [run run* == conde ...]])` also works in modern CLJS.
@@ -53,8 +55,12 @@ But `(:require [cljs.core.logic :refer [run run* == conde ...]])` also works in 
 that modern shadow-cljs still supports. Works as-is.
 
 **dommy**: Macros in `.clj` file. Modern `:require-macros [dommy.macros ...]` works, but
-the gists use `:require [dommy.macros :only [sel1 node]]` which **breaks**. Needs rewriting
-to `:require-macros`.
+the gists use `:require [dommy.macros :only [sel1 node]]` which **breaks**. 
+
+**Resolution**: The namespace rewriting pass transforms these automatically. However,
+with the new per-demo compilation architecture (see `compiler/build-demos.mjs`), each
+demo is compiled in isolation and gists keep their original namespaces. The macro
+rewriting is now handled as a source transformation step before compilation.
 
 ### 2. `.clj` Files Without CLJS Equivalents
 
@@ -110,12 +116,14 @@ Based on the findings, libraries that need vendoring/patching before gist compil
 | **turtle** → `vendor/turtle/` | Replace `turtle/renderer/vector.clj` | Use standard `ns` form instead of `{:cljs (ns ...)}` metadata |
 | **c2** → `vendor/c2/` | Patch `reflex/core.cljs` (vendored as dep) | Remove `(:use-macros [reflex.macros :only [capture-derefed]])` line. `capture-derefed` is a function, not a macro. Verified: c2 compiles at `:none` and `:advanced` after this single-line fix. `:use` forms in c2 namespaces are fine.
 
-### Requires Namespace Rewriting Only (no vendoring)
+### Requires Source Preprocessing Only (no vendoring)
 
-| Library | Namespace rewrite needed |
+| Library | Transformation needed |
 |---|---|
 | **core.async** | `:require [cljs.core.async.macros ...]` → `:require-macros [cljs.core.async.macros ...]` |
 | **dommy** | `:require [dommy.macros ...]` → `:require-macros [dommy.macros ...]` |
+
+These transformations are applied automatically by `compiler/build-demos.mjs` as a preprocessing step before compilation.
 
 ### No Action Needed
 

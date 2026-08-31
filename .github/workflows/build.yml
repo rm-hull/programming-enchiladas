@@ -1,0 +1,94 @@
+name: Build Site
+
+on:
+  push:
+    branches: [v2-nextgen]
+  pull_request:
+    branches: [v2-nextgen]
+  workflow_dispatch:
+  schedule:
+    # Weekly build to pick up upstream gist edits
+    - cron: '0 6 * * 1'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    concurrency:
+      group: pages-build
+      cancel-in-progress: false
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Temurin JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '25'
+          cache: 'npm'
+
+      - name: Install compiler dependencies
+        run: |
+          cd compiler
+          npm ci
+
+      - name: Install fetcher dependencies
+        run: |
+          cd fetcher
+          npm ci
+
+      - name: Install site dependencies
+        run: |
+          cd site
+          npm ci
+
+      - name: Fetch gists
+        run: |
+          cd fetcher
+          GH_TOKEN=${{ secrets.GH_TOKEN }} node fetch-gists.mjs
+
+      - name: Compile demos (per-demo isolation)
+        run: |
+          cd compiler
+          node build-demos.mjs --clean
+
+      - name: Copy compiled JS to site
+        run: |
+          # Copy runtime JS
+          mkdir -p site/public/js
+          cp compiler/public/js/enchilada-runtime.js site/public/js/generated/ 2>/dev/null || true
+          
+          # Copy per-demo compiled JS bundles to site/public/js/generated/demos/
+          mkdir -p site/public/js/generated/demos
+          if [ -d "compiler/public/js/demos" ]; then
+            cp -r compiler/public/js/demos/* site/public/js/generated/demos/
+          fi
+
+      - name: Build site
+        run: |
+          cd site
+          npx @11ty/eleventy --output _site
+
+      - name: Run Pagefind index
+        run: |
+          cd site
+          npx pagefind index _site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/_site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
